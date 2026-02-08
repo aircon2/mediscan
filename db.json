@@ -8,12 +8,15 @@
       "sideEffects": [
         "Nausea",
         "Rash",
-        "Dizziness"
+        "Dizziness",
+        "Liver damage",
+        "Allergic reaction"
       ],
       "symptomsTreated": [
         "Pain",
         "Fever",
-        "Headache"
+        "Headache",
+        "Muscle aches"
       ]
     },
     "Advil": {
@@ -24,12 +27,17 @@
       "sideEffects": [
         "Stomach upset",
         "Nausea",
-        "Dizziness"
+        "Dizziness",
+        "Heartburn",
+        "Stomach pain"
       ],
       "symptomsTreated": [
         "Pain",
         "Fever",
-        "Inflammation"
+        "Inflammation",
+        "Headache",
+        "Muscle aches",
+        "Joint pain"
       ]
     },
     "Motrin": {
@@ -753,6 +761,61 @@
         "Allergies",
         "Cold"
       ]
+    },
+    "Otrivin": {
+      "name": "Otrivin",
+      "ingredients": [
+        "Xylometazoline hydrochloride"
+      ],
+      "sideEffects": [
+        "Nasal dryness",
+        "Stinging",
+        "Burning",
+        "Sneezing"
+      ],
+      "symptomsTreated": [
+        "Nasal congestion",
+        "Allergies",
+        "Common cold"
+      ]
+    },
+    "Advil Cold & Sinus": {
+      "name": "Advil Cold & Sinus",
+      "ingredients": [
+        "Ibuprofen",
+        "Pseudoephedrine HCl"
+      ],
+      "sideEffects": [
+        "Increased blood pressure",
+        "Insomnia",
+        "Dry mouth",
+        "Dizziness"
+      ],
+      "symptomsTreated": [
+        "Nasal congestion",
+        "Sinus pressure",
+        "Headache",
+        "Fever"
+      ]
+    },
+    "Advil Plus Acetaminophen": {
+      "name": "Advil Plus Acetaminophen",
+      "ingredients": [
+        "Acetaminophen",
+        "Ibuprofen"
+      ],
+      "sideEffects": [
+        "Heartburn",
+        "Nausea",
+        "Stomach pain",
+        "Dizziness"
+      ],
+      "symptomsTreated": [
+        "Headache",
+        "Fever",
+        "Muscle aches",
+        "Joint pain"
+      ]
     }
   },
   "ingredients": {
@@ -763,18 +826,21 @@
         "Panadol",
         "Excedrin",
         "DayQuil",
-        "NyQuil"
+        "NyQuil",
+        "Advil Plus Acetaminophen"
       ],
-      "description": "A widely used pain reliever and fever reducer that works in the brain to lower pain signals and body temperature."
+      "description": "A common pain reliever and fever reducer, often used for mild to moderate discomfort."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
       "medications": [
         "Advil",
         "Motrin",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen"
       ],
-      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, fever, and inflammation in the body."
+      "description": "A nonsteroidal anti-inflammatory drug (NSAID) that reduces pain, fever, and inflammation by inhibiting prostaglandin synthesis."
     },
     "Naproxen": {
       "name": "Naproxen",
@@ -1101,9 +1167,17 @@
     "Xylometazoline hydrochloride": {
       "name": "Xylometazoline hydrochloride",
       "medications": [
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin"
       ],
-      "description": "A decongestant that narrows blood vessels in the nasal passages, reducing swelling and congestion."
+      "description": "A nasal decongestant that narrows blood vessels in the nose, reducing swelling and congestion due to colds or allergies."
+    },
+    "Pseudoephedrine HCl": {
+      "name": "Pseudoephedrine HCl",
+      "medications": [
+        "Advil Cold & Sinus"
+      ],
+      "description": "A nasal decongestant that works by narrowing blood vessels in the nasal passages to reduce congestion."
     }
   },
   "effects": {
@@ -1123,12 +1197,13 @@
         "Zoloft",
         "Morphine",
         "Aspirin",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Plus Acetaminophen"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "A feeling of sickness with an inclination to vomit, often caused by medication side effects."
+      "description": "A feeling of sickness with an inclination to vomit; can be a medication side effect."
     },
     "Dizziness": {
       "name": "Dizziness",
@@ -1142,10 +1217,12 @@
         "NyQuil",
         "Sudafed",
         "Morphine",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sensation of spinning or being unsteady, sometimes caused by medications."
+      "description": "A sensation of spinning or unsteadiness that makes it difficult to maintain balance and leads to disorientation."
     },
     "Stomach upset": {
       "name": "Stomach upset",
@@ -1168,13 +1245,15 @@
         "Motrin",
         "Aleve",
         "Aspirin",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil",
+        "Advil Plus Acetaminophen"
       ],
       "medicationsTreatingIt": [
         "Tums",
         "Prilosec"
       ],
-      "description": "A burning sensation in the chest, caused by acid reflux in the esophagus."
+      "description": "A burning sensation in the chest, caused by stomach acid reflux into the esophagus, creating discomfort."
     },
     "Drowsiness": {
       "name": "Drowsiness",
@@ -1197,10 +1276,11 @@
       "medicationsCausingIt": [
         "Zyrtec",
         "Claritin",
-        "Benadryl"
+        "Benadryl",
+        "Advil Cold & Sinus"
       ],
       "medicationsTreatingIt": [],
-      "description": "Reduced saliva production causing discomfort, difficulty swallowing, and increased risk of oral problems."
+      "description": "Reduced saliva production, leading to a dry and uncomfortable feeling in the mouth, and increasing tooth decay."
     },
     "Insomnia": {
       "name": "Insomnia",
@@ -1211,13 +1291,14 @@
         "Prozac",
         "Zoloft",
         "Adderall",
-        "Ritalin"
+        "Ritalin",
+        "Advil Cold & Sinus"
       ],
       "medicationsTreatingIt": [
         "Ambien",
         "Ativan"
       ],
-      "description": "Difficulty falling asleep, staying asleep, or achieving restorative sleep despite adequate opportunity."
+      "description": "Difficulty falling asleep or staying asleep, leading to fatigue and reduced daytime functioning and mental acuity."
     },
     "Rash": {
       "name": "Rash",
@@ -1243,9 +1324,11 @@
         "Excedrin",
         "Tiger Balm",
         "Aspirin",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen"
       ],
-      "description": "Pain in the head that can range from mild to severe, and may be caused by various factors."
+      "description": "Pain in the head, ranging from mild to severe, that can affect daily activities."
     },
     "Fever": {
       "name": "Fever",
@@ -1258,9 +1341,11 @@
         "DayQuil",
         "NyQuil",
         "Aspirin",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen"
       ],
-      "description": "Abnormally high body temperature, usually caused by illness or infection."
+      "description": "An abnormally high body temperature, often a symptom of infection or illness."
     },
     "Pain": {
       "name": "Pain",
@@ -1275,7 +1360,7 @@
         "Morphine",
         "Aspirin"
       ],
-      "description": "Unpleasant sensory and emotional experience associated with actual or potential tissue damage."
+      "description": "A physical suffering or discomfort caused by illness or injury."
     },
     "Inflammation": {
       "name": "Inflammation",
@@ -1295,9 +1380,10 @@
         "Zyrtec",
         "Claritin",
         "Benadryl",
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin"
       ],
-      "description": "An immune system reaction to a foreign substance, such as pollen or pet dander."
+      "description": "A condition caused by hypersensitivity of the immune system to typically harmless substances in the environment."
     },
     "Cough": {
       "name": "Cough",
@@ -1318,9 +1404,11 @@
         "NyQuil",
         "Sudafed",
         "Tiger Balm",
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin",
+        "Advil Cold & Sinus"
       ],
-      "description": "A condition where the nasal passages are blocked or inflamed, making breathing difficult."
+      "description": "Blockage of the nasal passages, usually due to inflammation and swelling of the nasal tissues, obstructing breathing."
     },
     "Chest congestion": {
       "name": "Chest congestion",
@@ -1353,9 +1441,10 @@
       "name": "Sinus pressure",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Sudafed"
+        "Sudafed",
+        "Advil Cold & Sinus"
       ],
-      "description": "A sensation of fullness or pain around the forehead, cheeks, or eyes due to blocked sinuses."
+      "description": "A feeling of fullness and pain in the sinuses, often caused by inflammation or infection, resulting in discomfort."
     },
     "Upset stomach": {
       "name": "Upset stomach",
@@ -1774,9 +1863,11 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Tiger Balm",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil",
+        "Advil Plus Acetaminophen"
       ],
-      "description": "Discomfort, aching, or soreness in one or more joints of the body."
+      "description": "Discomfort, aching, or soreness in one or more joints, often associated with arthritis or injury."
     },
     "Insect bites": {
       "name": "Insect bites",
@@ -1829,16 +1920,21 @@
     "Stomach pain": {
       "name": "Stomach pain",
       "medicationsCausingIt": [
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil",
+        "Advil Plus Acetaminophen"
       ],
-      "medicationsTreatingIt": []
+      "medicationsTreatingIt": [],
+      "description": "Discomfort or ache in the abdominal area, possibly caused by irritation or inflammation of the stomach lining."
     },
     "Increased blood pressure": {
       "name": "Increased blood pressure",
       "medicationsCausingIt": [
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus"
       ],
-      "medicationsTreatingIt": []
+      "medicationsTreatingIt": [],
+      "description": "Elevation of blood pressure above normal limits, potentially increasing the risk of cardiovascular complications."
     },
     "Migraine": {
       "name": "Migraine",
@@ -1878,10 +1974,11 @@
     "Sneezing": {
       "name": "Sneezing",
       "medicationsCausingIt": [
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sudden expulsion of air through the nose and mouth caused by irritation."
+      "description": "A sudden, forceful expulsion of air through the nose and mouth, often triggered by irritation or allergens."
     },
     "Runny nose": {
       "name": "Runny nose",
@@ -1892,18 +1989,20 @@
     "Burning": {
       "name": "Burning",
       "medicationsCausingIt": [
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sensation of intense heat or discomfort, often in the nasal passages."
+      "description": "A painful sensation similar to being scorched, potentially occurring in the nasal passages after nasal spray application."
     },
     "Stinging": {
       "name": "Stinging",
       "medicationsCausingIt": [
-        "Xylometazoline"
+        "Xylometazoline",
+        "Otrivin"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sharp, pricking sensation that can be caused by nasal spray."
+      "description": "Sharp, pricking or burning sensation that can occur in the nasal passages after using certain nasal sprays."
     },
     "Dryness": {
       "name": "Dryness",
@@ -1920,6 +2019,48 @@
         "Xylometazoline"
       ],
       "description": "A common viral infection causing congestion, cough, and sore throat."
+    },
+    "Nasal dryness": {
+      "name": "Nasal dryness",
+      "medicationsCausingIt": [
+        "Otrivin"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "A condition where the nasal passages lack sufficient moisture, leading to discomfort and potential irritation inside the nose."
+    },
+    "Common cold": {
+      "name": "Common cold",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Otrivin"
+      ],
+      "description": "A viral infection of the upper respiratory tract that causes symptoms such as a runny nose and congestion."
+    },
+    "Muscle aches": {
+      "name": "Muscle aches",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Advil",
+        "Advil Plus Acetaminophen",
+        "Tylenol"
+      ],
+      "description": "Pain and discomfort in the muscles; can be caused by injury or illness."
+    },
+    "Liver damage": {
+      "name": "Liver damage",
+      "medicationsCausingIt": [
+        "Tylenol"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Damage to the liver, potentially caused by excessive doses of certain medications."
+    },
+    "Allergic reaction": {
+      "name": "Allergic reaction",
+      "medicationsCausingIt": [
+        "Tylenol"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "An immune response causing rash, itching, swelling, or difficulty breathing due to medication."
     }
   }
 }
