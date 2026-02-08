@@ -119,7 +119,7 @@ export default function NewGraphPage() {
       renderer = new Sigma(graph, containerRef.current as HTMLDivElement, {
         minCameraRatio: 0.5,
         maxCameraRatio: 2,
-        autoRescale: false,
+        autoRescale: true,
         defaultDrawNodeLabel: (context, data, settings) => {
           if (!data.label) return;
           const size = settings.labelSize;
@@ -234,10 +234,6 @@ export default function NewGraphPage() {
 
       layout?.start();
       scheduleLayoutStop(4000);
-
-      if (renderer) {
-        renderer.getCamera().setState({ ratio: 0.6 });
-      }
     };
 
     const buildMedicationGraph = (medication: Medication) => {
@@ -277,10 +273,6 @@ export default function NewGraphPage() {
 
       layout?.start();
       scheduleLayoutStop(4000);
-
-      if (renderer) {
-        renderer.getCamera().setState({ ratio: 0.6 });
-      }
     };
 
     const buildIngredientGraph = (ingredient: Ingredient) => {
@@ -320,10 +312,6 @@ export default function NewGraphPage() {
 
       layout?.start();
       scheduleLayoutStop(4000);
-
-      if (renderer) {
-        renderer.getCamera().setState({ ratio: 0.6 });
-      }
     };
 
     const loadMedication = async (name: string) => {
