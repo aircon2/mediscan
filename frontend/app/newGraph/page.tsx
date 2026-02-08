@@ -119,7 +119,11 @@ export default function NewGraphPage() {
   }, [med]);
 
   useEffect(() => {
-    if (!containerRef.current || (!effectData && !selectedMedication && !selectedIngredient)) return;
+    if (
+      !containerRef.current ||
+      (!effectData && !selectedMedication && !selectedIngredient)
+    )
+      return;
 
     let graph: Graph | null = null;
     let renderer: Sigma | null = null;
@@ -342,7 +346,8 @@ export default function NewGraphPage() {
       } as NodeAttributes);
 
       const ingredientRadius = 300;
-      const ingredientAngleStep = (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
+      const ingredientAngleStep =
+        (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
       let ingredientIndex = 0;
 
       medication.ingredients.forEach((ingredient) => {
@@ -399,7 +404,8 @@ export default function NewGraphPage() {
       } as NodeAttributes);
 
       const medRadius = 300;
-      const medAngleStep = (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
+      const medAngleStep =
+        (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
       let medIndex = 0;
 
       ingredient.medications.forEach((medicationName) => {
