@@ -227,16 +227,22 @@ export default function NewGraphPage() {
         const x = Math.cos(angle) * radius;
         const y = Math.sin(angle) * radius;
 
-        g.addNode(medication.name, {
-          x,
-          y,
-          size: 8,
-          color: medication.type === "causing" ? "#EF4444" : "#10B981",
-          label: medication.name,
-          nodeType: "medication",
-        } as NodeAttributes);
+        // Only add the node if it doesn't already exist
+        if (!g.hasNode(medication.name)) {
+          g.addNode(medication.name, {
+            x,
+            y,
+            size: 8,
+            color: medication.type === "causing" ? "#EF4444" : "#10B981",
+            label: medication.name,
+            nodeType: "medication",
+          } as NodeAttributes);
+        }
 
-        g.addEdge(centerId, medication.name, { color: "#777777" });
+        // Only add the edge if it doesn't already exist
+        if (!g.hasEdge(centerId, medication.name)) {
+          g.addEdge(centerId, medication.name, { color: "#777777" });
+        }
       });
 
       layout?.start();
