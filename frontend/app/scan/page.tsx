@@ -21,7 +21,9 @@ export default function ScanPage() {
       try {
         // Check if mediaDevices is available
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-          setError("Camera not supported. Please use HTTPS or allow permissions.");
+          setError(
+            "Camera not supported. Please use HTTPS or allow permissions.",
+          );
           return;
         }
 
@@ -79,17 +81,22 @@ export default function ScanPage() {
       } catch (err: any) {
         console.error("Error accessing camera:", err);
         let errorMessage = "Unable to access camera.";
-        
+
         if (err.name === "NotAllowedError") {
-          errorMessage = "Camera permission denied. Please allow camera access.";
+          errorMessage =
+            "Camera permission denied. Please allow camera access.";
         } else if (err.name === "NotFoundError") {
           errorMessage = "No camera found on this device.";
         } else if (err.name === "NotReadableError") {
           errorMessage = "Camera is already in use by another app.";
-        } else if (window.location.protocol !== "https:" && window.location.hostname !== "localhost") {
-          errorMessage = "Camera requires HTTPS. Please use a secure connection.";
+        } else if (
+          window.location.protocol !== "https:" &&
+          window.location.hostname !== "localhost"
+        ) {
+          errorMessage =
+            "Camera requires HTTPS. Please use a secure connection.";
         }
-        
+
         setError(errorMessage);
       }
     };
