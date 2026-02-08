@@ -1,18 +1,39 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen items-start justify-center bg-gradient-to-b from-blue-50 to-purple-50 font-sans px-9 pt-20 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 font-sans  pt-5 overflow-hidden">
+        <motion.p
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-2xl font-semibold tracking-wide text-blue-600 text-center"
+            style={{
+              fontFamily: '"Space Grotesk", sans-serif',
+              fontWeight: 600,
+            }}
+          >
+            MediScan
+          </motion.p>
       {/* Gradient Blur Circles */}
       <div className="absolute -top-20 -right-20 w-96 h-96 opacity-30 bg-gradient-to-bl from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
 
-      <main className="flex flex-col items-start max-w-md w-full relative z-10">
+      <main className="flex flex-col items-start max-w-md w-full relative z-10 px-9">
+          
         {/* Header Text */}
-        <div className="flex flex-col items-start gap-4 text-left w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="flex flex-col items-start gap-4 pt-15 text-left w-full"
+        >
           <h1
-            className="text-2xl font-medium tracking-wider text-blue-600 leading-relaxed"
+            className="text-2xl font-medium tracking-wider text-blue-600 leading-snug px-5 text-center"
             style={{
               fontFamily: '"Space Grotesk", sans-serif',
               fontOpticalSizing: "auto",
@@ -22,10 +43,15 @@ export default function Home() {
           >
             From ingredients to insight. See beyond the label.
           </h1>
-        </div>
+        </motion.div>
 
         {/* Pills Image */}
-        <div className="relative w-64 h-64 my-8 self-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="relative w-64 h-64 my-8 self-center"
+        >
           <Image
             src="/pills.png"
             alt="Medicine pills illustration"
@@ -33,10 +59,15 @@ export default function Home() {
             className="object-contain"
             priority
           />
-        </div>
+        </motion.div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col gap-4 w-full self-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          className="flex flex-col gap-4 w-full self-center"
+        >
           <button
             className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 "
             style={{
@@ -58,18 +89,17 @@ export default function Home() {
             Search my symptoms
           </Link>
 
-          <Link
-            href="/graph"
-            className="text-sm text-blue-600 font-medium text-lg text-center underline hover:text-blue-700 transition-colors mt-2"
-          >
-            Try a Demo Label
-          </Link>
-        </div>
+        </motion.div>
 
         {/* Footer */}
-        <p className="text-blue-500 text-sm mt-16 self-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+          className="text-blue-500 text-sm mt-25 self-center"
+        >
           Educational tool. Not medical advice.
-        </p>
+        </motion.p>
       </main>
     </div>
   );
