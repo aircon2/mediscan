@@ -1,106 +1,59 @@
 {
-  "medications": {
-    "med1": {
-      "name": "med1",
-      "ingredients": [
-        "ingredient1",
-        "ingredient2"
-      ],
-      "sideEffects": [
-        "effect1",
-        "sideEffect2"
-      ],
-      "symptomsTreated": [
-        "symptom1",
-        "symptom2"
-      ]
+    "medications": {
+      "Tylenol": {
+        "name": "Tylenol",
+        "ingredients": ["Acetaminophen", "Shannon"],
+        "sideEffects": ["Nausea"],
+        "symptomsTreated": ["Pain", "Fever"]
+      },
+      "Advil": {
+        "name": "Advil",
+        "ingredients": ["Ibuprofen"],
+        "sideEffects": ["Stomach upset"],
+        "symptomsTreated": ["Pain", "Fever"]
+      },
+      "Zyrtec": {
+        "name": "Zyrtec",
+        "ingredients": ["Cetirizine"],
+        "sideEffects": ["Drowsiness"],
+        "symptomsTreated": ["Allergies"]
+      }
     },
-    "med2": {
-      "name": "med2",
-      "ingredients": [
-        "ingredient1",
-        "ingredient4",
-        "ingredient3"
-      ],
-      "sideEffects": [
-        "effect1",
-        "sideEffect3"
-      ],
-      "symptomsTreated": [
-        "symptom1",
-        "symptom2"
-      ]
-    }
-  },
-  "ingredients": {
-    "ingredient1": {
-      "name": "ingredient1",
-      "medications": [
-        "med1",
-        "med2"
-      ],
-      "description": "Description for ingredient1"
+    "ingredients": {
+      "Acetaminophen": {
+        "name": "Acetaminophen",
+        "medications": ["Tylenol"],
+        "description": "Pain reliever and fever reducer."
+      },
+      "Ibuprofen": {
+        "name": "Ibuprofen",
+        "medications": ["Advil"],
+        "description": "Nonsteroidal anti-inflammatory drug (NSAID)."
+      },
+      "Cetirizine": {
+        "name": "Cetirizine",
+        "medications": ["Zyrtec"],
+        "description": "Antihistamine used for allergy relief."
+      }
     },
-    "ingredient2": {
-      "name": "ingredient2",
-      "medications": [
-        "med1"
-      ]
-    },
-    "ingredient3": {
-      "name": "ingredient3",
-      "medications": [
-        "med2"
-      ]
-    },
-    "ingredient4": {
-      "name": "ingredient4",
-      "medications": [
-        "med2"
-      ]
-    }
-  },
-  "effects": {
-    "effect1": {
-      "name": "effect1",
-      "medicationsCausingIt": [
-        "med1",
-        "med2"
-      ],
-      "medicationsTreatingIt": [
-        "med2"
-      ],
-      "description": "Description for effect1"
-    },
-    "sideEffect2": {
-      "name": "sideEffect2",
-      "medicationsCausingIt": [
-        "med1"
-      ],
-      "medicationsTreatingIt": []
-    },
-    "symptom1": {
-      "name": "symptom1",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "med1",
-        "med2"
-      ]
-    },
-    "symptom2": {
-      "name": "symptom2",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "med1",
-        "med2"
-      ]
-    },
-    "sideEffect3": {
-      "name": "sideEffect3",
-      "medicationsCausingIt": [
-        "med2"
-      ],
-      "medicationsTreatingIt": []
+    "effects": {
+      "Nausea": {
+        "name": "Nausea",
+        "medicationsCausingIt": ["Tylenol"],
+        "medicationsTreatingIt": [],
+        "description": "Upset stomach or feeling like you might vomit."
+      },
+      "Stomach upset": {
+        "name": "Stomach upset",
+        "medicationsCausingIt": ["Advil"],
+        "medicationsTreatingIt": [],
+        "description": "Stomach irritation or discomfort."
+      },
+      "Drowsiness": {
+        "name": "Drowsiness",
+        "medicationsCausingIt": ["Zyrtec"],
+        "medicationsTreatingIt": [],
+        "description": "Feeling sleepy or less alert."
+      }
     }
   }
-}
