@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import BackButton from "../components/BackButton";
 import chroma from "chroma-js";
 import Graph from "graphology";
 import ForceSupervisor from "graphology-layout-force/worker";
 import Sigma from "sigma";
-import { getIngredient, getMedication } from "../../utils/api";
-import type { Ingredient, Medication } from "../../types/graph";
+import { getIngredient, getMedication, getEffect } from "../../utils/api";
+import type { Ingredient, Medication, Effect } from "../../types/graph";
 
 type NodeType = "medication" | "ingredient";
 
@@ -28,9 +28,44 @@ export default function NewGraphPage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const searchParams = useSearchParams();
   const effect = searchParams.get("effect");
+  const [effectData, setEffectData] = useState<Effect | null>(null);
+  const [selectedMedication, setSelectedMedication] =
+    useState<Medication | null>(null);
+  const [selectedIngredient, setSelectedIngredient] =
+    useState<Ingredient | null>(null);
+
+  // Load effect by name
+  const loadEffect = async (effectName: string) => {
+    try {
+      const data = await getEffect(effectName);
+      setEffectData(data);
+      setSelectedMedication(null);
+      setSelectedIngredient(null);
+    } catch (error) {
+      console.error("Error fetching effect:", error);
+    }
+  };
+
+  // Fetch effect data
+  useEffect(() => {
+    if (!effect) return;
+
+    const fetchEffect = async () => {
+      try {
+        const data = await getEffect(effect);
+        setEffectData(data);
+        setSelectedMedication(null); // Reset when effect changes
+        setSelectedIngredient(null);
+      } catch (error) {
+        console.error("Error fetching effect:", error);
+      }
+    };
+
+    fetchEffect();
+  }, [effect]);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !effectData) return;
 
     let graph: Graph | null = null;
     let renderer: Sigma | null = null;
@@ -160,6 +195,59 @@ export default function NewGraphPage() {
       });
     };
 
+    const buildEffectGraph = (effectInfo: Effect) => {
+      if (!graph) return;
+      const g = graph;
+      const centerId = effectInfo.name;
+      centerNodeId = centerId;
+      g.addNode(centerId, {
+        x: 0,
+        y: 0,
+        size: 12,
+        color: "#A0522D",
+        label: effectInfo.name,
+        nodeType: "medication",
+      } as NodeAttributes);
+
+      const allMedications = [
+        ...effectInfo.medicationsCausingIt.map((med) => ({
+          name: med,
+          type: "causing" as const,
+        })),
+        ...effectInfo.medicationsTreatingIt.map((med) => ({
+          name: med,
+          type: "treating" as const,
+        })),
+      ];
+
+      const radius = 550;
+      const angleStep = (Math.PI * 2) / Math.max(allMedications.length, 1);
+
+      allMedications.forEach((medication, index) => {
+        const angle = index * angleStep;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        g.addNode(medication.name, {
+          x,
+          y,
+          size: 8,
+          color: medication.type === "causing" ? "#EF4444" : "#10B981",
+          label: medication.name,
+          nodeType: "medication",
+        } as NodeAttributes);
+
+        g.addEdge(centerId, medication.name);
+      });
+
+      layout?.start();
+      scheduleLayoutStop(2000);
+
+      if (renderer) {
+        renderer.getCamera().setState({ ratio: 0.6 });
+      }
+    };
+
     const buildMedicationGraph = (medication: Medication) => {
       if (!graph) return;
       const g = graph;
@@ -169,7 +257,7 @@ export default function NewGraphPage() {
         x: 0,
         y: 0,
         size: 12,
-        color: "#F76B5B",
+        color: "#A855F7",
         label: medication.name,
         nodeType: "medication",
       } as NodeAttributes);
@@ -187,7 +275,7 @@ export default function NewGraphPage() {
           x,
           y,
           size: 7,
-          color: chroma("#4A79F7").brighten(0.2).hex(),
+          color: "#3B82F6",
           label: ingredient,
           nodeType: "ingredient",
         } as NodeAttributes);
@@ -212,7 +300,7 @@ export default function NewGraphPage() {
         x: 0,
         y: 0,
         size: 10,
-        color: chroma("#4A79F7").brighten(0.2).hex(),
+        color: "#3B82F6",
         label: ingredient.name,
         nodeType: "ingredient",
       } as NodeAttributes);
@@ -230,7 +318,7 @@ export default function NewGraphPage() {
           x,
           y,
           size: 8,
-          color: "#F76B5B",
+          color: "#A855F7",
           label: medicationName,
           nodeType: "medication",
         } as NodeAttributes);
@@ -250,6 +338,8 @@ export default function NewGraphPage() {
       try {
         const medication = await getMedication(name);
         if (!isMounted) return;
+        setSelectedMedication(medication);
+        setSelectedIngredient(null);
         destroyGraph();
         initGraph();
         buildMedicationGraph(medication);
@@ -262,6 +352,8 @@ export default function NewGraphPage() {
       try {
         const ingredient = await getIngredient(name);
         if (!isMounted) return;
+        setSelectedIngredient(ingredient);
+        setSelectedMedication(null);
         destroyGraph();
         initGraph();
         buildIngredientGraph(ingredient);
@@ -270,40 +362,165 @@ export default function NewGraphPage() {
       }
     };
 
-    // Load first medication if effect param is provided
-    if (effect) {
-      void loadMedication(effect);
-    } else {
-      void loadMedication("Tylenol");
+    // Load effect graph
+    if (effectData) {
+      destroyGraph();
+      initGraph();
+      buildEffectGraph(effectData);
     }
 
     return () => {
       isMounted = false;
       destroyGraph();
     };
-  }, [effect]);
+  }, [effectData]);
 
   return (
-    <section className="flex flex-col h-screen bg-[#f7f2ea] relative">
+    <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-purple-50 font-sans overflow-hidden">
+      {/* Gradient Blur Circles */}
+      <div className="absolute -top-20 -right-20 w-96 h-96 opacity-30 bg-gradient-to-bl from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
+
       <BackButton />
 
-      <div className="p-6 bg-white border-b border-gray-200">
-        <h2 className="text-2xl font-semibold text-gray-900">
-          {effect || "Interactive Graph"}
-        </h2>
-        <p className="text-gray-600 mt-1">
-          Click on nodes to explore medications and ingredients. Drag to
-          reposition.
-        </p>
+      {/* Legend */}
+      <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <div
+            className="w-3 h-3 rounded-full"
+            style={{ backgroundColor: "#A0522D" }}
+          ></div>
+          <span className="text-xs text-blue-600">Effects</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div
+            className="w-3 h-3 rounded-full"
+            style={{ backgroundColor: "#A855F7" }}
+          ></div>
+          <span className="text-xs text-blue-600">Medications</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div
+            className="w-3 h-3 rounded-full"
+            style={{ backgroundColor: "#3B82F6" }}
+          ></div>
+          <span className="text-xs text-blue-600">Ingredients</span>
+        </div>
       </div>
-      <div
-        ref={containerRef}
-        className="flex-1 w-full"
-        style={{
-          background:
-            "radial-gradient(circle at top left, rgba(232, 111, 58, 0.18), transparent 55%), radial-gradient(circle at 20% 80%, rgba(58, 110, 232, 0.12), transparent 50%), #f7f2ea",
-        }}
-      />
-    </section>
+
+      {/* Graph Area - Top 60% */}
+      <div ref={containerRef} className="h-[60vh] relative z-10"></div>
+
+      {/* Effect Details - Bottom 40% */}
+      <div className="flex-1 px-6 py-4 relative z-10 overflow-hidden">
+        {selectedIngredient ? (
+          <motion.div
+            key={selectedIngredient.name}
+            className="max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h2 className="text-4xl font-bold text-blue-500 mb-4">
+              {selectedIngredient.name}
+            </h2>
+            {selectedIngredient.description && (
+              <p className="text-blue-500 text-base leading-relaxed mb-4">
+                {selectedIngredient.description}
+              </p>
+            )}
+            {selectedIngredient.medications.length > 0 && (
+              <div>
+                <h3 className="text-lg font-semibold text-blue-500 mb-2">
+                  Found in Medications:
+                </h3>
+                <p className="text-blue-500 text-base leading-relaxed">
+                  {selectedIngredient.medications.join(", ")}
+                </p>
+              </div>
+            )}
+          </motion.div>
+        ) : selectedMedication ? (
+          <motion.div
+            key={selectedMedication.name}
+            className="max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h2 className="text-5xl font-bold text-purple-500 mb-2">
+              {selectedMedication.name}
+            </h2>
+
+            {selectedMedication.symptomsTreated.length > 0 && (
+              <div className="mb-2">
+                <h3 className="text-2xl font-semibold text-green-600 mb-2">
+                  Treats
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {selectedMedication.symptomsTreated.map((symptom) => (
+                    <button
+                      key={symptom}
+                      onClick={() => loadEffect(symptom)}
+                      className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm transition-shadow cursor-pointer"
+                      style={{
+                        boxShadow:
+                          "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
+                      }}
+                    >
+                      {symptom}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {selectedMedication.sideEffects.length > 0 && (
+              <div>
+                <h3 className="text-2xl font-semibold text-red-600 mb-3">
+                  Causes
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedMedication.sideEffects.map((effect) => (
+                    <button
+                      key={effect}
+                      onClick={() => loadEffect(effect)}
+                      className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm transition-shadow cursor-pointer"
+                      style={{
+                        boxShadow:
+                          "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
+                      }}
+                    >
+                      {effect}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        ) : effectData ? (
+          <motion.div
+            key={effectData.name}
+            className="max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h2
+              className="text-4xl font-bold mb-4"
+              style={{ color: "#A0522D" }}
+            >
+              {effectData.name}
+            </h2>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: "#A0522D" }}
+            >
+              {effectData.description}
+            </p>
+          </motion.div>
+        ) : null}
+      </div>
+    </div>
   );
 }
