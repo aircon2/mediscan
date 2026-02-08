@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import BackButton from "../components/BackButton";
 import chroma from "chroma-js";
 import Graph from "graphology";
 import ForceSupervisor from "graphology-layout-force/worker";
@@ -282,7 +284,9 @@ export default function NewGraphPage() {
   }, [effect]);
 
   return (
-    <section className="flex flex-col h-screen bg-[#f7f2ea]">
+    <section className="flex flex-col h-screen bg-[#f7f2ea] relative">
+      <BackButton />
+
       <div className="p-6 bg-white border-b border-gray-200">
         <h2 className="text-2xl font-semibold text-gray-900">
           {effect || "Interactive Graph"}

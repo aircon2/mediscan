@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import BackButton from "../components/BackButton";
 import { searchEffects } from "../../utils/api";
 
 interface Effect {
@@ -43,6 +44,8 @@ export default function Search() {
       {/* Gradient Blur Circles */}
       <div className="absolute -top-20 -right-20 w-96 h-96 opacity-30 bg-gradient-to-bl from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-pink-700 to-pink-700/0 rounded-full blur-3xl pointer-events-none"></div>
+
+      <BackButton />
 
       <main className="flex flex-col items-start max-w-md w-full px-9 relative z-10">
         <h1 className="text-2xl font-medium text-blue-600 mb-4">
