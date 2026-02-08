@@ -639,10 +639,16 @@
         "Dizziness",
         "Loss of Appetite",
         "Fatigue",
-        "Impaired sense of taste"
+        "Impaired sense of taste",
+        "Vomiting",
+        "Abdominal pain"
       ],
       "symptomsTreated": [
-        "Bacterial infections"
+        "Bacterial infections",
+        "Respiratory tract infections",
+        "Skin infections",
+        "Ear infections",
+        "Throat infection"
       ]
     },
     "Loquat Syrup": {
@@ -760,16 +766,23 @@
     "Ashwagandha": {
       "name": "Ashwagandha",
       "ingredients": [
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha root extract",
+        "Ashwagandha extract"
       ],
       "sideEffects": [
         "Diarrhea",
         "Nausea",
-        "Stomach upset"
+        "Stomach upset",
+        "Upset stomach",
+        "Drowsiness",
+        "Headache"
       ],
       "symptomsTreated": [
         "Stress",
-        "Memory impairment"
+        "Memory impairment",
+        "Memory problems",
+        "Memory support"
       ]
     },
     "Honey": {
@@ -782,6 +795,94 @@
         "Cough",
         "Sore Throat"
       ]
+    },
+    "Lactic Acid Bacillus": {
+      "name": "Lactic Acid Bacillus",
+      "ingredients": [
+        "Lactic Acid Bacillus"
+      ],
+      "sideEffects": [
+        "Flatulence",
+        "Bloating"
+      ],
+      "symptomsTreated": [
+        "Diarrhea",
+        "Digestive health"
+      ]
+    },
+    "Ashwagandha Gummies": {
+      "name": "Ashwagandha Gummies",
+      "ingredients": [
+        "Ashwagandha"
+      ],
+      "sideEffects": [
+        "Drowsiness",
+        "Headache",
+        "Stomach upset"
+      ],
+      "symptomsTreated": [
+        "Stress",
+        "Memory impairment"
+      ]
+    },
+    "Ibuprofen": {
+      "name": "Ibuprofen",
+      "ingredients": [
+        "Ibuprofen"
+      ],
+      "sideEffects": [
+        "Nausea",
+        "Stomach pain",
+        "Dizziness",
+        "Headache",
+        "Increased blood pressure",
+        "Upset stomach",
+        "Heartburn"
+      ],
+      "symptomsTreated": [
+        "Headache",
+        "Fever",
+        "Muscle pain",
+        "Joint pain"
+      ]
+    },
+    "Irbesartan/Hydrochlorothiazide": {
+      "name": "Irbesartan/Hydrochlorothiazide",
+      "ingredients": [
+        "Irbesartan",
+        "Hydrochlorothiazide"
+      ],
+      "sideEffects": [
+        "Dizziness",
+        "Lightheadedness",
+        "Dehydration",
+        "Muscle cramps",
+        "Increased thirst",
+        "Nausea",
+        "Fatigue",
+        "Cough"
+      ],
+      "symptomsTreated": [
+        "Hypertension"
+      ]
+    },
+    "Acetaminophen": {
+      "name": "Acetaminophen",
+      "ingredients": [
+        "Acetaminophen"
+      ],
+      "sideEffects": [
+        "Nausea",
+        "Stomach pain",
+        "Loss of appetite",
+        "Jaundice"
+      ],
+      "symptomsTreated": [
+        "Fever",
+        "Headache",
+        "Muscle aches",
+        "Pain"
+      ]
     }
   },
   "ingredients": {
@@ -792,17 +893,19 @@
         "Panadol",
         "Excedrin",
         "DayQuil",
-        "NyQuil"
+        "NyQuil",
+        "Acetaminophen"
       ],
-      "description": "A widely used pain reliever and fever reducer that works in the brain to lower pain signals and body temperature."
+      "description": "A common pain reliever and fever reducer."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
       "medications": [
         "Advil",
-        "Motrin"
+        "Motrin",
+        "Ibuprofen"
       ],
-      "description": "A nonsteroidal anti-inflammatory drug that reduces pain, fever, and swelling by blocking inflammation-causing enzymes."
+      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, reduce fever, and decrease inflammation."
     },
     "Naproxen": {
       "name": "Naproxen",
@@ -1072,16 +1175,17 @@
       "name": "Ashwagandha",
       "medications": [
         "Jamieson Ashwagandha",
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha Gummies"
       ],
-      "description": "Herb used to reduce stress and enhance memory"
+      "description": "An adaptogen used to help the body cope with stress and anxiety."
     },
     "Azithromycin": {
       "name": "Azithromycin",
       "medications": [
         "Azithromycin"
       ],
-      "description": "A macrolide antibiotic that treats bacterial infections by inhibiting protein synthesis."
+      "description": "A macrolide antibiotic used to treat bacterial infections"
     },
     "Loquat": {
       "name": "Loquat",
@@ -1159,6 +1263,41 @@
         "Honey"
       ],
       "description": "A sweet, viscous fluid produced by bees from the nectar of flowers."
+    },
+    "Lactic Acid Bacillus": {
+      "name": "Lactic Acid Bacillus",
+      "medications": [
+        "Lactic Acid Bacillus"
+      ],
+      "description": "A probiotic bacteria that helps maintain healthy gut flora"
+    },
+    "Ashwagandha root extract": {
+      "name": "Ashwagandha root extract",
+      "medications": [
+        "Ashwagandha"
+      ],
+      "description": "An herbal medicine used to reduce stress and improve memory."
+    },
+    "Ashwagandha extract": {
+      "name": "Ashwagandha extract",
+      "medications": [
+        "Ashwagandha"
+      ],
+      "description": "An extract from the Ashwagandha plant, known for its adaptogenic properties."
+    },
+    "Irbesartan": {
+      "name": "Irbesartan",
+      "medications": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "description": "An angiotensin II receptor blocker (ARB) used to treat high blood pressure and protect the kidneys in patients with diabetes."
+    },
+    "Hydrochlorothiazide": {
+      "name": "Hydrochlorothiazide",
+      "medications": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "description": "A thiazide diuretic (water pill) that helps prevent your body from absorbing too much salt, which can cause fluid retention."
     }
   },
   "effects": {
@@ -1180,12 +1319,15 @@
         "Azithromycin",
         "Morphine",
         "Co-amoxiclav",
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ibuprofen",
+        "Irbesartan/Hydrochlorothiazide",
+        "Acetaminophen"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "A feeling of sickness with an inclination to vomit"
+      "description": "A feeling of sickness with an inclination to vomit."
     },
     "Dizziness": {
       "name": "Dizziness",
@@ -1202,7 +1344,9 @@
         "Tramadol",
         "Azithromycin",
         "Morphine",
-        "Loratadine/Pseudoephedrine"
+        "Loratadine/Pseudoephedrine",
+        "Ibuprofen",
+        "Irbesartan/Hydrochlorothiazide"
       ],
       "medicationsTreatingIt": [],
       "description": "A sensation of spinning around and losing one's balance."
@@ -1214,25 +1358,27 @@
         "Motrin",
         "Aleve",
         "Jamieson Ashwagandha",
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha Gummies"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol",
         "Tums"
       ],
-      "description": "General term for digestive discomfort or pain"
+      "description": "Discomfort in the stomach, potentially including nausea, vomiting, diarrhea, or constipation."
     },
     "Heartburn": {
       "name": "Heartburn",
       "medicationsCausingIt": [
         "Motrin",
-        "Aleve"
+        "Aleve",
+        "Ibuprofen"
       ],
       "medicationsTreatingIt": [
         "Tums",
         "Prilosec"
       ],
-      "description": "A burning chest sensation caused by stomach acid refluxing into the esophagus, often after meals."
+      "description": "A burning sensation in the chest, caused by stomach acid refluxing into the esophagus."
     },
     "Drowsiness": {
       "name": "Drowsiness",
@@ -1245,10 +1391,12 @@
         "Lyrica",
         "Melatonin",
         "Jamieson Ashwagandha",
-        "Morphine"
+        "Morphine",
+        "Ashwagandha Gummies",
+        "Ashwagandha"
       ],
       "medicationsTreatingIt": [],
-      "description": "A state of increased sleepiness marked by reduced alertness and slower reaction times."
+      "description": "Feeling sleepy or having difficulty staying awake."
     },
     "Dry mouth": {
       "name": "Dry mouth",
@@ -1299,13 +1447,18 @@
         "Jamieson Ashwagandha",
         "Azithromycin",
         "Loratadine/Pseudoephedrine",
-        "Co-amoxiclav"
+        "Co-amoxiclav",
+        "Ashwagandha Gummies",
+        "Ibuprofen",
+        "Ashwagandha"
       ],
       "medicationsTreatingIt": [
         "Tylenol",
         "Advil",
         "Excedrin",
-        "Tiger Balm"
+        "Tiger Balm",
+        "Ibuprofen",
+        "Acetaminophen"
       ],
       "description": "Pain in the head."
     },
@@ -1318,9 +1471,11 @@
         "Motrin",
         "Panadol",
         "DayQuil",
-        "NyQuil"
+        "NyQuil",
+        "Ibuprofen",
+        "Acetaminophen"
       ],
-      "description": "An elevation of body temperature, often indicating infection or an inflammatory immune response."
+      "description": "A body temperature that is higher than normal."
     },
     "Pain": {
       "name": "Pain",
@@ -1332,9 +1487,10 @@
         "Aleve",
         "Excedrin",
         "Panadol",
-        "Morphine"
+        "Morphine",
+        "Acetaminophen"
       ],
-      "description": "An unpleasant physical sensation signaling potential or actual tissue damage within the body."
+      "description": "Unpleasant physical sensation."
     },
     "Inflammation": {
       "name": "Inflammation",
@@ -1359,7 +1515,9 @@
     },
     "Cough": {
       "name": "Cough",
-      "medicationsCausingIt": [],
+      "medicationsCausingIt": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
       "medicationsTreatingIt": [
         "Robitussin",
         "DayQuil",
@@ -1367,7 +1525,7 @@
         "Loquat Syrup",
         "Honey"
       ],
-      "description": "A reflex action to clear airways."
+      "description": "A reflex action to clear your airways of mucus, irritants, or foreign particles"
     },
     "Nasal congestion": {
       "name": "Nasal congestion",
@@ -1418,12 +1576,15 @@
     },
     "Upset stomach": {
       "name": "Upset stomach",
-      "medicationsCausingIt": [],
+      "medicationsCausingIt": [
+        "Ashwagandha",
+        "Ibuprofen"
+      ],
       "medicationsTreatingIt": [
         "PeptoBismol",
         "Tums"
       ],
-      "description": "General digestive discomfort including nausea, bloating, cramping, or indigestion."
+      "description": "Mild digestive issue with symptoms like indigestion or bloating."
     },
     "Diarrhea": {
       "name": "Diarrhea",
@@ -1433,9 +1594,10 @@
         "Ashwagandha"
       ],
       "medicationsTreatingIt": [
-        "PeptoBismol"
+        "PeptoBismol",
+        "Lactic Acid Bacillus"
       ],
-      "description": "Frequent bowel movements of watery or loose stool."
+      "description": "Frequent bowel movements that are loose or watery."
     },
     "Constipation": {
       "name": "Constipation",
@@ -1686,10 +1848,11 @@
       "medicationsCausingIt": [
         "Lexapro",
         "Gabapentin",
-        "Azithromycin"
+        "Azithromycin",
+        "Irbesartan/Hydrochlorothiazide"
       ],
       "medicationsTreatingIt": [],
-      "description": "Persistent tiredness or lack of energy that interferes with normal daily activities."
+      "description": "Feeling tired or exhausted"
     },
     "Irritability": {
       "name": "Irritability",
@@ -1754,7 +1917,8 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Jamieson Ashwagandha",
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha Gummies"
       ],
       "description": "A state of mental or emotional strain or tension."
     },
@@ -1777,10 +1941,11 @@
     "Loss of Appetite": {
       "name": "Loss of appetite",
       "medicationsCausingIt": [
-        "Azithromycin"
+        "Azithromycin",
+        "Acetaminophen"
       ],
       "medicationsTreatingIt": [],
-      "description": "Decreased desire to eat, which may lead to reduced calorie intake."
+      "description": "Reduced desire to eat."
     },
     "Bacterial infections": {
       "name": "Bacterial infections",
@@ -1789,7 +1954,7 @@
         "Azithromycin",
         "Co-amoxiclav"
       ],
-      "description": "Infection caused by bacteria"
+      "description": "Infection caused by bacteria."
     },
     "Impaired sense of taste": {
       "name": "Impaired sense of taste",
@@ -1856,17 +2021,19 @@
       "name": "Muscle pain",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Tiger Balm"
+        "Tiger Balm",
+        "Ibuprofen"
       ],
-      "description": "Pain or soreness in muscles often caused by strain, overuse, or injury."
+      "description": "Pain or soreness in the muscles."
     },
     "Joint pain": {
       "name": "Joint pain",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Tiger Balm"
+        "Tiger Balm",
+        "Ibuprofen"
       ],
-      "description": "Discomfort or aching in joints resulting from inflammation, injury, or arthritis."
+      "description": "Discomfort, pain, or inflammation arising from any part of a joint."
     },
     "Insect bites": {
       "name": "Insect bites",
@@ -1895,19 +2062,21 @@
     "Lightheadedness": {
       "name": "Lightheadedness",
       "medicationsCausingIt": [
-        "Morphine"
+        "Morphine",
+        "Irbesartan/Hydrochlorothiazide"
       ],
       "medicationsTreatingIt": [],
-      "description": "A faint or woozy sensation that may occur when standing or moving suddenly."
+      "description": "Feeling like you might faint"
     },
     "Vomiting": {
       "name": "Vomiting",
       "medicationsCausingIt": [
         "Morphine",
-        "Co-amoxiclav"
+        "Co-amoxiclav",
+        "Azithromycin"
       ],
       "medicationsTreatingIt": [],
-      "description": "Expelling stomach contents through the mouth"
+      "description": "The act of ejecting stomach contents through the mouth."
     },
     "Cold": {
       "name": "Cold",
@@ -1920,10 +2089,11 @@
     "Increased blood pressure": {
       "name": "Increased blood pressure",
       "medicationsCausingIt": [
-        "Loratadine/Pseudoephedrine"
+        "Loratadine/Pseudoephedrine",
+        "Ibuprofen"
       ],
       "medicationsTreatingIt": [],
-      "description": "Elevation of blood pressure above normal levels"
+      "description": "Higher than normal blood pressure reading."
     },
     "Allergy": {
       "name": "Allergy",
@@ -1936,12 +2106,13 @@
     "Abdominal pain": {
       "name": "Abdominal pain",
       "medicationsCausingIt": [
-        "Co-amoxiclav"
+        "Co-amoxiclav",
+        "Azithromycin"
       ],
       "medicationsTreatingIt": [
         "Hyoscine Butylbromide"
       ],
-      "description": "Pain in the abdomen"
+      "description": "Pain or discomfort felt in the abdomen."
     },
     "Skin rash": {
       "name": "Skin rash",
@@ -1987,9 +2158,139 @@
       "name": "Memory impairment",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
+        "Ashwagandha",
+        "Ashwagandha Gummies"
+      ],
+      "description": "Difficulty remembering things"
+    },
+    "Respiratory tract infections": {
+      "name": "Respiratory tract infections",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Azithromycin"
+      ],
+      "description": "Infections of the respiratory system."
+    },
+    "Skin infections": {
+      "name": "Skin infections",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Azithromycin"
+      ],
+      "description": "Infections of the skin."
+    },
+    "Ear infections": {
+      "name": "Ear infections",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Azithromycin"
+      ],
+      "description": "Infections of the ear."
+    },
+    "Throat infection": {
+      "name": "Throat infection",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Azithromycin"
+      ],
+      "description": "Infection of the throat"
+    },
+    "Flatulence": {
+      "name": "Flatulence",
+      "medicationsCausingIt": [
+        "Lactic Acid Bacillus"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Accumulation of gas in the alimentary canal"
+    },
+    "Bloating": {
+      "name": "Bloating",
+      "medicationsCausingIt": [
+        "Lactic Acid Bacillus"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Swelling or an increase in abdominal size"
+    },
+    "Digestive health": {
+      "name": "Digestive health",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Lactic Acid Bacillus"
+      ],
+      "description": "The state of the digestive system functioning effectively."
+    },
+    "Memory problems": {
+      "name": "Memory problems",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
         "Ashwagandha"
       ],
-      "description": "Difficulty in remembering things."
+      "description": "Difficulties with recalling information."
+    },
+    "Stomach pain": {
+      "name": "Stomach pain",
+      "medicationsCausingIt": [
+        "Ibuprofen",
+        "Acetaminophen"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Discomfort or pain felt in the abdomen."
+    },
+    "Memory support": {
+      "name": "Memory support",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Ashwagandha"
+      ],
+      "description": "Helps to maintain or improve cognitive functions such as memory and learning."
+    },
+    "Dehydration": {
+      "name": "Dehydration",
+      "medicationsCausingIt": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Excessive loss of body fluids"
+    },
+    "Muscle cramps": {
+      "name": "Muscle cramps",
+      "medicationsCausingIt": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Sudden and involuntary contraction of one or more muscles"
+    },
+    "Increased thirst": {
+      "name": "Increased thirst",
+      "medicationsCausingIt": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Feeling the need to drink more fluids"
+    },
+    "Hypertension": {
+      "name": "Hypertension",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Irbesartan/Hydrochlorothiazide"
+      ],
+      "description": "High blood pressure"
+    },
+    "Jaundice": {
+      "name": "Jaundice",
+      "medicationsCausingIt": [
+        "Acetaminophen"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Yellowing of the skin and eyes due to liver problems."
+    },
+    "Muscle aches": {
+      "name": "Muscle aches",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Acetaminophen"
+      ],
+      "description": "Pain in the muscles."
     }
   }
 }

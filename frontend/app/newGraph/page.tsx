@@ -119,7 +119,7 @@ export default function NewGraphPage() {
   }, [med]);
 
   useEffect(() => {
-    if (!containerRef.current || (!effectData && !selectedMedication)) return;
+    if (!containerRef.current || (!effectData && !selectedMedication && !selectedIngredient)) return;
 
     let graph: Graph | null = null;
     let renderer: Sigma | null = null;
@@ -179,10 +179,10 @@ export default function NewGraphPage() {
           Boolean(attr.highlighted),
         settings: {
           attraction: 0.0005,
-          repulsion: 5,
-          gravity: 0.001,
-          inertia: 0.3,
-          maxMove: 400,
+          repulsion: 0.8,
+          gravity: 0.0008,
+          inertia: 0.6,
+          maxMove: 15,
         },
       });
       layout.stop();
@@ -287,11 +287,13 @@ export default function NewGraphPage() {
       });
 
       const allMedications = Array.from(medicationMap.values());
+      const radius = 300;
+      const angleStep = (Math.PI * 2) / Math.max(allMedications.length, 1);
 
-      allMedications.forEach((medication) => {
-        // Start all nodes at center with small random offset for animation
-        const x = (Math.random() - 0.5) * 50;
-        const y = (Math.random() - 0.5) * 50;
+      allMedications.forEach((medication, index) => {
+        const angle = index * angleStep;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
 
         // Only add the node if it doesn't already exist
         if (!g.hasNode(medication.name)) {
@@ -339,13 +341,18 @@ export default function NewGraphPage() {
         nodeType: "medication",
       } as NodeAttributes);
 
+      const ingredientRadius = 300;
+      const ingredientAngleStep = (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
+      let ingredientIndex = 0;
+
       medication.ingredients.forEach((ingredient) => {
         // Skip self-referencing nodes (e.g. Ashwagandha is both a medication and ingredient)
         if (ingredient === centerId) return;
 
-        // Start all nodes at center with small random offset
-        const x = (Math.random() - 0.5) * 50;
-        const y = (Math.random() - 0.5) * 50;
+        const angle = ingredientIndex * ingredientAngleStep;
+        const x = Math.cos(angle) * ingredientRadius;
+        const y = Math.sin(angle) * ingredientRadius;
+        ingredientIndex++;
 
         if (!g.hasNode(ingredient)) {
           g.addNode(ingredient, {
@@ -391,13 +398,18 @@ export default function NewGraphPage() {
         nodeType: "ingredient",
       } as NodeAttributes);
 
+      const medRadius = 300;
+      const medAngleStep = (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
+      let medIndex = 0;
+
       ingredient.medications.forEach((medicationName) => {
         // Skip self-referencing nodes (e.g. Ashwagandha is both a medication and ingredient)
         if (medicationName === centerId) return;
 
-        // Start all nodes at center with small random offset
-        const x = (Math.random() - 0.5) * 50;
-        const y = (Math.random() - 0.5) * 50;
+        const angle = medIndex * medAngleStep;
+        const x = Math.cos(angle) * medRadius;
+        const y = Math.sin(angle) * medRadius;
+        medIndex++;
 
         if (!g.hasNode(medicationName)) {
           g.addNode(medicationName, {
@@ -433,11 +445,9 @@ export default function NewGraphPage() {
       try {
         const medication = await getMedication(name);
         if (!isMounted) return;
-        setSelectedMedication(medication);
+        setEffectData(null);
         setSelectedIngredient(null);
-        destroyGraph();
-        initGraph();
-        buildMedicationGraph(medication);
+        setSelectedMedication(medication);
       } catch {
         return;
       }
@@ -447,32 +457,29 @@ export default function NewGraphPage() {
       try {
         const ingredient = await getIngredient(name);
         if (!isMounted) return;
-        setSelectedIngredient(ingredient);
+        setEffectData(null);
         setSelectedMedication(null);
-        destroyGraph();
-        initGraph();
-        buildIngredientGraph(ingredient);
+        setSelectedIngredient(ingredient);
       } catch {
         return;
       }
     };
 
-    // Load effect or medication graph
+    // Build graph based on current state
+    initGraph();
     if (effectData) {
-      destroyGraph();
-      initGraph();
       buildEffectGraph(effectData);
     } else if (selectedMedication) {
-      destroyGraph();
-      initGraph();
       buildMedicationGraph(selectedMedication);
+    } else if (selectedIngredient) {
+      buildIngredientGraph(selectedIngredient);
     }
 
     return () => {
       isMounted = false;
       destroyGraph();
     };
-  }, [effectData, selectedMedication]);
+  }, [effectData, selectedMedication, selectedIngredient]);
 
   return (
     <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-purple-50 font-sans overflow-hidden">
