@@ -1,8 +1,10 @@
 import type { Effect, GraphData, Ingredient, Medication } from '../types/graph';
 
-const API_BASE = typeof window !== 'undefined' && window.location.hostname !== 'localhost'
-  ? `http://${window.location.hostname}:5001`
-  : 'http://localhost:5001';
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (typeof window !== 'undefined' && window.location.hostname !== 'localhost'
+    ? `http://${window.location.hostname}:5001`
+    : 'http://localhost:5001');
 
 export interface SendDataResponse {
   message: string;
