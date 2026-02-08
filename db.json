@@ -10,7 +10,9 @@
         "Rash",
         "Dizziness",
         "Liver damage",
-        "Allergic reaction"
+        "Allergic reaction",
+        "Stomach pain",
+        "Loss of appetite"
       ],
       "symptomsTreated": [
         "Pain",
@@ -829,7 +831,7 @@
         "NyQuil",
         "Advil Plus Acetaminophen"
       ],
-      "description": "A common pain reliever and fever reducer, often used for mild to moderate discomfort."
+      "description": "Acetaminophen is a common pain reliever and fever reducer; it can relieve mild to moderate pain."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
@@ -1203,7 +1205,7 @@
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "A feeling of sickness with an inclination to vomit; can be a medication side effect."
+      "description": "Nausea is the sensation of unease and discomfort in the stomach that can be followed by vomiting."
     },
     "Dizziness": {
       "name": "Dizziness",
@@ -1328,7 +1330,7 @@
         "Advil Cold & Sinus",
         "Advil Plus Acetaminophen"
       ],
-      "description": "Pain in the head, ranging from mild to severe, that can affect daily activities."
+      "description": "Headache is continuous pain in the head. It is one of the most common locations for pain."
     },
     "Fever": {
       "name": "Fever",
@@ -1345,7 +1347,7 @@
         "Advil Cold & Sinus",
         "Advil Plus Acetaminophen"
       ],
-      "description": "An abnormally high body temperature, often a symptom of infection or illness."
+      "description": "Fever is a temporary increase in body temperature, often due to an illness or infection."
     },
     "Pain": {
       "name": "Pain",
@@ -1360,7 +1362,7 @@
         "Morphine",
         "Aspirin"
       ],
-      "description": "A physical suffering or discomfort caused by illness or injury."
+      "description": "Pain is an unpleasant sensory and emotional experience associated with actual or potential tissue damage."
     },
     "Inflammation": {
       "name": "Inflammation",
@@ -1781,9 +1783,11 @@
     },
     "Loss of Appetite": {
       "name": "Loss of appetite",
-      "medicationsCausingIt": [],
+      "medicationsCausingIt": [
+        "Tylenol"
+      ],
       "medicationsTreatingIt": [],
-      "description": "Decreased desire to eat, which may lead to reduced calorie intake."
+      "description": "Loss of appetite is a decreased desire to eat. It can be temporary or long-lasting, based on cause."
     },
     "Bacterial infections": {
       "name": "Bacterial infections",
@@ -1922,10 +1926,11 @@
       "medicationsCausingIt": [
         "Ibuprofen",
         "Advil",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Tylenol"
       ],
       "medicationsTreatingIt": [],
-      "description": "Discomfort or ache in the abdominal area, possibly caused by irritation or inflammation of the stomach lining."
+      "description": "Stomach pain includes cramps, aches, or sharp sensations felt anywhere in the abdominal area."
     },
     "Increased blood pressure": {
       "name": "Increased blood pressure",
@@ -2044,7 +2049,7 @@
         "Advil Plus Acetaminophen",
         "Tylenol"
       ],
-      "description": "Pain and discomfort in the muscles; can be caused by injury or illness."
+      "description": "Muscle aches and pains are discomfort in one or more muscles or groups of muscles."
     },
     "Liver damage": {
       "name": "Liver damage",
@@ -2052,7 +2057,7 @@
         "Tylenol"
       ],
       "medicationsTreatingIt": [],
-      "description": "Damage to the liver, potentially caused by excessive doses of certain medications."
+      "description": "Liver damage refers to injury or disease affecting the liver and its ability to function properly."
     },
     "Allergic reaction": {
       "name": "Allergic reaction",
