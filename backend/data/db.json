@@ -1,0 +1,106 @@
+{
+  "medications": {
+    "med1": {
+      "name": "med1",
+      "ingredients": [
+        "ingredient1",
+        "ingredient2"
+      ],
+      "sideEffects": [
+        "effect1",
+        "sideEffect2"
+      ],
+      "symptomsTreated": [
+        "symptom1",
+        "symptom2"
+      ]
+    },
+    "med2": {
+      "name": "med2",
+      "ingredients": [
+        "ingredient1",
+        "ingredient4",
+        "ingredient3"
+      ],
+      "sideEffects": [
+        "effect1",
+        "sideEffect3"
+      ],
+      "symptomsTreated": [
+        "symptom1",
+        "symptom2"
+      ]
+    }
+  },
+  "ingredients": {
+    "ingredient1": {
+      "name": "ingredient1",
+      "medications": [
+        "med1",
+        "med2"
+      ],
+      "description": "Description for ingredient1"
+    },
+    "ingredient2": {
+      "name": "ingredient2",
+      "medications": [
+        "med1"
+      ]
+    },
+    "ingredient3": {
+      "name": "ingredient3",
+      "medications": [
+        "med2"
+      ]
+    },
+    "ingredient4": {
+      "name": "ingredient4",
+      "medications": [
+        "med2"
+      ]
+    }
+  },
+  "effects": {
+    "effect1": {
+      "name": "effect1",
+      "medicationsCausingIt": [
+        "med1",
+        "med2"
+      ],
+      "medicationsTreatingIt": [
+        "med2"
+      ],
+      "description": "Description for effect1"
+    },
+    "sideEffect2": {
+      "name": "sideEffect2",
+      "medicationsCausingIt": [
+        "med1"
+      ],
+      "medicationsTreatingIt": []
+    },
+    "symptom1": {
+      "name": "symptom1",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "med1",
+        "med2"
+      ]
+    },
+    "symptom2": {
+      "name": "symptom2",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "med1",
+        "med2"
+      ]
+    },
+    "sideEffect3": {
+      "name": "sideEffect3",
+      "medicationsCausingIt": [
+        "med2"
+      ],
+      "medicationsTreatingIt": []
+    }
+  }
+}
