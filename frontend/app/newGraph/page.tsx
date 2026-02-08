@@ -129,11 +129,10 @@ export default function NewGraphPage() {
         defaultDrawNodeLabel: (context, data, settings) => {
           if (!data.label) return;
           const size = settings.labelSize;
-          const font = settings.labelFont;
           const weight = settings.labelWeight;
 
           context.fillStyle = "#000";
-          context.font = `${weight} ${size}px ${font}`;
+          context.font = `${weight} ${size}px "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
           context.fillText(data.label, data.x, data.y + data.size + 12);
         },
       });
@@ -237,7 +236,7 @@ export default function NewGraphPage() {
           nodeType: "medication",
         } as NodeAttributes);
 
-        g.addEdge(centerId, medication.name);
+        g.addEdge(centerId, medication.name, { color: "#777777" });
       });
 
       layout?.start();
@@ -280,7 +279,7 @@ export default function NewGraphPage() {
           nodeType: "ingredient",
         } as NodeAttributes);
 
-        g.addEdge(centerId, ingredient);
+        g.addEdge(centerId, ingredient, { color: "#777777" });
       });
 
       layout?.start();
@@ -323,7 +322,7 @@ export default function NewGraphPage() {
           nodeType: "medication",
         } as NodeAttributes);
 
-        g.addEdge(centerId, medicationName);
+        g.addEdge(centerId, medicationName, { color: "#777777" });
       });
 
       layout?.start();
