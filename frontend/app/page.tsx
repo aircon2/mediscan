@@ -7,24 +7,23 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 font-sans  pt-5 overflow-hidden">
-        <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-2xl font-semibold tracking-wide text-blue-600 text-center"
-            style={{
-              fontFamily: '"Space Grotesk", sans-serif',
-              fontWeight: 600,
-            }}
-          >
-            MediScan
-          </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-2xl font-semibold tracking-wide text-blue-600 text-center"
+        style={{
+          fontFamily: '"Space Grotesk", sans-serif',
+          fontWeight: 600,
+        }}
+      >
+        MediScan
+      </motion.p>
       {/* Gradient Blur Circles */}
       <div className="absolute -top-20 -right-20 w-96 h-96 opacity-30 bg-gradient-to-bl from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
 
       <main className="flex flex-col items-start max-w-md w-full relative z-10 px-9">
-          
         {/* Header Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,7 +87,6 @@ export default function Home() {
           >
             Search my symptoms
           </Link>
-
         </motion.div>
 
         {/* Footer */}
