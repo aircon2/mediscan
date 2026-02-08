@@ -195,16 +195,26 @@ export default function NewGraphPage() {
         nodeType: "medication",
       } as NodeAttributes);
 
-      const allMedications = [
-        ...effectInfo.medicationsCausingIt.map((med) => ({
-          name: med,
-          type: "causing" as const,
-        })),
-        ...effectInfo.medicationsTreatingIt.map((med) => ({
-          name: med,
-          type: "treating" as const,
-        })),
-      ];
+      const medicationMap = new Map<
+        string,
+        { name: string; type: "causing" | "treating" }
+      >();
+
+      effectInfo.medicationsCausingIt.forEach((med) => {
+        const key = med.trim().toLowerCase();
+        if (!key) return;
+        if (!medicationMap.has(key)) {
+          medicationMap.set(key, { name: med, type: "causing" });
+        }
+      });
+
+      effectInfo.medicationsTreatingIt.forEach((med) => {
+        const key = med.trim().toLowerCase();
+        if (!key) return;
+        medicationMap.set(key, { name: med, type: "treating" });
+      });
+
+      const allMedications = Array.from(medicationMap.values());
 
       const radius = Math.max(600, allMedications.length * 80);
       const angleStep = (Math.PI * 2) / Math.max(allMedications.length, 1);
