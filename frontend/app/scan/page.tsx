@@ -19,10 +19,42 @@ export default function ScanPage() {
 
     const startCamera = async () => {
       try {
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: "environment" }, // Use back camera on mobile
-          audio: false,
-        });
+        // Check if mediaDevices is available
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          setError("Camera not supported. Please use HTTPS or allow permissions.");
+          return;
+        }
+
+        // Try with back camera first, fallback to any camera
+        let mediaStream: MediaStream;
+        try {
+          mediaStream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: { ideal: "environment" },
+              width: { ideal: 1920 },
+              height: { ideal: 1080 },
+              aspectRatio: { ideal: 16 / 9 },
+            },
+            audio: false,
+          });
+        } catch (err) {
+          // Fallback to any available camera with basic HD
+          try {
+            mediaStream = await navigator.mediaDevices.getUserMedia({
+              video: {
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+              },
+              audio: false,
+            });
+          } catch (err2) {
+            // Final fallback to any camera
+            mediaStream = await navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: false,
+            });
+          }
+        }
 
         setStream(mediaStream);
 
@@ -44,9 +76,21 @@ export default function ScanPage() {
           captureImage();
           clearInterval(countdownInterval);
         }, 3000);
-      } catch (err) {
+      } catch (err: any) {
         console.error("Error accessing camera:", err);
-        setError("Unable to access camera. Please allow camera permissions.");
+        let errorMessage = "Unable to access camera.";
+        
+        if (err.name === "NotAllowedError") {
+          errorMessage = "Camera permission denied. Please allow camera access.";
+        } else if (err.name === "NotFoundError") {
+          errorMessage = "No camera found on this device.";
+        } else if (err.name === "NotReadableError") {
+          errorMessage = "Camera is already in use by another app.";
+        } else if (window.location.protocol !== "https:" && window.location.hostname !== "localhost") {
+          errorMessage = "Camera requires HTTPS. Please use a secure connection.";
+        }
+        
+        setError(errorMessage);
       }
     };
 
@@ -149,7 +193,7 @@ export default function ScanPage() {
 
           {/* Translucent overlay with text */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-purple-100/20 backdrop-blur-[2px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/10 to-purple-100/10"></div>
 
             {error ? (
               <p className="relative z-10 text-xl font-medium text-red-500 px-4 text-center">
