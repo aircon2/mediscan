@@ -71,10 +71,25 @@ export default function NewGraphPage() {
     let renderer: Sigma | null = null;
     let layout: ForceSupervisor | null = null;
     let layoutStopId: number | null = null;
+    let renderIntervalId: number | null = null;
     let isMounted = true;
     let draggedNode: string | null = null;
     let isDragging = false;
     let centerNodeId: string | null = null;
+
+    const startRendering = () => {
+      if (renderIntervalId !== null) return;
+      renderIntervalId = window.setInterval(() => {
+        renderer?.refresh();
+      }, 16); // ~60fps
+    };
+
+    const stopRendering = () => {
+      if (renderIntervalId !== null) {
+        window.clearInterval(renderIntervalId);
+        renderIntervalId = null;
+      }
+    };
 
     const scheduleLayoutStop = (delayMs: number) => {
       if (layoutStopId !== null) {
@@ -82,6 +97,7 @@ export default function NewGraphPage() {
       }
       layoutStopId = window.setTimeout(() => {
         layout?.stop();
+        stopRendering();
         renderer?.refresh();
       }, delayMs);
     };
@@ -90,6 +106,7 @@ export default function NewGraphPage() {
       if (layoutStopId !== null) {
         window.clearTimeout(layoutStopId);
       }
+      stopRendering();
       layoutStopId = null;
       renderer?.kill();
       layout?.kill();
@@ -137,6 +154,7 @@ export default function NewGraphPage() {
         draggedNode = e.node;
         graph.setNodeAttribute(draggedNode, "highlighted", true);
         layout?.start();
+        startRendering();
         scheduleLayoutStop(5000);
       });
 
@@ -216,13 +234,10 @@ export default function NewGraphPage() {
 
       const allMedications = Array.from(medicationMap.values());
 
-      const radius = Math.max(600, allMedications.length * 80);
-      const angleStep = (Math.PI * 2) / Math.max(allMedications.length, 1);
-
-      allMedications.forEach((medication, index) => {
-        const angle = index * angleStep;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+      allMedications.forEach((medication) => {
+        // Start all nodes at center with small random offset for animation
+        const x = (Math.random() - 0.5) * 50;
+        const y = (Math.random() - 0.5) * 50;
 
         // Only add the node if it doesn't already exist
         if (!g.hasNode(medication.name)) {
@@ -243,6 +258,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
+      startRendering();
       scheduleLayoutStop(4000);
     };
 
@@ -260,14 +276,10 @@ export default function NewGraphPage() {
         nodeType: "medication",
       } as NodeAttributes);
 
-      const radius = Math.max(600, medication.ingredients.length * 100);
-      const angleStep =
-        (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
-
-      medication.ingredients.forEach((ingredient, index) => {
-        const angle = index * angleStep;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+      medication.ingredients.forEach((ingredient) => {
+        // Start all nodes at center with small random offset
+        const x = (Math.random() - 0.5) * 50;
+        const y = (Math.random() - 0.5) * 50;
 
         g.addNode(ingredient, {
           x,
@@ -282,6 +294,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
+      startRendering();
       scheduleLayoutStop(4000);
     };
 
@@ -299,14 +312,10 @@ export default function NewGraphPage() {
         nodeType: "ingredient",
       } as NodeAttributes);
 
-      const radius = Math.max(600, ingredient.medications.length * 80);
-      const angleStep =
-        (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
-
-      ingredient.medications.forEach((medicationName, index) => {
-        const angle = index * angleStep;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
+      ingredient.medications.forEach((medicationName) => {
+        // Start all nodes at center with small random offset
+        const x = (Math.random() - 0.5) * 50;
+        const y = (Math.random() - 0.5) * 50;
 
         g.addNode(medicationName, {
           x,
@@ -321,6 +330,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
+      startRendering();
       scheduleLayoutStop(4000);
     };
 
