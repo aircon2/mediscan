@@ -79,8 +79,8 @@ export async function analyzeMedicine(filePath: string) {
   try {
     const base64Image = await encodeImageToBase64(filePath);
 
-    const result = await openRouter.chat.sendMessage({
-      model: "google/gemini-3-flash-preview",
+    const result = await openRouter.chat.send({
+      model: 'google/gemini-3-flash-preview',
       messages: [
         {
           role: "user",
