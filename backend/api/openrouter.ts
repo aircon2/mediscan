@@ -63,31 +63,35 @@
 //     throw new Error("Failed to analyze medicine");
 //   }
 // }
-import { OpenRouter } from "@openrouter/sdk";
 import * as fs from "fs";
+import * as path from "path";
+import { GoogleGenAI, createUserContent, createPartFromUri } from "@google/genai";
+import 'dotenv/config';
 
-const openRouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY!,
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY!,
 });
 
-async function encodeImageToBase64(filePath: string): Promise<string> {
-  const imageBuffer = await fs.promises.readFile(filePath);
-  return `data:image/png;base64,${imageBuffer.toString("base64")}`;
-}
+export async function analyzeMedicine(base64Image: string) {
+  // 1️⃣ Convert Base64 to a temporary file
+  const buffer = Buffer.from(base64Image.replace(/^data:image\/\w+;base64,/, ""), "base64");
+  const tempPath = path.join(__dirname, `temp_${Date.now()}.png`);
+  fs.writeFileSync(tempPath, buffer);
 
-export async function analyzeMedicine(filePath: string) {
   try {
-    const base64Image = await encodeImageToBase64(filePath);
+    // 2️⃣ Upload file to Gemini
+    const uploadedFile = await ai.files.upload({
+      file: tempPath,
+      config: { mimeType: "image/png" },
+    });
 
-    const result = await openRouter.chat.send({
-      model: 'google/gemini-3-flash-preview',
-      messages: [
-        {
-          role: "user",
-          content: [
-            {
-              type: "text",
-              text: `You are an AI that analyzes medicine labels.
+    if (!uploadedFile.uri) {
+      throw new Error("File upload failed, no URI returned from Gemini.");
+    }
+
+    // 3️⃣ Prompt text
+    const promptText = `
+You are an AI that analyzes medicine labels.
 Given the image of a medicine label, extract all the information and return it in the following JSON format ONLY:
 
 {
@@ -116,21 +120,27 @@ Given the image of a medicine label, extract all the information and return it i
   }
 }
 
-Make sure JSON is valid and only return JSON, no extra text.`,
-            },
-            {
-              type: "image_url",
-              image_url: base64Image, // Base64 image works
-            },
-          ],
-        },
-      ],
-      stream: false,
+Make sure JSON is valid and only return JSON, no extra text.
+`;
+
+    // 4️⃣ Build content for Gemini
+    const userContent = createUserContent([
+      createPartFromUri(uploadedFile.uri, "image/png"),
+      promptText,
+    ]);
+
+    // 5️⃣ Generate content
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: userContent,
     });
 
-    return result;
+    return response.text;
   } catch (err) {
-    console.error("OpenRouter API error:", err);
+    console.error("Gemini API error:", err);
     throw new Error("Failed to analyze medicine");
+  } finally {
+    // 6️⃣ Cleanup temp file
+    fs.unlinkSync(tempPath);
   }
 }
