@@ -837,13 +837,15 @@
         "Headache",
         "Increased blood pressure",
         "Upset stomach",
-        "Heartburn"
+        "Heartburn",
+        "Drowsiness"
       ],
       "symptomsTreated": [
         "Headache",
         "Fever",
         "Muscle pain",
-        "Joint pain"
+        "Joint pain",
+        "Migraine"
       ]
     },
     "Irbesartan/Hydrochlorothiazide": {
@@ -888,1079 +890,603 @@
   "ingredients": {
     "Acetaminophen": {
       "name": "Acetaminophen",
-      "medications": [
-        "Tylenol",
-        "Panadol",
-        "Excedrin",
-        "DayQuil",
-        "NyQuil",
-        "Acetaminophen"
-      ],
-      "description": "A common pain reliever and fever reducer."
+      "medications": ["Tylenol", "Panadol", "Excedrin", "DayQuil", "NyQuil"],
+      "description": "A widely used pain reliever and fever reducer that works in the brain to lower pain signals and body temperature."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
-      "medications": [
-        "Advil",
-        "Motrin",
-        "Ibuprofen"
-      ],
-      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, reduce fever, and decrease inflammation."
+      "medications": ["Advil", "Motrin"],
+      "description": "A nonsteroidal anti-inflammatory drug that reduces pain, fever, and swelling by blocking inflammation-causing enzymes."
     },
     "Naproxen": {
       "name": "Naproxen",
-      "medications": [
-        "Aleve"
-      ],
+      "medications": ["Aleve"],
       "description": "A long-acting anti-inflammatory medication commonly used for joint, muscle, and arthritis pain relief."
     },
     "Aspirin": {
       "name": "Aspirin",
-      "medications": [
-        "Excedrin"
-      ],
+      "medications": ["Excedrin"],
       "description": "An NSAID that relieves pain and inflammation while also thinning the blood to reduce clot formation."
     },
     "Caffeine": {
       "name": "Caffeine",
-      "medications": [
-        "Excedrin"
-      ],
+      "medications": ["Excedrin"],
       "description": "A stimulant that increases alertness and enhances the effectiveness of certain pain-relieving medications."
     },
     "Cetirizine": {
       "name": "Cetirizine",
-      "medications": [
-        "Zyrtec"
-      ],
+      "medications": ["Zyrtec"],
       "description": "A second-generation antihistamine that reduces allergy symptoms by blocking histamine with minimal sedation."
     },
     "Loratadine": {
       "name": "Loratadine",
-      "medications": [
-        "Claritin",
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "Antihistamine that reduces the effects of histamine, a chemical in the body that can produce symptoms of allergic reaction"
+      "medications": ["Claritin"],
+      "description": "A non-drowsy antihistamine used to relieve sneezing, itching, and runny nose caused by allergies."
     },
     "Diphenhydramine": {
       "name": "Diphenhydramine",
-      "medications": [
-        "Benadryl"
-      ],
+      "medications": ["Benadryl"],
       "description": "A first-generation antihistamine that treats allergies and causes sedation by crossing the blood-brain barrier."
     },
     "Guaifenesin": {
       "name": "Guaifenesin",
-      "medications": [
-        "Mucinex",
-        "Robitussin"
-      ],
+      "medications": ["Mucinex", "Robitussin"],
       "description": "An expectorant that loosens mucus in the airways, making coughs more productive and breathing easier."
     },
     "Dextromethorphan": {
       "name": "Dextromethorphan",
-      "medications": [
-        "Robitussin",
-        "DayQuil",
-        "NyQuil"
-      ],
+      "medications": ["Robitussin", "DayQuil", "NyQuil"],
       "description": "A cough suppressant that acts on the brain to reduce the urge to cough."
     },
     "Phenylephrine": {
       "name": "Phenylephrine",
-      "medications": [
-        "DayQuil"
-      ],
+      "medications": ["DayQuil"],
       "description": "A decongestant that constricts blood vessels in nasal passages to reduce swelling and congestion."
     },
     "Doxylamine": {
       "name": "Doxylamine",
-      "medications": [
-        "NyQuil"
-      ],
+      "medications": ["NyQuil"],
       "description": "An antihistamine commonly used in nighttime medications due to its strong sedative effects."
     },
     "Pseudoephedrine": {
       "name": "Pseudoephedrine",
-      "medications": [
-        "Sudafed",
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "Decongestant that shrinks blood vessels in the nasal passages to relieve nasal stuffiness"
+      "medications": ["Sudafed"],
+      "description": "A stimulant decongestant that relieves sinus pressure by shrinking swollen nasal blood vessels."
     },
     "Bismuth subsalicylate": {
       "name": "Bismuth subsalicylate",
-      "medications": [
-        "PeptoBismol"
-      ],
+      "medications": ["PeptoBismol"],
       "description": "A gastrointestinal medication that coats the stomach and reduces nausea, diarrhea, and indigestion."
     },
     "Calcium carbonate": {
       "name": "Calcium carbonate",
-      "medications": [
-        "Tums"
-      ],
+      "medications": ["Tums"],
       "description": "An antacid that neutralizes excess stomach acid to relieve heartburn and indigestion."
     },
     "Omeprazole": {
       "name": "Omeprazole",
-      "medications": [
-        "Prilosec"
-      ],
+      "medications": ["Prilosec"],
       "description": "A proton pump inhibitor that reduces stomach acid production for long-term reflux management."
     },
     "Fluoxetine": {
       "name": "Fluoxetine",
-      "medications": [
-        "Prozac"
-      ],
+      "medications": ["Prozac"],
       "description": "An SSRI antidepressant that increases serotonin levels to improve mood and emotional regulation."
     },
     "Sertraline": {
       "name": "Sertraline",
-      "medications": [
-        "Zoloft"
-      ],
+      "medications": ["Zoloft"],
       "description": "An SSRI medication used to treat depression and anxiety by stabilizing serotonin activity."
     },
     "Escitalopram": {
       "name": "Escitalopram",
-      "medications": [
-        "Lexapro"
-      ],
+      "medications": ["Lexapro"],
       "description": "A selective serotonin reuptake inhibitor commonly prescribed for anxiety and depressive disorders."
     },
     "Alprazolam": {
       "name": "Alprazolam",
-      "medications": [
-        "Xanax"
-      ],
+      "medications": ["Xanax"],
       "description": "A fast-acting benzodiazepine that reduces anxiety by enhancing calming neurotransmitter effects."
     },
     "Lorazepam": {
       "name": "Lorazepam",
-      "medications": [
-        "Ativan"
-      ],
+      "medications": ["Ativan"],
       "description": "A benzodiazepine sedative used for anxiety and insomnia by slowing brain activity."
     },
     "Amphetamine salts": {
       "name": "Amphetamine salts",
-      "medications": [
-        "Adderall"
-      ],
+      "medications": ["Adderall"],
       "description": "Central nervous system stimulants that increase focus, attention, and alertness."
     },
     "Methylphenidate": {
       "name": "Methylphenidate",
-      "medications": [
-        "Ritalin"
-      ],
+      "medications": ["Ritalin"],
       "description": "A stimulant medication that improves attention and impulse control in ADHD patients."
     },
     "Gabapentin": {
       "name": "Gabapentin",
-      "medications": [
-        "Gabapentin"
-      ],
+      "medications": ["Gabapentin"],
       "description": "An anticonvulsant medication that reduces nerve pain by calming abnormal electrical brain activity."
     },
     "Pregabalin": {
       "name": "Pregabalin",
-      "medications": [
-        "Lyrica"
-      ],
+      "medications": ["Lyrica"],
       "description": "A nerve pain medication that reduces overactive nerve signaling associated with chronic pain conditions."
     },
     "Tramadol": {
       "name": "Tramadol",
-      "medications": [
-        "Tramadol"
-      ],
+      "medications": ["Tramadol"],
       "description": "An opioid-like pain medication that alters pain perception within the central nervous system."
     },
     "Melatonin": {
       "name": "Melatonin",
-      "medications": [
-        "Melatonin"
-      ],
+      "medications": ["Melatonin"],
       "description": "A natural hormone that regulates circadian rhythm and promotes healthy sleep cycles."
     },
     "Zolpidem": {
       "name": "Zolpidem",
-      "medications": [
-        "Ambien"
-      ],
+      "medications": ["Ambien"],
       "description": "A sedative-hypnotic medication that helps initiate sleep by acting on GABA receptors."
     },
     "Loperamide": {
       "name": "Loperamide",
-      "medications": [
-        "Imodium"
-      ],
+      "medications": ["Imodium"],
       "description": "An anti-diarrheal medication that slows intestinal movement to reduce stool frequency."
     },
     "Polyethylene glycol 3350": {
       "name": "Polyethylene glycol 3350",
-      "medications": [
-        "Miralax"
-      ],
+      "medications": ["Miralax"],
       "description": "An osmotic laxative that draws water into stool to ease bowel movements."
     },
     "Bisacodyl": {
       "name": "Bisacodyl",
-      "medications": [
-        "Dulcolax"
-      ],
+      "medications": ["Dulcolax"],
       "description": "A stimulant laxative that increases bowel contractions to relieve constipation."
     },
     "Docusate sodium": {
       "name": "Docusate sodium",
-      "medications": [
-        "Colace"
-      ],
+      "medications": ["Colace"],
       "description": "A stool softener that allows water to penetrate stool for easier passage."
     },
     "Senna": {
       "name": "Senna",
-      "medications": [
-        "Senokot"
-      ],
+      "medications": ["Senokot"],
       "description": "A plant-derived stimulant laxative that promotes bowel movements by irritating intestinal lining."
     },
     "Psyllium husk": {
       "name": "Psyllium husk",
-      "medications": [
-        "Metamucil"
-      ],
+      "medications": ["Metamucil"],
       "description": "A soluble fiber supplement that adds bulk to stool and improves bowel regularity."
     },
     "Magnesium hydroxide": {
       "name": "Magnesium hydroxide",
-      "medications": [
-        "Milk of Magnesia"
-      ],
+      "medications": ["Milk of Magnesia"],
       "description": "An osmotic laxative and antacid that softens stool and neutralizes stomach acid."
     },
     "Linaclotide": {
       "name": "Linaclotide",
-      "medications": [
-        "Linzess"
-      ],
+      "medications": ["Linzess"],
       "description": "A medication that increases intestinal fluid secretion to relieve chronic constipation."
     },
     "Lubiprostone": {
       "name": "Lubiprostone",
-      "medications": [
-        "Amitiza"
-      ],
+      "medications": ["Amitiza"],
       "description": "A chloride channel activator that improves stool passage in chronic constipation."
     },
     "Plecanatide": {
       "name": "Plecanatide",
-      "medications": [
-        "Trulance"
-      ],
+      "medications": ["Trulance"],
       "description": "A guanylate cyclase-C agonist that increases fluid secretion in the intestines."
     },
     "Lactulose": {
       "name": "Lactulose",
-      "medications": [
-        "Lactulose"
-      ],
+      "medications": ["Lactulose"],
       "description": "A synthetic sugar laxative that draws water into the bowel to soften stools."
     },
     "Ashwagandha": {
       "name": "Ashwagandha",
-      "medications": [
-        "Jamieson Ashwagandha",
-        "Ashwagandha",
-        "Ashwagandha Gummies"
-      ],
-      "description": "An adaptogen used to help the body cope with stress and anxiety."
+      "medications": ["Jamieson Ashwagandha"],
+      "description": "An adaptogenic herb traditionally used to help the body manage stress and anxiety."
     },
     "Azithromycin": {
       "name": "Azithromycin",
-      "medications": [
-        "Azithromycin"
-      ],
-      "description": "A macrolide antibiotic used to treat bacterial infections"
+      "medications": ["Azithromycin"],
+      "description": "A macrolide antibiotic that treats bacterial infections by inhibiting protein synthesis."
     },
     "Loquat": {
       "name": "Loquat",
-      "medications": [
-        "Loquat Syrup"
-      ],
+      "medications": ["Loquat Syrup"],
       "description": "A fruit used in traditional medicine to soothe throat irritation and suppress cough."
     },
     "Camphor": {
       "name": "Camphor",
-      "medications": [
-        "Tiger Balm"
-      ],
+      "medications": ["Tiger Balm"],
       "description": "A topical compound that produces a warming sensation and relieves muscle pain."
     },
     "Menthol": {
       "name": "Menthol",
-      "medications": [
-        "Tiger Balm"
-      ],
+      "medications": ["Tiger Balm"],
       "description": "A cooling agent that provides pain relief and soothing sensations on the skin."
     },
     "Cajuput Oil": {
       "name": "Cajuput oil",
-      "medications": [
-        "Tiger Balm"
-      ],
+      "medications": ["Tiger Balm"],
       "description": "An essential oil with antiseptic and analgesic properties used in topical pain relief."
     },
     "Dementholised Mint Oil": {
       "name": "Dementholised Mint Oil",
-      "medications": [
-        "Tiger Balm"
-      ],
+      "medications": ["Tiger Balm"],
       "description": "A refined mint oil that delivers cooling relief without excessive menthol intensity."
     },
     "Clove Oil": {
       "name": "Clove Oil",
-      "medications": [
-        "Tiger Balm"
-      ],
+      "medications": ["Tiger Balm"],
       "description": "An essential oil known for its analgesic and anti-inflammatory effects."
     },
     "Morphine sulfate": {
       "name": "Morphine sulfate",
-      "medications": [
-        "Morphine"
-      ],
+      "medications": ["Morphine"],
       "description": "A potent opioid analgesic used to manage severe pain by acting on opioid receptors."
-    },
-    "Amoxicillin": {
-      "name": "Amoxicillin",
-      "medications": [
-        "Co-amoxiclav"
-      ],
-      "description": "A penicillin antibiotic used to treat bacterial infections."
-    },
-    "Clavulanic acid": {
-      "name": "Clavulanic acid",
-      "medications": [
-        "Co-amoxiclav"
-      ],
-      "description": "A beta-lactamase inhibitor that helps amoxicillin work more effectively against bacteria."
-    },
-    "Hyoscine Butylbromide": {
-      "name": "Hyoscine Butylbromide",
-      "medications": [
-        "Hyoscine Butylbromide"
-      ],
-      "description": "An antispasmodic medication used to relieve abdominal and intestinal cramping"
-    },
-    "Honey": {
-      "name": "Honey",
-      "medications": [
-        "Honey"
-      ],
-      "description": "A sweet, viscous fluid produced by bees from the nectar of flowers."
-    },
-    "Lactic Acid Bacillus": {
-      "name": "Lactic Acid Bacillus",
-      "medications": [
-        "Lactic Acid Bacillus"
-      ],
-      "description": "A probiotic bacteria that helps maintain healthy gut flora"
-    },
-    "Ashwagandha root extract": {
-      "name": "Ashwagandha root extract",
-      "medications": [
-        "Ashwagandha"
-      ],
-      "description": "An herbal medicine used to reduce stress and improve memory."
-    },
-    "Ashwagandha extract": {
-      "name": "Ashwagandha extract",
-      "medications": [
-        "Ashwagandha"
-      ],
-      "description": "An extract from the Ashwagandha plant, known for its adaptogenic properties."
-    },
-    "Irbesartan": {
-      "name": "Irbesartan",
-      "medications": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "description": "An angiotensin II receptor blocker (ARB) used to treat high blood pressure and protect the kidneys in patients with diabetes."
-    },
-    "Hydrochlorothiazide": {
-      "name": "Hydrochlorothiazide",
-      "medications": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "description": "A thiazide diuretic (water pill) that helps prevent your body from absorbing too much salt, which can cause fluid retention."
     }
   },
   "effects": {
     "Nausea": {
       "name": "Nausea",
-      "medicationsCausingIt": [
-        "Tylenol",
-        "Advil",
-        "Excedrin",
-        "Panadol",
-        "Mucinex",
-        "Robitussin",
-        "DayQuil",
-        "PeptoBismol",
-        "Prilosec",
-        "Prozac",
-        "Zoloft",
-        "Tramadol",
-        "Azithromycin",
-        "Morphine",
-        "Co-amoxiclav",
-        "Ashwagandha",
-        "Ibuprofen",
-        "Irbesartan/Hydrochlorothiazide",
-        "Acetaminophen"
-      ],
-      "medicationsTreatingIt": [
-        "PeptoBismol"
-      ],
-      "description": "A feeling of sickness with an inclination to vomit."
+      "medicationsCausingIt": ["Tylenol", "Advil", "Excedrin", "Panadol", "Mucinex", "Robitussin", "DayQuil", "PeptoBismol", "Prilosec", "Prozac", "Zoloft", "Tramadol", "Azithromycin", "Morphine"],
+      "medicationsTreatingIt": ["PeptoBismol"],
+      "description": "An unpleasant stomach sensation involving queasiness and discomfort, often accompanied by an urge to vomit."
     },
     "Dizziness": {
       "name": "Dizziness",
-      "medicationsCausingIt": [
-        "Tylenol",
-        "Advil",
-        "Excedrin",
-        "Benadryl",
-        "Mucinex",
-        "DayQuil",
-        "NyQuil",
-        "Sudafed",
-        "Gabapentin",
-        "Tramadol",
-        "Azithromycin",
-        "Morphine",
-        "Loratadine/Pseudoephedrine",
-        "Ibuprofen",
-        "Irbesartan/Hydrochlorothiazide"
-      ],
+      "medicationsCausingIt": ["Tylenol", "Advil", "Excedrin", "Benadryl", "Mucinex", "DayQuil", "NyQuil", "Sudafed", "Gabapentin", "Tramadol", "Azithromycin", "Morphine"],
       "medicationsTreatingIt": [],
-      "description": "A sensation of spinning around and losing one's balance."
+      "description": "A sensation of lightheadedness, spinning, or imbalance that may affect coordination and increase fall risk."
     },
     "Stomach upset": {
       "name": "Stomach upset",
-      "medicationsCausingIt": [
-        "Advil",
-        "Motrin",
-        "Aleve",
-        "Jamieson Ashwagandha",
-        "Ashwagandha",
-        "Ashwagandha Gummies"
-      ],
-      "medicationsTreatingIt": [
-        "PeptoBismol",
-        "Tums"
-      ],
-      "description": "Discomfort in the stomach, potentially including nausea, vomiting, diarrhea, or constipation."
+      "medicationsCausingIt": ["Advil", "Motrin", "Aleve", "Jamieson Ashwagandha"],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
+      "description": "General stomach discomfort including cramping, bloating, indigestion, or mild pain after eating or medication use."
     },
     "Heartburn": {
       "name": "Heartburn",
-      "medicationsCausingIt": [
-        "Motrin",
-        "Aleve",
-        "Ibuprofen"
-      ],
-      "medicationsTreatingIt": [
-        "Tums",
-        "Prilosec"
-      ],
-      "description": "A burning sensation in the chest, caused by stomach acid refluxing into the esophagus."
+      "medicationsCausingIt": ["Motrin", "Aleve"],
+      "medicationsTreatingIt": ["Tums", "Prilosec"],
+      "description": "A burning chest sensation caused by stomach acid refluxing into the esophagus, often after meals."
     },
     "Drowsiness": {
       "name": "Drowsiness",
-      "medicationsCausingIt": [
-        "Zyrtec",
-        "Benadryl",
-        "Robitussin",
-        "NyQuil",
-        "Xanax",
-        "Lyrica",
-        "Melatonin",
-        "Jamieson Ashwagandha",
-        "Morphine",
-        "Ashwagandha Gummies",
-        "Ashwagandha"
-      ],
+      "medicationsCausingIt": ["Zyrtec", "Benadryl", "Robitussin", "NyQuil", "Xanax", "Lyrica", "Melatonin", "Jamieson Ashwagandha", "Morphine"],
       "medicationsTreatingIt": [],
-      "description": "Feeling sleepy or having difficulty staying awake."
+      "description": "A state of increased sleepiness marked by reduced alertness and slower reaction times."
     },
     "Dry mouth": {
       "name": "Dry mouth",
-      "medicationsCausingIt": [
-        "Zyrtec",
-        "Claritin",
-        "Benadryl",
-        "Loratadine/Pseudoephedrine",
-        "Hyoscine Butylbromide"
-      ],
+      "medicationsCausingIt": ["Zyrtec", "Claritin", "Benadryl"],
       "medicationsTreatingIt": [],
-      "description": "A condition where the mouth feels dry due to reduced saliva flow"
+      "description": "Reduced saliva production causing mouth dryness, difficulty swallowing, and increased risk of dental issues."
     },
     "Insomnia": {
       "name": "Insomnia",
-      "medicationsCausingIt": [
-        "Excedrin",
-        "DayQuil",
-        "Sudafed",
-        "Prozac",
-        "Zoloft",
-        "Adderall",
-        "Ritalin",
-        "Loratadine/Pseudoephedrine"
-      ],
-      "medicationsTreatingIt": [
-        "Melatonin",
-        "Ambien",
-        "Ativan"
-      ],
-      "description": "Difficulty falling or staying asleep"
+      "medicationsCausingIt": ["Excedrin", "DayQuil", "Sudafed", "Prozac", "Zoloft", "Adderall", "Ritalin"],
+      "medicationsTreatingIt": ["Melatonin", "Ambien", "Ativan"],
+      "description": "Difficulty falling asleep, staying asleep, or achieving restorative sleep despite adequate opportunity."
     },
     "Rash": {
       "name": "Rash",
-      "medicationsCausingIt": [
-        "Tylenol",
-        "Panadol",
-        "Tiger Balm"
-      ],
-      "medicationsTreatingIt": [
-        "Benadryl"
-      ],
+      "medicationsCausingIt": ["Tylenol", "Panadol", "Tiger Balm"],
+      "medicationsTreatingIt": ["Benadryl"],
       "description": "An area of irritated skin that may appear red, itchy, inflamed, or covered with small bumps."
     },
     "Headache": {
       "name": "Headache",
-      "medicationsCausingIt": [
-        "Jamieson Ashwagandha",
-        "Azithromycin",
-        "Loratadine/Pseudoephedrine",
-        "Co-amoxiclav",
-        "Ashwagandha Gummies",
-        "Ibuprofen",
-        "Ashwagandha"
-      ],
-      "medicationsTreatingIt": [
-        "Tylenol",
-        "Advil",
-        "Excedrin",
-        "Tiger Balm",
-        "Ibuprofen",
-        "Acetaminophen"
-      ],
-      "description": "Pain in the head."
+      "medicationsCausingIt": ["Jamieson Ashwagandha", "Azithromycin"],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Excedrin", "Tiger Balm"],
+      "description": "Pain or pressure in the head or neck region ranging from mild discomfort to severe throbbing."
     },
     "Fever": {
       "name": "Fever",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tylenol",
-        "Advil",
-        "Motrin",
-        "Panadol",
-        "DayQuil",
-        "NyQuil",
-        "Ibuprofen",
-        "Acetaminophen"
-      ],
-      "description": "A body temperature that is higher than normal."
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Panadol", "DayQuil", "NyQuil"],
+      "description": "An elevation of body temperature, often indicating infection or an inflammatory immune response."
     },
     "Pain": {
       "name": "Pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tylenol",
-        "Advil",
-        "Motrin",
-        "Aleve",
-        "Excedrin",
-        "Panadol",
-        "Morphine",
-        "Acetaminophen"
-      ],
-      "description": "Unpleasant physical sensation."
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Aleve", "Excedrin", "Panadol", "Morphine"],
+      "description": "An unpleasant physical sensation signaling potential or actual tissue damage within the body."
     },
     "Inflammation": {
       "name": "Inflammation",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Advil",
-        "Motrin",
-        "Aleve"
-      ],
+      "medicationsTreatingIt": ["Advil", "Motrin", "Aleve"],
       "description": "A biological response involving swelling, redness, warmth, and pain as part of tissue healing."
     },
     "Allergies": {
       "name": "Allergies",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Zyrtec",
-        "Claritin",
-        "Benadryl",
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "A condition in which the immune system reacts abnormally to a foreign substance."
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "description": "An immune system overreaction to harmless substances such as pollen, dust, or animal dander."
     },
     "Cough": {
       "name": "Cough",
-      "medicationsCausingIt": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "medicationsTreatingIt": [
-        "Robitussin",
-        "DayQuil",
-        "NyQuil",
-        "Loquat Syrup",
-        "Honey"
-      ],
-      "description": "A reflex action to clear your airways of mucus, irritants, or foreign particles"
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Robitussin", "DayQuil", "NyQuil", "Loquat Syrup"],
+      "description": "A reflex action that clears mucus, irritants, or foreign material from the airways."
     },
     "Nasal congestion": {
-      "name": "Nasal congestion",
+      "name": "Nasal Congestion",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "DayQuil",
-        "NyQuil",
-        "Sudafed",
-        "Tiger Balm",
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "Blockage of the nasal passages usually due to membranes lining the nose becoming swollen from inflamed blood vessels"
+      "medicationsTreatingIt": ["DayQuil", "NyQuil", "Sudafed", "Tiger Balm"],
+      "description": "Swelling and blockage of nasal passages that restrict airflow and cause a stuffy nose."
     },
     "Chest congestion": {
       "name": "Chest congestion",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Mucinex",
-        "Robitussin"
-      ],
+      "medicationsTreatingIt": ["Mucinex", "Robitussin"],
       "description": "Mucus accumulation in the lungs or airways that makes breathing and coughing difficult."
     },
     "Acid reflux": {
       "name": "Acid reflux",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Prilosec"
-      ],
+      "medicationsTreatingIt": ["Prilosec"],
       "description": "A digestive condition where stomach acid flows backward into the esophagus, causing irritation."
     },
     "Itchy eyes": {
       "name": "Itchy eyes",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Zyrtec",
-        "Claritin",
-        "Benadryl"
-      ],
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
       "description": "Eye irritation characterized by itching, redness, watering, and discomfort, commonly due to allergies."
     },
     "Sinus pressure": {
       "name": "Sinus pressure",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Sudafed"
-      ],
+      "medicationsTreatingIt": ["Sudafed"],
       "description": "A sensation of fullness or pain around the forehead, cheeks, or eyes due to blocked sinuses."
     },
     "Upset stomach": {
       "name": "Upset stomach",
-      "medicationsCausingIt": [
-        "Ashwagandha",
-        "Ibuprofen"
-      ],
-      "medicationsTreatingIt": [
-        "PeptoBismol",
-        "Tums"
-      ],
-      "description": "Mild digestive issue with symptoms like indigestion or bloating."
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
+      "description": "General digestive discomfort including nausea, bloating, cramping, or indigestion."
     },
     "Diarrhea": {
       "name": "Diarrhea",
-      "medicationsCausingIt": [
-        "Azithromycin",
-        "Co-amoxiclav",
-        "Ashwagandha"
-      ],
-      "medicationsTreatingIt": [
-        "PeptoBismol",
-        "Lactic Acid Bacillus"
-      ],
-      "description": "Frequent bowel movements that are loose or watery."
+      "medicationsCausingIt": ["Azithromycin"],
+      "medicationsTreatingIt": ["PeptoBismol"],
+      "description": "Frequent loose or watery bowel movements that may cause dehydration if persistent."
     },
     "Constipation": {
       "name": "Constipation",
-      "medicationsCausingIt": [
-        "PeptoBismol",
-        "Tums",
-        "Benadryl",
-        "Tramadol",
-        "Imodium",
-        "Morphine",
-        "Hyoscine Butylbromide"
-      ],
-      "medicationsTreatingIt": [
-        "Miralax",
-        "Dulcolax",
-        "Colace",
-        "Senokot",
-        "Metamucil",
-        "Milk of Magnesia",
-        "Linzess",
-        "Amitiza",
-        "Trulance",
-        "Lactulose"
-      ],
-      "description": "Infrequent bowel movements or difficulty passing stools"
+      "medicationsCausingIt": ["PeptoBismol", "Tums", "Benadryl", "Tramadol", "Imodium", "Morphine"],
+      "medicationsTreatingIt": ["Miralax", "Dulcolax", "Colace", "Senokot", "Metamucil", "Milk of Magnesia", "Linzess", "Amitiza", "Trulance", "Lactulose"],
+      "description": "Infrequent or difficult bowel movements often involving hard, dry stools and abdominal discomfort."
     },
     "Dark stools": {
       "name": "Dark stools",
-      "medicationsCausingIt": [
-        "PeptoBismol"
-      ],
+      "medicationsCausingIt": ["PeptoBismol"],
       "medicationsTreatingIt": [],
       "description": "Darkened stool color caused by medication interactions, commonly harmless but sometimes alarming."
     },
     "Anxiety": {
       "name": "Anxiety",
-      "medicationsCausingIt": [
-        "Excedrin",
-        "Lexapro",
-        "Adderall",
-        "Ritalin"
-      ],
-      "medicationsTreatingIt": [
-        "Prozac",
-        "Zoloft",
-        "Lexapro",
-        "Xanax",
-        "Ativan",
-        "Jamieson Ashwagandha"
-      ],
+      "medicationsCausingIt": ["Excedrin", "Lexapro", "Adderall", "Ritalin"],
+      "medicationsTreatingIt": ["Prozac", "Zoloft", "Lexapro", "Xanax", "Ativan", "Jamieson Ashwagandha"],
       "description": "A mental state involving excessive worry, nervousness, or fear that may interfere with daily functioning."
     },
     "Depression": {
       "name": "Depression",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Prozac",
-        "Zoloft",
-        "Lexapro"
-      ],
+      "medicationsTreatingIt": ["Prozac", "Zoloft", "Lexapro"],
       "description": "A mood disorder marked by persistent sadness, low motivation, and diminished interest in activities."
     },
     "Brain fog": {
       "name": "Brain fog",
-      "medicationsCausingIt": [
-        "Gabapentin"
-      ],
+      "medicationsCausingIt": ["Gabapentin"],
       "medicationsTreatingIt": [],
       "description": "Reduced mental clarity characterized by forgetfulness, slowed thinking, and difficulty concentrating."
     },
     "Memory loss": {
       "name": "Memory loss",
-      "medicationsCausingIt": [
-        "Xanax",
-        "Ambien"
-      ],
+      "medicationsCausingIt": ["Xanax", "Ambien"],
       "medicationsTreatingIt": [],
       "description": "Impaired ability to recall recent events, information, or experiences, sometimes temporarily."
     },
     "Hallucinations": {
       "name": "Hallucinations",
-      "medicationsCausingIt": [
-        "Ambien"
-      ],
+      "medicationsCausingIt": ["Ambien"],
       "medicationsTreatingIt": [],
       "description": "Perceiving sights, sounds, or sensations that are not present in reality."
     },
     "Seizures": {
       "name": "Seizures",
-      "medicationsCausingIt": [
-        "Tramadol"
-      ],
-      "medicationsTreatingIt": [
-        "Gabapentin"
-      ],
+      "medicationsCausingIt": ["Tramadol"],
+      "medicationsTreatingIt": ["Gabapentin"],
       "description": "Sudden abnormal electrical activity in the brain causing convulsions or altered consciousness."
     },
     "Weight gain": {
       "name": "Weight gain",
-      "medicationsCausingIt": [
-        "Gabapentin",
-        "Lyrica"
-      ],
+      "medicationsCausingIt": ["Gabapentin", "Lyrica"],
       "medicationsTreatingIt": [],
       "description": "An increase in body weight due to metabolic changes, increased appetite, or fluid retention."
     },
     "Appetite loss": {
       "name": "Appetite loss",
-      "medicationsCausingIt": [
-        "Adderall",
-        "Ritalin"
-      ],
+      "medicationsCausingIt": ["Adderall", "Ritalin"],
       "medicationsTreatingIt": [],
       "description": "Reduced desire to eat, which may lead to unintended weight loss and nutritional imbalance."
     },
     "Emotional blunting": {
       "name": "Emotional blunting",
-      "medicationsCausingIt": [
-        "Prozac"
-      ],
+      "medicationsCausingIt": ["Prozac"],
       "medicationsTreatingIt": [],
       "description": "Diminished emotional responsiveness resulting in muted feelings of joy, sadness, or excitement."
     },
     "Sexual dysfunction": {
       "name": "Sexual dysfunction",
-      "medicationsCausingIt": [
-        "Prozac",
-        "Zoloft",
-        "Lexapro"
-      ],
+      "medicationsCausingIt": ["Prozac", "Zoloft", "Lexapro"],
       "medicationsTreatingIt": [],
       "description": "Difficulties with sexual desire, arousal, or performance often linked to medication effects."
     },
     "OCD": {
       "name": "OCD",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Prozac"
-      ],
+      "medicationsTreatingIt": ["Prozac"],
       "description": "A mental health disorder involving intrusive thoughts and repetitive behaviors performed to reduce anxiety."
     },
     "PTSD": {
       "name": "PTSD",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Zoloft"
-      ],
+      "medicationsTreatingIt": ["Zoloft"],
       "description": "A condition triggered by traumatic events, causing flashbacks, anxiety, and emotional distress."
     },
     "Panic attacks": {
       "name": "Panic attacks",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Xanax"
-      ],
+      "medicationsTreatingIt": ["Xanax"],
       "description": "Sudden episodes of intense fear accompanied by physical symptoms such as chest pain and shortness of breath."
     },
     "ADHD": {
       "name": "ADHD",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Adderall",
-        "Ritalin"
-      ],
+      "medicationsTreatingIt": ["Adderall", "Ritalin"],
       "description": "A neurodevelopmental disorder characterized by inattention, impulsivity, and difficulty sustaining focus."
     },
     "Narcolepsy": {
       "name": "Narcolepsy",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Adderall"
-      ],
+      "medicationsTreatingIt": ["Adderall"],
       "description": "A chronic sleep disorder involving excessive daytime sleepiness and sudden sleep episodes."
     },
     "Nerve pain": {
       "name": "Nerve pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Gabapentin",
-        "Lyrica"
-      ],
+      "medicationsTreatingIt": ["Gabapentin", "Lyrica"],
       "description": "Pain resulting from nerve damage, often described as burning, tingling, or shooting sensations."
     },
     "Fibromyalgia": {
       "name": "Fibromyalgia",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Lyrica"
-      ],
+      "medicationsTreatingIt": ["Lyrica"],
       "description": "A chronic condition causing widespread musculoskeletal pain, fatigue, and heightened pain sensitivity."
     },
     "Moderate pain": {
       "name": "Moderate pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tramadol"
-      ],
+      "medicationsTreatingIt": ["Tramadol"],
       "description": "Pain that is noticeable and uncomfortable but not completely disabling."
     },
     "Sleep disturbance": {
       "name": "Sleep disturbance",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Melatonin"
-      ],
+      "medicationsTreatingIt": ["Melatonin"],
       "description": "Disruption of normal sleep patterns including difficulty falling asleep or staying asleep."
     },
     "Dependence": {
       "name": "Dependence",
-      "medicationsCausingIt": [
-        "Xanax",
-        "Ativan",
-        "Tramadol"
-      ],
+      "medicationsCausingIt": ["Xanax", "Ativan", "Tramadol"],
       "medicationsTreatingIt": [],
       "description": "Physical or psychological reliance on a substance, often accompanied by withdrawal symptoms."
     },
     "Confusion": {
       "name": "Confusion",
-      "medicationsCausingIt": [
-        "Xanax",
-        "Ativan",
-        "Lyrica",
-        "Ambien",
-        "Morphine"
-      ],
+      "medicationsCausingIt": ["Xanax", "Ativan", "Lyrica", "Ambien", "Morphine"],
       "medicationsTreatingIt": [],
       "description": "A mental state involving disorientation, difficulty thinking clearly, and impaired awareness."
     },
     "Sedation": {
       "name": "Sedation",
-      "medicationsCausingIt": [
-        "Ativan"
-      ],
+      "medicationsCausingIt": ["Ativan"],
       "medicationsTreatingIt": [],
       "description": "A calming or sleep-inducing effect that reduces alertness and physical activity."
     },
     "Agitation": {
       "name": "Agitation",
-      "medicationsCausingIt": [
-        "Zoloft"
-      ],
+      "medicationsCausingIt": ["Zoloft"],
       "medicationsTreatingIt": [],
       "description": "A state of restlessness or irritability often accompanied by increased physical or emotional tension."
     },
     "Fatigue": {
       "name": "Fatigue",
-      "medicationsCausingIt": [
-        "Lexapro",
-        "Gabapentin",
-        "Azithromycin",
-        "Irbesartan/Hydrochlorothiazide"
-      ],
+      "medicationsCausingIt": ["Lexapro", "Gabapentin", "Azithromycin"],
       "medicationsTreatingIt": [],
-      "description": "Feeling tired or exhausted"
+      "description": "Persistent tiredness or lack of energy that interferes with normal daily activities."
     },
     "Irritability": {
       "name": "Irritability",
-      "medicationsCausingIt": [
-        "Adderall"
-      ],
+      "medicationsCausingIt": ["Adderall"],
       "medicationsTreatingIt": [],
       "description": "Increased sensitivity to frustration resulting in impatience or anger."
     },
     "Increased heart rate": {
       "name": "Increased heart rate",
-      "medicationsCausingIt": [
-        "Adderall",
-        "Loratadine/Pseudoephedrine"
-      ],
+      "medicationsCausingIt": ["Adderall"],
       "medicationsTreatingIt": [],
-      "description": "Elevation of heart rate above normal levels"
+      "description": "A faster-than-normal heartbeat that may cause palpitations or feelings of nervousness."
     },
     "Nervousness": {
       "name": "Nervousness",
-      "medicationsCausingIt": [
-        "Ritalin",
-        "Loratadine/Pseudoephedrine"
-      ],
+      "medicationsCausingIt": ["Ritalin"],
       "medicationsTreatingIt": [],
-      "description": "A feeling of worry or anxiety"
+      "description": "A feeling of unease or tension often associated with stimulant medications."
     },
     "Edema": {
       "name": "Edema",
-      "medicationsCausingIt": [
-        "Lyrica"
-      ],
+      "medicationsCausingIt": ["Lyrica"],
       "medicationsTreatingIt": [],
       "description": "Swelling caused by fluid retention, commonly affecting the legs, feet, or hands."
     },
     "Vivid dreams": {
       "name": "Vivid dreams",
-      "medicationsCausingIt": [
-        "Melatonin"
-      ],
+      "medicationsCausingIt": ["Melatonin"],
       "medicationsTreatingIt": [],
       "description": "Unusually intense, detailed, or memorable dreams that occur during sleep."
     },
     "Sleepwalking": {
       "name": "Sleepwalking",
-      "medicationsCausingIt": [
-        "Ambien"
-      ],
+      "medicationsCausingIt": ["Ambien"],
       "medicationsTreatingIt": [],
       "description": "Performing activities while asleep with little or no memory of the event."
     },
     "Memory gaps": {
       "name": "Memory gaps",
-      "medicationsCausingIt": [
-        "Ambien"
-      ],
+      "medicationsCausingIt": ["Ambien"],
       "medicationsTreatingIt": [],
       "description": "Periods of missing memory where events cannot be recalled afterward."
     },
     "Stress": {
       "name": "Stress",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Jamieson Ashwagandha",
-        "Ashwagandha",
-        "Ashwagandha Gummies"
-      ],
-      "description": "A state of mental or emotional strain or tension."
+      "medicationsTreatingIt": ["Jamieson Ashwagandha"],
+      "description": "Mental or emotional strain caused by demanding circumstances or perceived pressure."
     },
     "Infections": {
       "name": "Infections",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Dettol"
-      ],
+      "medicationsTreatingIt": ["Dettol"],
       "description": "Illnesses caused by harmful microorganisms entering and multiplying within the body."
     },
     "Germs": {
       "name": "Germs",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Dettol"
-      ],
+      "medicationsTreatingIt": ["Dettol"],
       "description": "Microorganisms such as bacteria and viruses that can cause disease."
     },
     "Loss of Appetite": {
       "name": "Loss of appetite",
-      "medicationsCausingIt": [
-        "Azithromycin",
-        "Acetaminophen"
-      ],
+      "medicationsCausingIt": ["Azithromycin"],
       "medicationsTreatingIt": [],
-      "description": "Reduced desire to eat."
+      "description": "Decreased desire to eat, which may lead to reduced calorie intake."
     },
     "Bacterial infections": {
       "name": "Bacterial infections",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin",
-        "Co-amoxiclav"
-      ],
-      "description": "Infection caused by bacteria."
+      "medicationsTreatingIt": ["Azithromycin"],
+      "description": "Infections caused by bacteria that may affect various body systems."
     },
     "Impaired sense of taste": {
       "name": "Impaired sense of taste",
-      "medicationsCausingIt": [
-        "Azithromycin"
-      ],
+      "medicationsCausingIt": ["Azithromycin"],
       "medicationsTreatingIt": [],
       "description": "Reduced or altered ability to perceive flavors while eating or drinking."
     },
@@ -1971,13 +1497,10 @@
       "description": "Elevated glucose levels in the bloodstream, potentially affecting metabolic health."
     },
     "Sore throat": {
-      "name": "Sore throat",
+      "name": "Sore Throat",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loquat Syrup",
-        "Honey"
-      ],
-      "description": "Pain or irritation in the throat."
+      "medicationsTreatingIt": ["Loquat Syrup"],
+      "description": "Pain, irritation, or scratchiness in the throat, often worsening when swallowing."
     },
     "Allergic reaction in some individuals": {
       "name": "Allergic reaction in some individuals",
@@ -1993,304 +1516,63 @@
     },
     "Skin irritation": {
       "name": "Skin irritation",
-      "medicationsCausingIt": [
-        "Tiger Balm"
-      ],
+      "medicationsCausingIt": ["Tiger Balm"],
       "medicationsTreatingIt": [],
       "description": "Inflammation of the skin causing redness, itching, or discomfort."
     },
     "Redness": {
       "name": "Redness",
-      "medicationsCausingIt": [
-        "Tiger Balm"
-      ],
+      "medicationsCausingIt": ["Tiger Balm"],
       "medicationsTreatingIt": [],
       "description": "Visible reddening of the skin due to increased blood flow or irritation."
     },
     "Itching": {
       "name": "Itching",
-      "medicationsCausingIt": [
-        "Tiger Balm"
-      ],
-      "medicationsTreatingIt": [
-        "Tiger Balm"
-      ],
+      "medicationsCausingIt": ["Tiger Balm"],
+      "medicationsTreatingIt": ["Tiger Balm"],
       "description": "An uncomfortable skin sensation that creates a strong urge to scratch."
     },
     "Muscle pain": {
       "name": "Muscle pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tiger Balm",
-        "Ibuprofen"
-      ],
-      "description": "Pain or soreness in the muscles."
+      "medicationsTreatingIt": ["Tiger Balm"],
+      "description": "Pain or soreness in muscles often caused by strain, overuse, or injury."
     },
     "Joint pain": {
       "name": "Joint pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tiger Balm",
-        "Ibuprofen"
-      ],
-      "description": "Discomfort, pain, or inflammation arising from any part of a joint."
+      "medicationsTreatingIt": ["Tiger Balm"],
+      "description": "Discomfort or aching in joints resulting from inflammation, injury, or arthritis."
     },
     "Insect bites": {
       "name": "Insect bites",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tiger Balm"
-      ],
+      "medicationsTreatingIt": ["Tiger Balm"],
       "description": "Skin reactions caused by insect stings or bites, often resulting in itching and swelling."
     },
     "Burning sensation": {
       "name": "Burning sensation",
-      "medicationsCausingIt": [
-        "Tiger Balm"
-      ],
+      "medicationsCausingIt": ["Tiger Balm"],
       "medicationsTreatingIt": [],
       "description": "A feeling of heat or stinging on the skin following topical application."
     },
     "Respiratory depression": {
       "name": "Respiratory depression",
-      "medicationsCausingIt": [
-        "Morphine"
-      ],
+      "medicationsCausingIt": ["Morphine"],
       "medicationsTreatingIt": [],
       "description": "Slowed or shallow breathing that can be dangerous and requires medical attention."
     },
     "Lightheadedness": {
       "name": "Lightheadedness",
-      "medicationsCausingIt": [
-        "Morphine",
-        "Irbesartan/Hydrochlorothiazide"
-      ],
+      "medicationsCausingIt": ["Morphine"],
       "medicationsTreatingIt": [],
-      "description": "Feeling like you might faint"
+      "description": "A faint or woozy sensation that may occur when standing or moving suddenly."
     },
     "Vomiting": {
       "name": "Vomiting",
-      "medicationsCausingIt": [
-        "Morphine",
-        "Co-amoxiclav",
-        "Azithromycin"
-      ],
+      "medicationsCausingIt": ["Morphine"],
       "medicationsTreatingIt": [],
-      "description": "The act of ejecting stomach contents through the mouth."
-    },
-    "Cold": {
-      "name": "Cold",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "A common viral infection of the upper respiratory tract."
-    },
-    "Increased blood pressure": {
-      "name": "Increased blood pressure",
-      "medicationsCausingIt": [
-        "Loratadine/Pseudoephedrine",
-        "Ibuprofen"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Higher than normal blood pressure reading."
-    },
-    "Allergy": {
-      "name": "Allergy",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loratadine/Pseudoephedrine"
-      ],
-      "description": "An immune response to a foreign substance"
-    },
-    "Abdominal pain": {
-      "name": "Abdominal pain",
-      "medicationsCausingIt": [
-        "Co-amoxiclav",
-        "Azithromycin"
-      ],
-      "medicationsTreatingIt": [
-        "Hyoscine Butylbromide"
-      ],
-      "description": "Pain or discomfort felt in the abdomen."
-    },
-    "Skin rash": {
-      "name": "Skin rash",
-      "medicationsCausingIt": [
-        "Co-amoxiclav"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "An area of irritated or swollen skin"
-    },
-    "Blurred vision": {
-      "name": "Blurred vision",
-      "medicationsCausingIt": [
-        "Hyoscine Butylbromide"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Loss of sharpness of vision, making objects appear out of focus"
-    },
-    "Urinary retention": {
-      "name": "Urinary retention",
-      "medicationsCausingIt": [
-        "Hyoscine Butylbromide"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Inability to empty the bladder completely"
-    },
-    "Intestinal spasms": {
-      "name": "Intestinal spasms",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Hyoscine Butylbromide"
-      ],
-      "description": "Involuntary muscle contractions in the intestines"
-    },
-    "Bladder spasms": {
-      "name": "Bladder spasms",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Hyoscine Butylbromide"
-      ],
-      "description": "Involuntary muscle contractions of the bladder"
-    },
-    "Memory impairment": {
-      "name": "Memory impairment",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Ashwagandha",
-        "Ashwagandha Gummies"
-      ],
-      "description": "Difficulty remembering things"
-    },
-    "Respiratory tract infections": {
-      "name": "Respiratory tract infections",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin"
-      ],
-      "description": "Infections of the respiratory system."
-    },
-    "Skin infections": {
-      "name": "Skin infections",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin"
-      ],
-      "description": "Infections of the skin."
-    },
-    "Ear infections": {
-      "name": "Ear infections",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin"
-      ],
-      "description": "Infections of the ear."
-    },
-    "Throat infection": {
-      "name": "Throat infection",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin"
-      ],
-      "description": "Infection of the throat"
-    },
-    "Flatulence": {
-      "name": "Flatulence",
-      "medicationsCausingIt": [
-        "Lactic Acid Bacillus"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Accumulation of gas in the alimentary canal"
-    },
-    "Bloating": {
-      "name": "Bloating",
-      "medicationsCausingIt": [
-        "Lactic Acid Bacillus"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Swelling or an increase in abdominal size"
-    },
-    "Digestive health": {
-      "name": "Digestive health",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Lactic Acid Bacillus"
-      ],
-      "description": "The state of the digestive system functioning effectively."
-    },
-    "Memory problems": {
-      "name": "Memory problems",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Ashwagandha"
-      ],
-      "description": "Difficulties with recalling information."
-    },
-    "Stomach pain": {
-      "name": "Stomach pain",
-      "medicationsCausingIt": [
-        "Ibuprofen",
-        "Acetaminophen"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Discomfort or pain felt in the abdomen."
-    },
-    "Memory support": {
-      "name": "Memory support",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Ashwagandha"
-      ],
-      "description": "Helps to maintain or improve cognitive functions such as memory and learning."
-    },
-    "Dehydration": {
-      "name": "Dehydration",
-      "medicationsCausingIt": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Excessive loss of body fluids"
-    },
-    "Muscle cramps": {
-      "name": "Muscle cramps",
-      "medicationsCausingIt": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Sudden and involuntary contraction of one or more muscles"
-    },
-    "Increased thirst": {
-      "name": "Increased thirst",
-      "medicationsCausingIt": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Feeling the need to drink more fluids"
-    },
-    "Hypertension": {
-      "name": "Hypertension",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Irbesartan/Hydrochlorothiazide"
-      ],
-      "description": "High blood pressure"
-    },
-    "Jaundice": {
-      "name": "Jaundice",
-      "medicationsCausingIt": [
-        "Acetaminophen"
-      ],
-      "medicationsTreatingIt": [],
-      "description": "Yellowing of the skin and eyes due to liver problems."
-    },
-    "Muscle aches": {
-      "name": "Muscle aches",
-      "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Acetaminophen"
-      ],
-      "description": "Pain in the muscles."
+      "description": "Forceful expulsion of stomach contents through the mouth, often following nausea."
     }
   }
 }

@@ -22,7 +22,7 @@ Analyze the image and extract the following information. Return ONLY valid JSON 
     "<ingredient_name>": {
       "name": "<ingredient_name>",
       "medications": ["<medication_name>"],
-      "description": "Brief description of what this ingredient does"
+      "description": "Brief description of what this ingredient does in 20 words"
     }
   },
   "effects": {
@@ -30,7 +30,7 @@ Analyze the image and extract the following information. Return ONLY valid JSON 
       "name": "<effect_name>",
       "medicationsCausingIt": ["<medication_name>"],
       "medicationsTreatingIt": [],
-      "description": "Brief description of this effect"
+      "description": "Brief description of this effect in 20 words"
     }
   }
 }
