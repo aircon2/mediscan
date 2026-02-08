@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { GraphData, Medication, Ingredient, Effect } from '../types/graph';
 
-const DB_PATH = path.join(__dirname, '../data/db.json');
+const DB_PATH = path.join(__dirname, '../../db.json');
 
 let store: GraphData = {
   medications: {},

@@ -1,30 +1,6 @@
+import type { Effect, GraphData, Ingredient, Medication } from '../types/graph';
+
 const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:5001';
-
-export interface Medication {
-  name: string;
-  ingredients: string[];
-  sideEffects: string[];
-  symptomsTreated: string[];
-}
-
-export interface Ingredient {
-  name: string;
-  medications: string[];
-  description?: string;
-}
-
-export interface Effect {
-  name: string;
-  medicationsCausingIt: string[];
-  medicationsTreatingIt: string[];
-  description?: string;
-}
-
-export interface GraphData {
-  medications?: Record<string, Medication>;
-  ingredients?: Record<string, Ingredient>;
-  effects?: Record<string, Effect>;
-}
 
 export interface SendDataResponse {
   message: string;
@@ -81,6 +57,6 @@ export function searchEffects(keyword: string): Promise<SearchEffectsResponse> {
 }
 
 /** 4. Merge – send JSON from frontend; duplicates are merged into existing, new entities created */
-export function sendData(data: GraphData): Promise<SendDataResponse> {
+export function sendData(data: Partial<GraphData>): Promise<SendDataResponse> {
   return apiPost<SendDataResponse>('/api/data', data);
 }
