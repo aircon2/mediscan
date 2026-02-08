@@ -3,242 +3,182 @@
     "Tylenol": {
       "name": "Tylenol",
       "ingredients": ["Acetaminophen"],
-      "sideEffects": ["Nausea", "Liver damage", "Rash"],
-      "symptomsTreated": ["Pain", "Fever", "Headache", "Muscle aches"]
+      "sideEffects": ["Nausea", "Rash", "Dizziness"],
+      "symptomsTreated": ["Pain", "Fever", "Headache"]
     },
     "Advil": {
       "name": "Advil",
       "ingredients": ["Ibuprofen"],
-      "sideEffects": ["Stomach upset", "Nausea", "Heartburn", "Dizziness"],
-      "symptomsTreated": ["Pain", "Fever", "Inflammation", "Headache", "Arthritis"]
+      "sideEffects": ["Stomach upset", "Nausea", "Dizziness"],
+      "symptomsTreated": ["Pain", "Fever", "Inflammation"]
     },
     "Motrin": {
       "name": "Motrin",
       "ingredients": ["Ibuprofen"],
-      "sideEffects": ["Stomach upset", "Heartburn", "Dizziness"],
-      "symptomsTreated": ["Pain", "Fever", "Inflammation", "Muscle aches"]
+      "sideEffects": ["Stomach upset", "Heartburn"],
+      "symptomsTreated": ["Pain", "Fever", "Inflammation"]
     },
     "Aleve": {
       "name": "Aleve",
       "ingredients": ["Naproxen"],
-      "sideEffects": ["Stomach upset", "Heartburn", "Drowsiness"],
-      "symptomsTreated": ["Pain", "Inflammation", "Arthritis", "Back pain"]
+      "sideEffects": ["Stomach upset", "Heartburn"],
+      "symptomsTreated": ["Pain", "Inflammation"]
     },
     "Excedrin": {
       "name": "Excedrin",
       "ingredients": ["Acetaminophen", "Aspirin", "Caffeine"],
-      "sideEffects": ["Nausea", "Insomnia", "Dizziness", "Anxiety", "Jitteriness"],
-      "symptomsTreated": ["Headache", "Migraine", "Pain"]
+      "sideEffects": ["Nausea", "Insomnia", "Dizziness", "Anxiety"],
+      "symptomsTreated": ["Headache", "Pain"]
     },
-    "Aspirin": {
-      "name": "Aspirin",
-      "ingredients": ["Acetylsalicylic acid"],
-      "sideEffects": ["Stomach upset", "Heartburn", "Bleeding", "Rash"],
-      "symptomsTreated": ["Pain", "Fever", "Inflammation", "Heart attack prevention"]
+    "Panadol": {
+      "name": "Panadol",
+      "ingredients": ["Acetaminophen"],
+      "sideEffects": ["Nausea", "Rash"],
+      "symptomsTreated": ["Pain", "Fever"]
     },
     "Zyrtec": {
       "name": "Zyrtec",
       "ingredients": ["Cetirizine"],
-      "sideEffects": ["Drowsiness", "Dry mouth", "Fatigue"],
-      "symptomsTreated": ["Allergies", "Hay fever", "Itchy eyes", "Runny nose", "Hives"]
+      "sideEffects": ["Drowsiness", "Dry mouth"],
+      "symptomsTreated": ["Allergies", "Itchy eyes"]
     },
     "Claritin": {
       "name": "Claritin",
       "ingredients": ["Loratadine"],
-      "sideEffects": ["Headache", "Dry mouth", "Fatigue"],
-      "symptomsTreated": ["Allergies", "Hay fever", "Itchy eyes", "Runny nose"]
+      "sideEffects": ["Headache", "Dry mouth"],
+      "symptomsTreated": ["Allergies", "Itchy eyes"]
     },
     "Benadryl": {
       "name": "Benadryl",
       "ingredients": ["Diphenhydramine"],
-      "sideEffects": ["Drowsiness", "Dry mouth", "Dizziness", "Confusion"],
-      "symptomsTreated": ["Allergies", "Itchy eyes", "Rash", "Hives", "Insomnia"]
-    },
-    "Sudafed": {
-      "name": "Sudafed",
-      "ingredients": ["Pseudoephedrine"],
-      "sideEffects": ["Insomnia", "Anxiety", "Dizziness", "Increased heart rate"],
-      "symptomsTreated": ["Nasal congestion", "Sinus pressure"]
+      "sideEffects": ["Drowsiness", "Dry mouth", "Dizziness", "Constipation"],
+      "symptomsTreated": ["Allergies", "Itchy eyes", "Rash"]
     },
     "Mucinex": {
       "name": "Mucinex",
       "ingredients": ["Guaifenesin"],
-      "sideEffects": ["Nausea", "Dizziness", "Headache"],
-      "symptomsTreated": ["Chest congestion", "Cough", "Mucus"]
+      "sideEffects": ["Nausea", "Dizziness"],
+      "symptomsTreated": ["Chest congestion", "Cough"]
     },
     "Robitussin": {
       "name": "Robitussin",
       "ingredients": ["Dextromethorphan", "Guaifenesin"],
-      "sideEffects": ["Drowsiness", "Nausea", "Dizziness"],
+      "sideEffects": ["Drowsiness", "Nausea"],
       "symptomsTreated": ["Cough", "Chest congestion"]
     },
     "DayQuil": {
       "name": "DayQuil",
       "ingredients": ["Acetaminophen", "Dextromethorphan", "Phenylephrine"],
-      "sideEffects": ["Dizziness", "Insomnia", "Nausea", "Anxiety"],
-      "symptomsTreated": ["Cough", "Fever", "Nasal congestion", "Sore throat", "Headache"]
+      "sideEffects": ["Dizziness", "Insomnia", "Nausea"],
+      "symptomsTreated": ["Cough", "Fever", "Nasal congestion"]
     },
     "NyQuil": {
       "name": "NyQuil",
       "ingredients": ["Acetaminophen", "Dextromethorphan", "Doxylamine"],
-      "sideEffects": ["Drowsiness", "Dizziness", "Dry mouth"],
-      "symptomsTreated": ["Cough", "Fever", "Nasal congestion", "Sore throat", "Insomnia"]
+      "sideEffects": ["Drowsiness", "Dizziness"],
+      "symptomsTreated": ["Cough", "Fever", "Nasal congestion"]
     },
-    "Pepto-Bismol": {
-      "name": "Pepto-Bismol",
+    "Sudafed": {
+      "name": "Sudafed",
+      "ingredients": ["Pseudoephedrine"],
+      "sideEffects": ["Insomnia", "Dizziness"],
+      "symptomsTreated": ["Nasal congestion", "Sinus pressure"]
+    },
+    "PeptoBismol": {
+      "name": "PeptoBismol",
       "ingredients": ["Bismuth subsalicylate"],
       "sideEffects": ["Dark stools", "Nausea", "Constipation"],
-      "symptomsTreated": ["Upset stomach", "Diarrhea", "Nausea", "Heartburn"]
+      "symptomsTreated": ["Upset stomach", "Diarrhea"]
     },
     "Tums": {
       "name": "Tums",
       "ingredients": ["Calcium carbonate"],
-      "sideEffects": ["Constipation", "Gas"],
-      "symptomsTreated": ["Heartburn", "Upset stomach", "Acid reflux"]
+      "sideEffects": ["Constipation"],
+      "symptomsTreated": ["Heartburn", "Upset stomach"]
     },
     "Prilosec": {
       "name": "Prilosec",
       "ingredients": ["Omeprazole"],
-      "sideEffects": ["Headache", "Nausea", "Diarrhea", "Stomach pain"],
-      "symptomsTreated": ["Heartburn", "Acid reflux", "GERD"]
-    },
-    "Zantac": {
-      "name": "Zantac",
-      "ingredients": ["Ranitidine"],
-      "sideEffects": ["Headache", "Dizziness", "Constipation"],
-      "symptomsTreated": ["Heartburn", "Acid reflux", "Stomach ulcers"]
+      "sideEffects": ["Headache", "Nausea"],
+      "symptomsTreated": ["Heartburn", "Acid reflux"]
     },
     "Prozac": {
       "name": "Prozac",
       "ingredients": ["Fluoxetine"],
-      "sideEffects": ["Nausea", "Insomnia", "Anxiety", "Headache", "Sexual dysfunction", "Weight gain"],
-      "symptomsTreated": ["Depression", "Anxiety", "OCD", "Panic attacks"]
+      "sideEffects": ["Nausea", "Insomnia", "Anxiety", "Emotional blunting", "Sexual dysfunction"],
+      "symptomsTreated": ["Depression", "Anxiety", "OCD"]
     },
     "Zoloft": {
       "name": "Zoloft",
       "ingredients": ["Sertraline"],
-      "sideEffects": ["Nausea", "Diarrhea", "Insomnia", "Sexual dysfunction", "Dizziness"],
-      "symptomsTreated": ["Depression", "Anxiety", "PTSD", "OCD"]
+      "sideEffects": ["Nausea", "Diarrhea", "Insomnia", "Sexual dysfunction", "Agitation"],
+      "symptomsTreated": ["Depression", "Anxiety", "PTSD"]
     },
     "Lexapro": {
       "name": "Lexapro",
       "ingredients": ["Escitalopram"],
-      "sideEffects": ["Fatigue", "Anxiety", "Sexual dysfunction", "Nausea"],
+      "sideEffects": ["Fatigue", "Anxiety", "Sexual dysfunction"],
       "symptomsTreated": ["Depression", "Anxiety"]
     },
     "Xanax": {
       "name": "Xanax",
       "ingredients": ["Alprazolam"],
-      "sideEffects": ["Drowsiness", "Dizziness", "Memory loss", "Confusion", "Dependence"],
-      "symptomsTreated": ["Anxiety", "Panic attacks", "Insomnia"]
+      "sideEffects": ["Drowsiness", "Dependence", "Memory loss", "Confusion"],
+      "symptomsTreated": ["Anxiety", "Panic attacks"]
     },
     "Ativan": {
       "name": "Ativan",
       "ingredients": ["Lorazepam"],
-      "sideEffects": ["Drowsiness", "Dizziness", "Confusion", "Dependence"],
-      "symptomsTreated": ["Anxiety", "Insomnia", "Panic attacks"]
+      "sideEffects": ["Sedation", "Confusion", "Dependence"],
+      "symptomsTreated": ["Anxiety", "Insomnia"]
     },
     "Adderall": {
       "name": "Adderall",
-      "ingredients": ["Amphetamine", "Dextroamphetamine"],
-      "sideEffects": ["Insomnia", "Anxiety", "Appetite loss", "Irritability", "Increased heart rate", "Headache"],
-      "symptomsTreated": ["ADHD", "Narcolepsy", "Fatigue"]
+      "ingredients": ["Amphetamine salts"],
+      "sideEffects": ["Insomnia", "Anxiety", "Appetite loss", "Irritability", "Increased heart rate"],
+      "symptomsTreated": ["ADHD", "Narcolepsy"]
     },
     "Ritalin": {
       "name": "Ritalin",
       "ingredients": ["Methylphenidate"],
-      "sideEffects": ["Insomnia", "Anxiety", "Appetite loss", "Headache", "Stomach pain"],
-      "symptomsTreated": ["ADHD", "Narcolepsy"]
-    },
-    "Concerta": {
-      "name": "Concerta",
-      "ingredients": ["Methylphenidate"],
-      "sideEffects": ["Insomnia", "Appetite loss", "Anxiety", "Dizziness", "Headache"],
+      "sideEffects": ["Nervousness", "Insomnia", "Appetite loss", "Anxiety"],
       "symptomsTreated": ["ADHD"]
-    },
-    "Strattera": {
-      "name": "Strattera",
-      "ingredients": ["Atomoxetine"],
-      "sideEffects": ["Nausea", "Appetite loss", "Fatigue", "Dizziness", "Mood swings"],
-      "symptomsTreated": ["ADHD"]
-    },
-    "Wellbutrin": {
-      "name": "Wellbutrin",
-      "ingredients": ["Bupropion"],
-      "sideEffects": ["Insomnia", "Headache", "Nausea", "Anxiety", "Dry mouth"],
-      "symptomsTreated": ["Depression", "Smoking cessation", "ADHD"]
-    },
-    "Ambien": {
-      "name": "Ambien",
-      "ingredients": ["Zolpidem"],
-      "sideEffects": ["Drowsiness", "Dizziness", "Sleepwalking", "Memory loss", "Confusion"],
-      "symptomsTreated": ["Insomnia"]
-    },
-    "Melatonin": {
-      "name": "Melatonin",
-      "ingredients": ["Melatonin"],
-      "sideEffects": ["Drowsiness", "Vivid dreams", "Headache"],
-      "symptomsTreated": ["Insomnia", "Jet lag", "Sleep disorders"]
     },
     "Gabapentin": {
       "name": "Gabapentin",
       "ingredients": ["Gabapentin"],
-      "sideEffects": ["Dizziness", "Drowsiness", "Fatigue", "Weight gain", "Confusion"],
-      "symptomsTreated": ["Nerve pain", "Seizures", "Anxiety"]
+      "sideEffects": ["Dizziness", "Brain fog", "Fatigue", "Weight gain"],
+      "symptomsTreated": ["Nerve pain", "Seizures"]
     },
     "Lyrica": {
       "name": "Lyrica",
       "ingredients": ["Pregabalin"],
-      "sideEffects": ["Dizziness", "Drowsiness", "Weight gain", "Confusion"],
-      "symptomsTreated": ["Nerve pain", "Fibromyalgia", "Seizures", "Anxiety"]
+      "sideEffects": ["Weight gain", "Drowsiness", "Confusion", "Edema"],
+      "symptomsTreated": ["Fibromyalgia", "Nerve pain"]
     },
     "Tramadol": {
       "name": "Tramadol",
       "ingredients": ["Tramadol"],
-      "sideEffects": ["Nausea", "Dizziness", "Drowsiness", "Constipation", "Dependence"],
-      "symptomsTreated": ["Pain", "Chronic pain"]
+      "sideEffects": ["Nausea", "Dizziness", "Dependence", "Seizures", "Constipation"],
+      "symptomsTreated": ["Moderate pain"]
     },
-    "Oxycodone": {
-      "name": "Oxycodone",
-      "ingredients": ["Oxycodone"],
-      "sideEffects": ["Nausea", "Drowsiness", "Constipation", "Dizziness", "Dependence"],
-      "symptomsTreated": ["Pain", "Chronic pain", "Post-surgery pain"]
+    "Melatonin": {
+      "name": "Melatonin",
+      "ingredients": ["Melatonin"],
+      "sideEffects": ["Drowsiness", "Vivid dreams"],
+      "symptomsTreated": ["Insomnia", "Sleep disturbance"]
     },
-    "Vicodin": {
-      "name": "Vicodin",
-      "ingredients": ["Hydrocodone", "Acetaminophen"],
-      "sideEffects": ["Nausea", "Drowsiness", "Constipation", "Dizziness", "Dependence"],
-      "symptomsTreated": ["Pain", "Chronic pain"]
+    "Ambien": {
+      "name": "Ambien",
+      "ingredients": ["Zolpidem"],
+      "sideEffects": ["Sleepwalking", "Memory gaps", "Confusion", "Hallucinations"],
+      "symptomsTreated": ["Insomnia"]
     },
-    "Metformin": {
-      "name": "Metformin",
-      "ingredients": ["Metformin"],
-      "sideEffects": ["Nausea", "Diarrhea", "Stomach pain", "Weight loss"],
-      "symptomsTreated": ["Diabetes", "Blood sugar control"]
-    },
-    "Lipitor": {
-      "name": "Lipitor",
-      "ingredients": ["Atorvastatin"],
-      "sideEffects": ["Muscle pain", "Headache", "Nausea", "Fatigue"],
-      "symptomsTreated": ["High cholesterol", "Heart disease prevention"]
-    },
-    "Synthroid": {
-      "name": "Synthroid",
-      "ingredients": ["Levothyroxine"],
-      "sideEffects": ["Insomnia", "Anxiety", "Weight loss", "Increased heart rate", "Headache"],
-      "symptomsTreated": ["Hypothyroidism", "Fatigue"]
-    },
-    "Prednisone": {
-      "name": "Prednisone",
-      "ingredients": ["Prednisone"],
-      "sideEffects": ["Weight gain", "Insomnia", "Mood swings", "Increased heart rate", "Anxiety"],
-      "symptomsTreated": ["Inflammation", "Allergies", "Arthritis", "Asthma"]
-    },
-    "Albuterol": {
-      "name": "Albuterol",
-      "ingredients": ["Albuterol"],
-      "sideEffects": ["Jitteriness", "Anxiety", "Increased heart rate", "Headache"],
-      "symptomsTreated": ["Asthma", "Breathing problems"]
+    "Imodium": {
+      "name": "Imodium",
+      "ingredients": ["Loperamide"],
+      "sideEffects": ["Constipation", "Drowsiness", "Nausea"],
+      "symptomsTreated": ["Diarrhea", "Upset stomach"]
     },
     "Miralax": {
       "name": "Miralax",
@@ -275,18 +215,42 @@
       "ingredients": ["Magnesium hydroxide"],
       "sideEffects": ["Diarrhea", "Nausea"],
       "symptomsTreated": ["Constipation", "Upset stomach"]
+    },
+    "Linzess": {
+      "name": "Linzess",
+      "ingredients": ["Linaclotide"],
+      "sideEffects": ["Diarrhea", "Abdominal pain", "Bloating"],
+      "symptomsTreated": ["Constipation", "IBS-C"]
+    },
+    "Amitiza": {
+      "name": "Amitiza",
+      "ingredients": ["Lubiprostone"],
+      "sideEffects": ["Nausea", "Diarrhea", "Abdominal pain"],
+      "symptomsTreated": ["Constipation", "IBS-C"]
+    },
+    "Trulance": {
+      "name": "Trulance",
+      "ingredients": ["Plecanatide"],
+      "sideEffects": ["Diarrhea", "Bloating"],
+      "symptomsTreated": ["Constipation", "IBS-C"]
+    },
+    "Lactulose": {
+      "name": "Lactulose",
+      "ingredients": ["Lactulose"],
+      "sideEffects": ["Bloating", "Gas", "Diarrhea"],
+      "symptomsTreated": ["Constipation"]
     }
   },
   "ingredients": {
     "Acetaminophen": {
       "name": "Acetaminophen",
-      "medications": ["Tylenol", "Excedrin", "DayQuil", "NyQuil", "Vicodin"],
+      "medications": ["Tylenol", "Panadol", "Excedrin", "DayQuil", "NyQuil"],
       "description": "Pain reliever and fever reducer."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
       "medications": ["Advil", "Motrin"],
-      "description": "NSAID used for pain, fever, and inflammation."
+      "description": "Nonsteroidal anti-inflammatory drug (NSAID)."
     },
     "Naproxen": {
       "name": "Naproxen",
@@ -298,35 +262,25 @@
       "medications": ["Excedrin"],
       "description": "Pain reliever and anti-inflammatory."
     },
-    "Acetylsalicylic acid": {
-      "name": "Acetylsalicylic acid",
-      "medications": ["Aspirin"],
-      "description": "Chemical name for aspirin."
-    },
     "Caffeine": {
       "name": "Caffeine",
       "medications": ["Excedrin"],
-      "description": "Stimulant that enhances pain relief."
+      "description": "Stimulant that can enhance pain relief."
     },
     "Cetirizine": {
       "name": "Cetirizine",
       "medications": ["Zyrtec"],
-      "description": "Antihistamine for allergies."
+      "description": "Antihistamine used for allergy relief."
     },
     "Loratadine": {
       "name": "Loratadine",
       "medications": ["Claritin"],
-      "description": "Non-drowsy antihistamine."
+      "description": "Antihistamine used for allergy relief."
     },
     "Diphenhydramine": {
       "name": "Diphenhydramine",
       "medications": ["Benadryl"],
-      "description": "Antihistamine that causes drowsiness."
-    },
-    "Pseudoephedrine": {
-      "name": "Pseudoephedrine",
-      "medications": ["Sudafed"],
-      "description": "Decongestant for nasal congestion."
+      "description": "Antihistamine that can cause drowsiness."
     },
     "Guaifenesin": {
       "name": "Guaifenesin",
@@ -341,16 +295,21 @@
     "Phenylephrine": {
       "name": "Phenylephrine",
       "medications": ["DayQuil"],
-      "description": "Decongestant."
+      "description": "Decongestant for nasal congestion."
     },
     "Doxylamine": {
       "name": "Doxylamine",
       "medications": ["NyQuil"],
-      "description": "Antihistamine for nighttime relief."
+      "description": "Antihistamine used for nighttime relief."
+    },
+    "Pseudoephedrine": {
+      "name": "Pseudoephedrine",
+      "medications": ["Sudafed"],
+      "description": "Decongestant for sinus pressure."
     },
     "Bismuth subsalicylate": {
       "name": "Bismuth subsalicylate",
-      "medications": ["Pepto-Bismol"],
+      "medications": ["PeptoBismol"],
       "description": "Relieves upset stomach and diarrhea."
     },
     "Calcium carbonate": {
@@ -362,11 +321,6 @@
       "name": "Omeprazole",
       "medications": ["Prilosec"],
       "description": "Proton pump inhibitor for acid reflux."
-    },
-    "Ranitidine": {
-      "name": "Ranitidine",
-      "medications": ["Zantac"],
-      "description": "H2 blocker for heartburn."
     },
     "Fluoxetine": {
       "name": "Fluoxetine",
@@ -386,47 +340,22 @@
     "Alprazolam": {
       "name": "Alprazolam",
       "medications": ["Xanax"],
-      "description": "Benzodiazepine for anxiety."
+      "description": "Benzodiazepine anxiolytic."
     },
     "Lorazepam": {
       "name": "Lorazepam",
       "medications": ["Ativan"],
       "description": "Benzodiazepine sedative."
     },
-    "Amphetamine": {
-      "name": "Amphetamine",
+    "Amphetamine salts": {
+      "name": "Amphetamine salts",
       "medications": ["Adderall"],
-      "description": "Stimulant for ADHD."
-    },
-    "Dextroamphetamine": {
-      "name": "Dextroamphetamine",
-      "medications": ["Adderall"],
-      "description": "Stimulant component."
+      "description": "Central nervous system stimulant."
     },
     "Methylphenidate": {
       "name": "Methylphenidate",
-      "medications": ["Ritalin", "Concerta"],
+      "medications": ["Ritalin"],
       "description": "Stimulant for ADHD."
-    },
-    "Atomoxetine": {
-      "name": "Atomoxetine",
-      "medications": ["Strattera"],
-      "description": "Non-stimulant ADHD medication."
-    },
-    "Bupropion": {
-      "name": "Bupropion",
-      "medications": ["Wellbutrin"],
-      "description": "Antidepressant and smoking cessation aid."
-    },
-    "Zolpidem": {
-      "name": "Zolpidem",
-      "medications": ["Ambien"],
-      "description": "Sleep medication."
-    },
-    "Melatonin": {
-      "name": "Melatonin",
-      "medications": ["Melatonin"],
-      "description": "Natural sleep hormone."
     },
     "Gabapentin": {
       "name": "Gabapentin",
@@ -436,47 +365,27 @@
     "Pregabalin": {
       "name": "Pregabalin",
       "medications": ["Lyrica"],
-      "description": "Nerve pain and fibromyalgia medication."
+      "description": "Medication for fibromyalgia and nerve pain."
     },
     "Tramadol": {
       "name": "Tramadol",
       "medications": ["Tramadol"],
       "description": "Opioid-like pain medication."
     },
-    "Oxycodone": {
-      "name": "Oxycodone",
-      "medications": ["Oxycodone"],
-      "description": "Opioid pain medication."
+    "Melatonin": {
+      "name": "Melatonin",
+      "medications": ["Melatonin"],
+      "description": "Hormone that regulates sleep-wake cycle."
     },
-    "Hydrocodone": {
-      "name": "Hydrocodone",
-      "medications": ["Vicodin"],
-      "description": "Opioid pain medication."
+    "Zolpidem": {
+      "name": "Zolpidem",
+      "medications": ["Ambien"],
+      "description": "Sedative-hypnotic sleep medication."
     },
-    "Metformin": {
-      "name": "Metformin",
-      "medications": ["Metformin"],
-      "description": "Diabetes medication."
-    },
-    "Atorvastatin": {
-      "name": "Atorvastatin",
-      "medications": ["Lipitor"],
-      "description": "Cholesterol-lowering statin."
-    },
-    "Levothyroxine": {
-      "name": "Levothyroxine",
-      "medications": ["Synthroid"],
-      "description": "Thyroid hormone replacement."
-    },
-    "Prednisone": {
-      "name": "Prednisone",
-      "medications": ["Prednisone"],
-      "description": "Corticosteroid anti-inflammatory."
-    },
-    "Albuterol": {
-      "name": "Albuterol",
-      "medications": ["Albuterol"],
-      "description": "Bronchodilator for asthma."
+    "Loperamide": {
+      "name": "Loperamide",
+      "medications": ["Imodium"],
+      "description": "Anti-diarrheal that slows gut movement."
     },
     "Polyethylene glycol 3350": {
       "name": "Polyethylene glycol 3350",
@@ -507,18 +416,163 @@
       "name": "Magnesium hydroxide",
       "medications": ["Milk of Magnesia"],
       "description": "Osmotic laxative and antacid."
+    },
+    "Linaclotide": {
+      "name": "Linaclotide",
+      "medications": ["Linzess"],
+      "description": "Guanylate cyclase-C agonist for constipation."
+    },
+    "Lubiprostone": {
+      "name": "Lubiprostone",
+      "medications": ["Amitiza"],
+      "description": "Chloride channel activator for constipation."
+    },
+    "Plecanatide": {
+      "name": "Plecanatide",
+      "medications": ["Trulance"],
+      "description": "Guanylate cyclase-C agonist for constipation."
+    },
+    "Lactulose": {
+      "name": "Lactulose",
+      "medications": ["Lactulose"],
+      "description": "Osmotic laxative for constipation."
     }
   },
   "effects": {
+    "Nausea": {
+      "name": "Nausea",
+      "medicationsCausingIt": ["Tylenol", "Advil", "Excedrin", "Panadol", "Mucinex", "Robitussin", "DayQuil", "PeptoBismol", "Prilosec", "Prozac", "Zoloft", "Tramadol"],
+      "medicationsTreatingIt": ["PeptoBismol"],
+      "description": "Upset stomach or feeling like you might vomit."
+    },
+    "Dizziness": {
+      "name": "Dizziness",
+      "medicationsCausingIt": ["Tylenol", "Advil", "Excedrin", "Benadryl", "Mucinex", "DayQuil", "NyQuil", "Sudafed", "Gabapentin", "Tramadol"],
+      "medicationsTreatingIt": [],
+      "description": "Feeling lightheaded or unsteady."
+    },
+    "Stomach upset": {
+      "name": "Stomach upset",
+      "medicationsCausingIt": ["Advil", "Motrin", "Aleve"],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
+      "description": "Stomach irritation or discomfort."
+    },
+    "Heartburn": {
+      "name": "Heartburn",
+      "medicationsCausingIt": ["Motrin", "Aleve"],
+      "medicationsTreatingIt": ["Tums", "Prilosec"],
+      "description": "Burning sensation in the chest."
+    },
+    "Drowsiness": {
+      "name": "Drowsiness",
+      "medicationsCausingIt": ["Zyrtec", "Benadryl", "Robitussin", "NyQuil", "Xanax", "Lyrica", "Melatonin"],
+      "medicationsTreatingIt": [],
+      "description": "Feeling sleepy or less alert."
+    },
+    "Dry mouth": {
+      "name": "Dry mouth",
+      "medicationsCausingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "medicationsTreatingIt": [],
+      "description": "Reduced saliva leading to a dry mouth."
+    },
+    "Insomnia": {
+      "name": "Insomnia",
+      "medicationsCausingIt": ["Excedrin", "DayQuil", "Sudafed", "Prozac", "Zoloft", "Adderall", "Ritalin"],
+      "medicationsTreatingIt": ["Melatonin", "Ambien", "Ativan"],
+      "description": "Difficulty falling or staying asleep."
+    },
+    "Rash": {
+      "name": "Rash",
+      "medicationsCausingIt": ["Tylenol", "Panadol"],
+      "medicationsTreatingIt": ["Benadryl"],
+      "description": "Skin irritation or hives."
+    },
+    "Headache": {
+      "name": "Headache",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Excedrin"],
+      "description": "Pain in the head or upper neck."
+    },
+    "Fever": {
+      "name": "Fever",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Panadol", "DayQuil", "NyQuil"],
+      "description": "Elevated body temperature."
+    },
+    "Pain": {
+      "name": "Pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Aleve", "Excedrin", "Panadol"],
+      "description": "General discomfort or soreness."
+    },
+    "Inflammation": {
+      "name": "Inflammation",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Advil", "Motrin", "Aleve"],
+      "description": "Swelling or irritation in tissues."
+    },
+    "Allergies": {
+      "name": "Allergies",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "description": "Immune reaction to allergens."
+    },
+    "Cough": {
+      "name": "Cough",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Robitussin", "DayQuil", "NyQuil"],
+      "description": "Reflex to clear the throat or airways."
+    },
+    "Nasal congestion": {
+      "name": "Nasal congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["DayQuil", "NyQuil", "Sudafed"],
+      "description": "Blocked or stuffy nose."
+    },
+    "Chest congestion": {
+      "name": "Chest congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Mucinex", "Robitussin"],
+      "description": "Mucus buildup in the chest."
+    },
+    "Acid reflux": {
+      "name": "Acid reflux",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Prilosec"],
+      "description": "Stomach acid flowing back into the esophagus."
+    },
+    "Itchy eyes": {
+      "name": "Itchy eyes",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "description": "Irritated, itchy eyes due to allergies."
+    },
+    "Sinus pressure": {
+      "name": "Sinus pressure",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Sudafed"],
+      "description": "Pressure in the sinus cavities."
+    },
+    "Upset stomach": {
+      "name": "Upset stomach",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
+      "description": "General stomach discomfort."
+    },
+    "Diarrhea": {
+      "name": "Diarrhea",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["PeptoBismol"],
+      "description": "Loose or watery stools."
+    },
     "Constipation": {
       "name": "Constipation",
       "medicationsCausingIt": [
-        "Pepto-Bismol",
+        "PeptoBismol",
         "Tums",
-        "Zantac",
+        "Benadryl",
         "Tramadol",
-        "Oxycodone",
-        "Vicodin"
+        "Imodium"
       ],
       "medicationsTreatingIt": [
         "Miralax",
@@ -526,9 +580,205 @@
         "Colace",
         "Senokot",
         "Metamucil",
-        "Milk of Magnesia"
+        "Milk of Magnesia",
+        "Linzess",
+        "Amitiza",
+        "Trulance",
+        "Lactulose"
       ],
       "description": "Difficulty passing stools or infrequent bowel movements."
+    },
+    "Dark stools": {
+      "name": "Dark stools",
+      "medicationsCausingIt": ["PeptoBismol"],
+      "medicationsTreatingIt": [],
+      "description": "Darkening of stool color."
+    },
+    "Anxiety": {
+      "name": "Anxiety",
+      "medicationsCausingIt": ["Excedrin", "Lexapro", "Adderall", "Ritalin"],
+      "medicationsTreatingIt": ["Prozac", "Zoloft", "Lexapro", "Xanax", "Ativan"],
+      "description": "Persistent nervousness or fear."
+    },
+    "Depression": {
+      "name": "Depression",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Prozac", "Zoloft", "Lexapro"],
+      "description": "Low mood and loss of interest."
+    },
+    "Brain fog": {
+      "name": "Brain fog",
+      "medicationsCausingIt": ["Gabapentin"],
+      "medicationsTreatingIt": [],
+      "description": "Reduced mental clarity."
+    },
+    "Memory loss": {
+      "name": "Memory loss",
+      "medicationsCausingIt": ["Xanax", "Ambien"],
+      "medicationsTreatingIt": [],
+      "description": "Difficulty remembering information."
+    },
+    "Hallucinations": {
+      "name": "Hallucinations",
+      "medicationsCausingIt": ["Ambien"],
+      "medicationsTreatingIt": [],
+      "description": "Perceiving things that are not present."
+    },
+    "Seizures": {
+      "name": "Seizures",
+      "medicationsCausingIt": ["Tramadol"],
+      "medicationsTreatingIt": ["Gabapentin"],
+      "description": "Abnormal electrical activity in the brain."
+    },
+    "Weight gain": {
+      "name": "Weight gain",
+      "medicationsCausingIt": ["Gabapentin", "Lyrica"],
+      "medicationsTreatingIt": [],
+      "description": "Increase in body weight."
+    },
+    "Appetite loss": {
+      "name": "Appetite loss",
+      "medicationsCausingIt": ["Adderall", "Ritalin"],
+      "medicationsTreatingIt": [],
+      "description": "Reduced desire to eat."
+    },
+    "Emotional blunting": {
+      "name": "Emotional blunting",
+      "medicationsCausingIt": ["Prozac"],
+      "medicationsTreatingIt": [],
+      "description": "Reduced emotional responsiveness."
+    },
+    "Sexual dysfunction": {
+      "name": "Sexual dysfunction",
+      "medicationsCausingIt": ["Prozac", "Zoloft", "Lexapro"],
+      "medicationsTreatingIt": [],
+      "description": "Difficulties with sexual function."
+    },
+    "OCD": {
+      "name": "OCD",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Prozac"],
+      "description": "Obsessive-compulsive disorder."
+    },
+    "PTSD": {
+      "name": "PTSD",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Zoloft"],
+      "description": "Post-traumatic stress disorder."
+    },
+    "Panic attacks": {
+      "name": "Panic attacks",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Xanax"],
+      "description": "Sudden episodes of intense fear."
+    },
+    "ADHD": {
+      "name": "ADHD",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Adderall", "Ritalin"],
+      "description": "Attention deficit hyperactivity disorder."
+    },
+    "Narcolepsy": {
+      "name": "Narcolepsy",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Adderall"],
+      "description": "Chronic sleep disorder with excessive daytime sleepiness."
+    },
+    "Nerve pain": {
+      "name": "Nerve pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Gabapentin", "Lyrica"],
+      "description": "Pain caused by nerve damage."
+    },
+    "Fibromyalgia": {
+      "name": "Fibromyalgia",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Lyrica"],
+      "description": "Chronic widespread musculoskeletal pain."
+    },
+    "Moderate pain": {
+      "name": "Moderate pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tramadol"],
+      "description": "Medium-level pain."
+    },
+    "Sleep disturbance": {
+      "name": "Sleep disturbance",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Melatonin"],
+      "description": "Disrupted sleep patterns."
+    },
+    "Dependence": {
+      "name": "Dependence",
+      "medicationsCausingIt": ["Xanax", "Ativan", "Tramadol"],
+      "medicationsTreatingIt": [],
+      "description": "Physical or psychological reliance on a substance."
+    },
+    "Confusion": {
+      "name": "Confusion",
+      "medicationsCausingIt": ["Xanax", "Ativan", "Lyrica", "Ambien"],
+      "medicationsTreatingIt": [],
+      "description": "Lack of clear thinking or disorientation."
+    },
+    "Sedation": {
+      "name": "Sedation",
+      "medicationsCausingIt": ["Ativan"],
+      "medicationsTreatingIt": [],
+      "description": "Calming or sleep-inducing effect."
+    },
+    "Agitation": {
+      "name": "Agitation",
+      "medicationsCausingIt": ["Zoloft"],
+      "medicationsTreatingIt": [],
+      "description": "Restlessness or irritability."
+    },
+    "Fatigue": {
+      "name": "Fatigue",
+      "medicationsCausingIt": ["Lexapro", "Gabapentin"],
+      "medicationsTreatingIt": [],
+      "description": "Extreme tiredness."
+    },
+    "Irritability": {
+      "name": "Irritability",
+      "medicationsCausingIt": ["Adderall"],
+      "medicationsTreatingIt": [],
+      "description": "Easily annoyed or angered."
+    },
+    "Increased heart rate": {
+      "name": "Increased heart rate",
+      "medicationsCausingIt": ["Adderall"],
+      "medicationsTreatingIt": [],
+      "description": "Faster than normal heartbeat."
+    },
+    "Nervousness": {
+      "name": "Nervousness",
+      "medicationsCausingIt": ["Ritalin"],
+      "medicationsTreatingIt": [],
+      "description": "Feeling anxious or uneasy."
+    },
+    "Edema": {
+      "name": "Edema",
+      "medicationsCausingIt": ["Lyrica"],
+      "medicationsTreatingIt": [],
+      "description": "Swelling from fluid retention."
+    },
+    "Vivid dreams": {
+      "name": "Vivid dreams",
+      "medicationsCausingIt": ["Melatonin"],
+      "medicationsTreatingIt": [],
+      "description": "Unusually intense or memorable dreams."
+    },
+    "Sleepwalking": {
+      "name": "Sleepwalking",
+      "medicationsCausingIt": ["Ambien"],
+      "medicationsTreatingIt": [],
+      "description": "Walking or performing activities while asleep."
+    },
+    "Memory gaps": {
+      "name": "Memory gaps",
+      "medicationsCausingIt": ["Ambien"],
+      "medicationsTreatingIt": [],
+      "description": "Periods of time with no memory."
     }
   }
 }
