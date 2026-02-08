@@ -75,12 +75,6 @@ export default function NewGraphPage() {
     let draggedNode: string | null = null;
     let isDragging = false;
     let centerNodeId: string | null = null;
-    const graphBounds = {
-      x: [-800, 800] as [number, number],
-      y: [-800, 800] as [number, number],
-    };
-    const clamp = (value: number, min: number, max: number) =>
-      Math.min(Math.max(value, min), max);
 
     const scheduleLayoutStop = (delayMs: number) => {
       if (layoutStopId !== null) {
@@ -152,15 +146,8 @@ export default function NewGraphPage() {
         const pos = renderer.viewportToGraph(event);
         if (!pos) return;
 
-        const minX = graphBounds.x[0];
-        const maxX = graphBounds.x[1];
-        const minY = graphBounds.y[0];
-        const maxY = graphBounds.y[1];
-        const x = clamp(pos.x, minX, maxX);
-        const y = clamp(pos.y, minY, maxY);
-
-        graph.setNodeAttribute(draggedNode, "x", x);
-        graph.setNodeAttribute(draggedNode, "y", y);
+        graph.setNodeAttribute(draggedNode, "x", pos.x);
+        graph.setNodeAttribute(draggedNode, "y", pos.y);
 
         event.preventSigmaDefault();
         event.original.preventDefault();
@@ -390,27 +377,48 @@ export default function NewGraphPage() {
 
       {/* Legend */}
       <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <div
-            className="w-3 h-3 rounded-full"
-            style={{ backgroundColor: "#A0522D" }}
-          ></div>
-          <span className="text-xs text-blue-600">Effects</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div
-            className="w-3 h-3 rounded-full"
-            style={{ backgroundColor: "#A855F7" }}
-          ></div>
-          <span className="text-xs text-blue-600">Medications</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div
-            className="w-3 h-3 rounded-full"
-            style={{ backgroundColor: "#3B82F6" }}
-          ></div>
-          <span className="text-xs text-blue-600">Ingredients</span>
-        </div>
+        {effectData && !selectedMedication && !selectedIngredient ? (
+          <>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: "#A0522D" }}
+              ></div>
+              <span className="text-xs text-blue-600">Effect</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: "#10B981" }}
+              ></div>
+              <span className="text-xs text-blue-600">Treats</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: "#EF4444" }}
+              ></div>
+              <span className="text-xs text-blue-600">Causes</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: "#A855F7" }}
+              ></div>
+              <span className="text-xs text-blue-600">Medications</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: "#3B82F6" }}
+              ></div>
+              <span className="text-xs text-blue-600">Ingredients</span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Graph Area - Top 60% */}
@@ -453,7 +461,7 @@ export default function NewGraphPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h2 className="text-5xl font-bold text-purple-500 mb-2">
+            <h2 className="text-5xl font-bold text-purple-500 mb-6">
               {selectedMedication.name}
             </h2>
 
@@ -467,7 +475,7 @@ export default function NewGraphPage() {
                     <button
                       key={symptom}
                       onClick={() => loadEffect(symptom)}
-                      className="px-6 py-2 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
+                      className="px-3 py-1 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
                     >
                       {symptom}
                     </button>
@@ -486,7 +494,7 @@ export default function NewGraphPage() {
                     <button
                       key={effect}
                       onClick={() => loadEffect(effect)}
-                      className="px-6 py-2 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
+                      className="px-3 py-1 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
                     >
                       {effect}
                     </button>
