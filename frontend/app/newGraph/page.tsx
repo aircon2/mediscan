@@ -260,6 +260,15 @@ export default function NewGraphPage() {
       layout?.start();
       startRendering();
       scheduleLayoutStop(4000);
+
+      // Zoom out to add padding
+      setTimeout(() => {
+        const camera = renderer?.getCamera();
+        if (camera) {
+          const currentRatio = camera.getState().ratio;
+          camera.setState({ ratio: currentRatio * 1.3 });
+        }
+      }, 100);
     };
 
     const buildMedicationGraph = (medication: Medication) => {
@@ -296,6 +305,15 @@ export default function NewGraphPage() {
       layout?.start();
       startRendering();
       scheduleLayoutStop(4000);
+
+      // Zoom out to add padding
+      setTimeout(() => {
+        const camera = renderer?.getCamera();
+        if (camera) {
+          const currentRatio = camera.getState().ratio;
+          camera.setState({ ratio: currentRatio * 1.3 });
+        }
+      }, 100);
     };
 
     const buildIngredientGraph = (ingredient: Ingredient) => {
@@ -332,6 +350,15 @@ export default function NewGraphPage() {
       layout?.start();
       startRendering();
       scheduleLayoutStop(4000);
+
+      // Zoom out to add padding
+      setTimeout(() => {
+        const camera = renderer?.getCamera();
+        if (camera) {
+          const currentRatio = camera.getState().ratio;
+          camera.setState({ ratio: currentRatio * 1.3 });
+        }
+      }, 100);
     };
 
     const loadMedication = async (name: string) => {
