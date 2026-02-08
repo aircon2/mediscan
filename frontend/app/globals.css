@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #eff6ff;
   --foreground: #171717;
 }
 
@@ -11,15 +11,9 @@
   --font-sans: "Space Grotesk", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
+  background: #eff6ff;
   color: var(--foreground);
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;

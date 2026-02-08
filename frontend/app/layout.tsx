@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ background: "#eff6ff" }}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -25,7 +25,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased font-sans">{children}</body>
+      <body className="antialiased font-sans bg-gradient-to-b from-blue-50 to-purple-50">
+        {children}
+      </body>
     </html>
   );
 }

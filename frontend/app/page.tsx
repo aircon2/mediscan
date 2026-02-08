@@ -7,7 +7,7 @@ export default function Home() {
       {/* Gradient Blur Circles */}
       <div className="absolute -top-20 -right-20 w-96 h-96 opacity-30 bg-gradient-to-bl from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
-      
+
       <main className="flex flex-col items-start max-w-md w-full relative z-10">
         {/* Header Text */}
         <div className="flex flex-col items-start gap-4 text-left w-full">
@@ -38,10 +38,10 @@ export default function Home() {
         {/* Action Buttons */}
         <div className="flex flex-col gap-4 w-full self-center">
           <button
-            className="w-full py-1 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105"
+            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 "
             style={{
               boxShadow:
-                "10px 10px 20px 0px rgba(13, 39, 80, 0.16), -10px -10px 20px 0px #FFFFFF",
+                "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
             }}
           >
             Scan a medicine
@@ -49,10 +49,10 @@ export default function Home() {
 
           <Link
             href="/search"
-            className="w-full py-1 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 text-center block"
+            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 text-center block"
             style={{
               boxShadow:
-                "10px 10px 20px 0px rgba(13, 39, 80, 0.16), -10px -10px 20px 0px #FFFFFF",
+                "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
             }}
           >
             Search my symptoms
