@@ -461,11 +461,7 @@ export default function NewGraphPage() {
                     <button
                       key={symptom}
                       onClick={() => loadEffect(symptom)}
-                      className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm transition-shadow cursor-pointer"
-                      style={{
-                        boxShadow:
-                          "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
-                      }}
+                      className="px-6 py-2 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
                     >
                       {symptom}
                     </button>
@@ -484,11 +480,7 @@ export default function NewGraphPage() {
                     <button
                       key={effect}
                       onClick={() => loadEffect(effect)}
-                      className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm transition-shadow cursor-pointer"
-                      style={{
-                        boxShadow:
-                          "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
-                      }}
+                      className="px-6 py-2 text-blue-500 bg-blue-50 rounded-full shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer font-medium"
                     >
                       {effect}
                     </button>

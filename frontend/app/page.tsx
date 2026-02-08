@@ -68,22 +68,14 @@ export default function Home() {
           className="flex flex-col gap-4 w-full self-center"
         >
           <button
-            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 "
-            style={{
-              boxShadow:
-                "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
-            }}
+            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer"
           >
             Scan a medicine
           </button>
 
           <Link
             href="/search"
-            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg transition-all hover:scale-105 text-center block"
-            style={{
-              boxShadow:
-                "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
-            }}
+            className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer text-center block"
           >
             Search my symptoms
           </Link>
