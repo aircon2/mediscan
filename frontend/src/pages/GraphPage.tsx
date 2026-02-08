@@ -3,17 +3,16 @@ import chroma from "chroma-js";
 import Graph from "graphology";
 import ForceSupervisor from "graphology-layout-force/worker";
 import Sigma from "sigma";
+import { getIngredient, getMedication } from "../utils/api";
+import type { Ingredient, Medication } from "../types/graph";
 
-type MockData = {
-  medications: Record<
-    string,
-    {
-      name: string;
-      ingredients: string[];
-      sideEffects: string[];
-      symptomsTreated: string[];
-    }
-  >;
+type NodeType = "medication" | "ingredient";
+
+type NodeAttributes = {
+  label: string;
+  color: string;
+  size: number;
+  nodeType: NodeType;
 };
 
 type LayoutAttributes = {
@@ -26,87 +25,90 @@ const GraphPage = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const graph = new Graph();
+    let graph: Graph | null = null;
     let renderer: Sigma | null = null;
     let layout: ForceSupervisor | null = null;
     let layoutStopId: number | null = null;
     let isMounted = true;
+    let draggedNode: string | null = null;
+    let isDragging = false;
+    let centerNodeId: string | null = null;
     const graphBounds = {
-      x: [-20, 20] as [number, number],
-      y: [-20, 20] as [number, number],
+      x: [-800, 800] as [number, number],
+      y: [-800, 800] as [number, number],
     };
     const clamp = (value: number, min: number, max: number) =>
       Math.min(Math.max(value, min), max);
+
     const scheduleLayoutStop = (delayMs: number) => {
       if (layoutStopId !== null) {
         window.clearTimeout(layoutStopId);
       }
-      layoutStopId = window.setTimeout(() => layout?.stop(), delayMs);
+      layoutStopId = window.setTimeout(() => {
+        layout?.stop();
+        renderer?.refresh();
+      }, delayMs);
     };
 
-    const buildGraph = (data: MockData) => {
-      const medication = data.medications.Tylenol;
-      if (!medication) return;
+    const destroyGraph = () => {
+      if (layoutStopId !== null) {
+        window.clearTimeout(layoutStopId);
+      }
+      layoutStopId = null;
+      renderer?.kill();
+      layout?.kill();
+      graph = null;
+      renderer = null;
+      layout = null;
+      draggedNode = null;
+      isDragging = false;
+      centerNodeId = null;
+    };
 
-      const centerId = medication.name;
-      graph.addNode(centerId, {
-        x: 0,
-        y: 0,
-        size: 16,
-        color: "#F76B5B",
-        label: medication.name,
-      });
-
-      const radius = 1;
-      const angleStep =
-        (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
-
-      medication.ingredients.forEach((ingredient, index) => {
-        const angle = index * angleStep;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-
-        graph.addNode(ingredient, {
-          x,
-          y,
-          size: 9,
-          color: chroma("#4A79F7").brighten(0.2).hex(),
-          label: ingredient,
-        });
-
-        graph.addEdge(centerId, ingredient);
-      });
-
+    const initGraph = () => {
+      graph = new Graph();
       layout = new ForceSupervisor(graph, {
         isNodeFixed: (_: string, attr: LayoutAttributes) =>
           Boolean(attr.highlighted),
+        settings: {
+          attraction: 0.0003,
+          repulsion: 0.4,
+          gravity: 0.0001,
+          inertia: 0.6,
+          maxMove: 200,
+        },
       });
-      layout.start();
-      scheduleLayoutStop(4000);
+      layout.stop();
 
       renderer = new Sigma(graph, containerRef.current as HTMLDivElement, {
         minCameraRatio: 0.5,
         maxCameraRatio: 2,
-      });
-      renderer.setCustomBBox(graphBounds);
+        autoRescale: false,
+        defaultDrawNodeLabel: (context, data, settings) => {
+          if (!data.label) return;
+          const size = settings.labelSize;
+          const font = settings.labelFont;
+          const weight = settings.labelWeight;
 
-      let draggedNode: string | null = null;
-      let isDragging = false;
+          context.fillStyle = "#000";
+          context.font = `${weight} ${size}px ${font}`;
+          context.fillText(data.label, data.x, data.y + data.size + 12);
+        },
+      });
 
       renderer.on("downNode", (e: { node: string }) => {
+        if (!graph) return;
         isDragging = true;
         draggedNode = e.node;
         graph.setNodeAttribute(draggedNode, "highlighted", true);
-        if (!renderer?.getCustomBBox())
-          renderer?.setCustomBBox(renderer.getBBox());
         layout?.start();
-        scheduleLayoutStop(4000);
+        scheduleLayoutStop(3000);
       });
 
       renderer.on("moveBody", ({ event }: { event: any }) => {
-        if (!isDragging || !draggedNode) return;
+        if (!isDragging || !draggedNode || !graph || !renderer) return;
 
-        const pos = renderer?.viewportToGraph(event);
+        const pos = renderer.viewportToGraph(event);
         if (!pos) return;
 
         const minX = graphBounds.x[0];
@@ -125,33 +127,149 @@ const GraphPage = () => {
       });
 
       const handleUp = () => {
+        if (!graph) return;
         if (draggedNode) {
           graph.removeNodeAttribute(draggedNode, "highlighted");
         }
         isDragging = false;
         draggedNode = null;
-        scheduleLayoutStop(2500);
+        scheduleLayoutStop(1500);
       };
 
       renderer.on("upNode", handleUp);
       renderer.on("upStage", handleUp);
+
+      renderer.on("clickNode", (e: { node: string }) => {
+        if (isDragging || !graph) return;
+        if (centerNodeId && e.node === centerNodeId) return;
+        const attrs = graph.getNodeAttributes(e.node) as NodeAttributes;
+        if (attrs?.nodeType === "ingredient") {
+          void loadIngredient(e.node);
+          return;
+        }
+        if (attrs?.nodeType === "medication") {
+          void loadMedication(e.node);
+        }
+      });
     };
 
-    fetch("/mock.json")
-      .then((response) => response.json())
-      .then((data: MockData) => {
+    const buildMedicationGraph = (medication: Medication) => {
+      if (!graph) return;
+      const g = graph;
+      const centerId = medication.name;
+      centerNodeId = centerId;
+      g.addNode(centerId, {
+        x: 0,
+        y: 0,
+        size: 12,
+        color: "#F76B5B",
+        label: medication.name,
+        nodeType: "medication",
+      } as NodeAttributes);
+
+      const radius = 550;
+      const angleStep =
+        (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
+
+      medication.ingredients.forEach((ingredient, index) => {
+        const angle = index * angleStep;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        g.addNode(ingredient, {
+          x,
+          y,
+          size: 7,
+          color: chroma("#4A79F7").brighten(0.2).hex(),
+          label: ingredient,
+          nodeType: "ingredient",
+        } as NodeAttributes);
+
+        g.addEdge(centerId, ingredient);
+      });
+
+      layout?.start();
+      scheduleLayoutStop(2000);
+
+      // Zoom in camera for better default view
+      if (renderer) {
+        renderer.getCamera().setState({ ratio: 0.6 });
+      }
+    };
+
+    const buildIngredientGraph = (ingredient: Ingredient) => {
+      if (!graph) return;
+      const g = graph;
+      const centerId = ingredient.name;
+      centerNodeId = centerId;
+      g.addNode(centerId, {
+        x: 0,
+        y: 0,
+        size: 10,
+        color: chroma("#4A79F7").brighten(0.2).hex(),
+        label: ingredient.name,
+        nodeType: "ingredient",
+      } as NodeAttributes);
+
+      const radius = 550;
+      const angleStep =
+        (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
+
+      ingredient.medications.forEach((medicationName, index) => {
+        const angle = index * angleStep;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        g.addNode(medicationName, {
+          x,
+          y,
+          size: 8,
+          color: "#F76B5B",
+          label: medicationName,
+          nodeType: "medication",
+        } as NodeAttributes);
+
+        g.addEdge(centerId, medicationName);
+      });
+
+      layout?.start();
+      scheduleLayoutStop(2000);
+
+      // Zoom in camera for better default view
+      if (renderer) {
+        renderer.getCamera().setState({ ratio: 0.6 });
+      }
+    };
+
+    const loadMedication = async (name: string) => {
+      try {
+        const medication = await getMedication(name);
         if (!isMounted) return;
-        buildGraph(data);
-      })
-      .catch(() => undefined);
+        destroyGraph();
+        initGraph();
+        buildMedicationGraph(medication);
+      } catch {
+        return;
+      }
+    };
+
+    const loadIngredient = async (name: string) => {
+      try {
+        const ingredient = await getIngredient(name);
+        if (!isMounted) return;
+        destroyGraph();
+        initGraph();
+        buildIngredientGraph(ingredient);
+      } catch {
+        return;
+      }
+    };
+
+    void loadMedication("Tylenol");
 
     return () => {
       isMounted = false;
-      if (layoutStopId !== null) {
-        window.clearTimeout(layoutStopId);
-      }
-      renderer?.kill();
-      layout?.kill();
+      destroyGraph();
     };
   }, []);
 
