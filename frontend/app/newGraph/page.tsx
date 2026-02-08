@@ -113,11 +113,11 @@ export default function NewGraphPage() {
         isNodeFixed: (_: string, attr: LayoutAttributes) =>
           Boolean(attr.highlighted),
         settings: {
-          attraction: 0.001,
-          repulsion: 0.8,
-          gravity: 0.0005,
-          inertia: 0.4,
-          maxMove: 300,
+          attraction: 0.0005,
+          repulsion: 5,
+          gravity: 0.001,
+          inertia: 0.3,
+          maxMove: 400,
         },
       });
       layout.stop();
@@ -220,7 +220,7 @@ export default function NewGraphPage() {
         })),
       ];
 
-      const radius = 550;
+      const radius = Math.max(600, allMedications.length * 80);
       const angleStep = (Math.PI * 2) / Math.max(allMedications.length, 1);
 
       allMedications.forEach((medication, index) => {
@@ -262,7 +262,7 @@ export default function NewGraphPage() {
         nodeType: "medication",
       } as NodeAttributes);
 
-      const radius = 550;
+      const radius = Math.max(600, medication.ingredients.length * 100);
       const angleStep =
         (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
 
@@ -305,7 +305,7 @@ export default function NewGraphPage() {
         nodeType: "ingredient",
       } as NodeAttributes);
 
-      const radius = 550;
+      const radius = Math.max(600, ingredient.medications.length * 80);
       const angleStep =
         (Math.PI * 2) / Math.max(ingredient.medications.length, 1);
 
