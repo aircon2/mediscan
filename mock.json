@@ -2,7 +2,7 @@
   "medications": {
     "Tylenol": {
       "name": "Tylenol",
-      "ingredients": ["Acetaminophen"],
+      "ingredients": ["Acetaminophen", "Shannon"],
       "sideEffects": ["Nausea"],
       "symptomsTreated": ["Pain", "Fever"]
     },

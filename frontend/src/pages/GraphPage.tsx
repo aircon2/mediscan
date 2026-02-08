@@ -3,19 +3,21 @@ import chroma from "chroma-js";
 import Graph from "graphology";
 import ForceSupervisor from "graphology-layout-force/worker";
 import Sigma from "sigma";
-import { v4 as uuid } from "uuid";
 
-type NodeAttributes = {
-  x: number;
-  y: number;
-  size: number;
-  color: string;
-  highlighted?: boolean;
+type MockData = {
+  medications: Record<
+    string,
+    {
+      name: string;
+      ingredients: string[];
+      sideEffects: string[];
+      symptomsTreated: string[];
+    }
+  >;
 };
 
-type ClosestNode = {
-  nodeId: string;
-  distance: number;
+type LayoutAttributes = {
+  highlighted?: boolean;
 };
 
 const GraphPage = () => {
@@ -25,104 +27,103 @@ const GraphPage = () => {
     if (!containerRef.current) return;
 
     const graph = new Graph();
-    graph.addNode("n1", { x: 0, y: 0, size: 10, color: chroma.random().hex() });
-    graph.addNode("n2", {
-      x: -5,
-      y: 5,
-      size: 10,
-      color: chroma.random().hex(),
-    });
-    graph.addNode("n3", { x: 5, y: 5, size: 10, color: chroma.random().hex() });
-    graph.addNode("n4", {
-      x: 0,
-      y: 10,
-      size: 10,
-      color: chroma.random().hex(),
-    });
-    graph.addEdge("n1", "n2");
-    graph.addEdge("n2", "n4");
-    graph.addEdge("n4", "n3");
-    graph.addEdge("n3", "n1");
+    let renderer: Sigma | null = null;
+    let layout: ForceSupervisor | null = null;
+    let isMounted = true;
 
-    const layout = new ForceSupervisor(graph, {
-      isNodeFixed: (_: string, attr: { highlighted?: boolean }) =>
-        Boolean(attr.highlighted),
-    });
-    layout.start();
+    const buildGraph = (data: MockData) => {
+      const medication = data.medications.Tylenol;
+      if (!medication) return;
 
-    const renderer = new Sigma(graph, containerRef.current, {
-      minCameraRatio: 0.5,
-      maxCameraRatio: 2,
-    });
+      const centerId = medication.name;
+      graph.addNode(centerId, {
+        x: 0,
+        y: 0,
+        size: 16,
+        color: "#F76B5B",
+        label: medication.name,
+      });
 
-    let draggedNode: string | null = null;
-    let isDragging = false;
+      const radius = 1;
+      const angleStep =
+        (Math.PI * 2) / Math.max(medication.ingredients.length, 1);
 
-    renderer.on("downNode", (e: { node: string }) => {
-      isDragging = true;
-      draggedNode = e.node;
-      graph.setNodeAttribute(draggedNode, "highlighted", true);
-      if (!renderer.getCustomBBox()) renderer.setCustomBBox(renderer.getBBox());
-    });
+      medication.ingredients.forEach((ingredient, index) => {
+        const angle = index * angleStep;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
 
-    renderer.on("moveBody", ({ event }: { event: any }) => {
-      if (!isDragging || !draggedNode) return;
-
-      const pos = renderer.viewportToGraph(event);
-      graph.setNodeAttribute(draggedNode, "x", pos.x);
-      graph.setNodeAttribute(draggedNode, "y", pos.y);
-
-      event.preventSigmaDefault();
-      event.original.preventDefault();
-      event.original.stopPropagation();
-    });
-
-    const handleUp = () => {
-      if (draggedNode) {
-        graph.removeNodeAttribute(draggedNode, "highlighted");
-      }
-      isDragging = false;
-      draggedNode = null;
-    };
-
-    renderer.on("upNode", handleUp);
-    renderer.on("upStage", handleUp);
-
-    renderer.on(
-      "clickStage",
-      ({ event }: { event: { x: number; y: number } }) => {
-        const coordForGraph = renderer.viewportToGraph({
-          x: event.x,
-          y: event.y,
+        graph.addNode(ingredient, {
+          x,
+          y,
+          size: 9,
+          color: chroma("#4A79F7").brighten(0.2).hex(),
+          label: ingredient,
         });
 
-        const node = {
-          ...coordForGraph,
-          size: 10,
-          color: chroma.random().hex(),
-        };
+        graph.addEdge(centerId, ingredient);
+      });
 
-        const closestNodes: ClosestNode[] = graph
-          .nodes()
-          .map((nodeId: string) => {
-            const attrs = graph.getNodeAttributes(nodeId) as NodeAttributes;
-            const distance =
-              Math.pow(node.x - attrs.x, 2) + Math.pow(node.y - attrs.y, 2);
-            return { nodeId, distance };
-          })
-          .sort((a: ClosestNode, b: ClosestNode) => a.distance - b.distance)
-          .slice(0, 2);
+      layout = new ForceSupervisor(graph, {
+        isNodeFixed: (_: string, attr: LayoutAttributes) =>
+          Boolean(attr.highlighted),
+      });
+      layout.start();
 
-        const id = uuid();
-        graph.addNode(id, node);
+      renderer = new Sigma(graph, containerRef.current as HTMLDivElement, {
+        minCameraRatio: 0.5,
+        maxCameraRatio: 2,
+      });
 
-        closestNodes.forEach((e: ClosestNode) => graph.addEdge(id, e.nodeId));
-      },
-    );
+      let draggedNode: string | null = null;
+      let isDragging = false;
+
+      renderer.on("downNode", (e: { node: string }) => {
+        isDragging = true;
+        draggedNode = e.node;
+        graph.setNodeAttribute(draggedNode, "highlighted", true);
+        if (!renderer?.getCustomBBox())
+          renderer?.setCustomBBox(renderer.getBBox());
+      });
+
+      renderer.on("moveBody", ({ event }: { event: any }) => {
+        if (!isDragging || !draggedNode) return;
+
+        const pos = renderer?.viewportToGraph(event);
+        if (!pos) return;
+
+        graph.setNodeAttribute(draggedNode, "x", pos.x);
+        graph.setNodeAttribute(draggedNode, "y", pos.y);
+
+        event.preventSigmaDefault();
+        event.original.preventDefault();
+        event.original.stopPropagation();
+      });
+
+      const handleUp = () => {
+        if (draggedNode) {
+          graph.removeNodeAttribute(draggedNode, "highlighted");
+        }
+        isDragging = false;
+        draggedNode = null;
+      };
+
+      renderer.on("upNode", handleUp);
+      renderer.on("upStage", handleUp);
+    };
+
+    fetch("/mock.json")
+      .then((response) => response.json())
+      .then((data: MockData) => {
+        if (!isMounted) return;
+        buildGraph(data);
+      })
+      .catch(() => undefined);
 
     return () => {
-      renderer.kill();
-      layout.kill();
+      isMounted = false;
+      renderer?.kill();
+      layout?.kill();
     };
   }, []);
 
