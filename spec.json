@@ -1,0 +1,30 @@
+{
+  "medications": {
+    "med1": {
+      "name": "med1",
+      "ingredients": ["ingredient1", "ingredient2"],
+      "sideEffects": ["effect1", "sideEffect2"],
+      "symptomsTreated": ["symptom1", "symptom2"]
+    }
+  },
+  "ingredients": {
+    "ingredient1": {
+      "name": "ingredient1",
+      "medications": ["med1"],
+      "description": "Description for ingredient1"
+    }
+  },
+  "effects": {
+    "effect1": {
+      "name": "effect1",
+      "medicationsCausingIt": ["med1"],
+      "medicationsTreatingIt": ["med2"],
+      "description": "Description for effect1"
+    }
+  }
+}
+
+
+
+
+
