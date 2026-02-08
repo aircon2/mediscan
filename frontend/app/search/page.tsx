@@ -96,13 +96,13 @@ export default function Search() {
                   href={`/newGraph?effect=${encodeURIComponent(effect.name)}`}
                   className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors block"
                 >
-                <div className="text-blue-600 font-medium">{effect.name}</div>
-                {effect.description && (
-                  <div className="text-blue-500 text-sm mt-1">
-                    {effect.description}
-                  </div>
-                )}
-              </Link>
+                  <div className="text-blue-600 font-medium">{effect.name}</div>
+                  {effect.description && (
+                    <div className="text-blue-500 text-sm mt-1">
+                      {effect.description}
+                    </div>
+                  )}
+                </Link>
               </motion.div>
             ))}
           </motion.div>
