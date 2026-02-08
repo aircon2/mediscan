@@ -372,22 +372,6 @@
         "ADHD"
       ]
     },
-    "Gabapentin": {
-      "name": "Gabapentin",
-      "ingredients": [
-        "Gabapentin"
-      ],
-      "sideEffects": [
-        "Dizziness",
-        "Brain fog",
-        "Fatigue",
-        "Weight gain"
-      ],
-      "symptomsTreated": [
-        "Nerve pain",
-        "Seizures"
-      ]
-    },
     "Lyrica": {
       "name": "Lyrica",
       "ingredients": [
@@ -402,36 +386,6 @@
       "symptomsTreated": [
         "Fibromyalgia",
         "Nerve pain"
-      ]
-    },
-    "Tramadol": {
-      "name": "Tramadol",
-      "ingredients": [
-        "Tramadol"
-      ],
-      "sideEffects": [
-        "Nausea",
-        "Dizziness",
-        "Dependence",
-        "Seizures",
-        "Constipation"
-      ],
-      "symptomsTreated": [
-        "Moderate pain"
-      ]
-    },
-    "Melatonin": {
-      "name": "Melatonin",
-      "ingredients": [
-        "Melatonin"
-      ],
-      "sideEffects": [
-        "Drowsiness",
-        "Vivid dreams"
-      ],
-      "symptomsTreated": [
-        "Insomnia",
-        "Sleep disturbance"
       ]
     },
     "Ambien": {
@@ -589,20 +543,6 @@
         "IBS-C"
       ]
     },
-    "Lactulose": {
-      "name": "Lactulose",
-      "ingredients": [
-        "Lactulose"
-      ],
-      "sideEffects": [
-        "Bloating",
-        "Gas",
-        "Diarrhea"
-      ],
-      "symptomsTreated": [
-        "Constipation"
-      ]
-    },
     "Jamieson Ashwagandha": {
       "name": "Jamieson Ashwagandha",
       "ingredients": [
@@ -625,30 +565,6 @@
       "symptomsTreated": [
         "Infections",
         "Germs"
-      ]
-    },
-    "Azithromycin": {
-      "name": "Azithromycin",
-      "ingredients": [
-        "Azithromycin"
-      ],
-      "sideEffects": [
-        "Nausea",
-        "Diarrhea",
-        "Headache",
-        "Dizziness",
-        "Loss of Appetite",
-        "Fatigue",
-        "Impaired sense of taste",
-        "Vomiting",
-        "Abdominal pain"
-      ],
-      "symptomsTreated": [
-        "Bacterial infections",
-        "Respiratory tract infections",
-        "Skin infections",
-        "Ear infections",
-        "Throat infection"
       ]
     },
     "Loquat Syrup": {
@@ -746,23 +662,6 @@
         "Bacterial infections"
       ]
     },
-    "Hyoscine Butylbromide": {
-      "name": "Hyoscine Butylbromide",
-      "ingredients": [
-        "Hyoscine Butylbromide"
-      ],
-      "sideEffects": [
-        "Dry mouth",
-        "Blurred vision",
-        "Constipation",
-        "Urinary retention"
-      ],
-      "symptomsTreated": [
-        "Abdominal pain",
-        "Intestinal spasms",
-        "Bladder spasms"
-      ]
-    },
     "Ashwagandha": {
       "name": "Ashwagandha",
       "ingredients": [
@@ -783,31 +682,6 @@
         "Memory impairment",
         "Memory problems",
         "Memory support"
-      ]
-    },
-    "Honey": {
-      "name": "Honey",
-      "ingredients": [
-        "Honey"
-      ],
-      "sideEffects": [],
-      "symptomsTreated": [
-        "Cough",
-        "Sore Throat"
-      ]
-    },
-    "Lactic Acid Bacillus": {
-      "name": "Lactic Acid Bacillus",
-      "ingredients": [
-        "Lactic Acid Bacillus"
-      ],
-      "sideEffects": [
-        "Flatulence",
-        "Bloating"
-      ],
-      "symptomsTreated": [
-        "Diarrhea",
-        "Digestive health"
       ]
     },
     "Ashwagandha Gummies": {
@@ -861,24 +735,6 @@
         "Fever",
         "Headache",
         "Inflammation"
-      ]
-    },
-    "Loratadine": {
-      "name": "Loratadine",
-      "ingredients": [
-        "Loratadine"
-      ],
-      "sideEffects": [
-        "Headache",
-        "Drowsiness",
-        "Dry mouth"
-      ],
-      "symptomsTreated": [
-        "Allergies",
-        "Hay fever",
-        "Itchy skin",
-        "Sneezing",
-        "Runny nose"
       ]
     },
     "Xylometazoline": {
@@ -951,8 +807,7 @@
     "Loratadine": {
       "name": "Loratadine",
       "medications": [
-        "Claritin",
-        "Loratadine"
+        "Claritin"
       ],
       "description": "An antihistamine used to relieve allergy symptoms such as sneezing, runny nose, and itchy eyes by blocking histamine."
     },
@@ -1073,9 +928,7 @@
     },
     "Gabapentin": {
       "name": "Gabapentin",
-      "medications": [
-        "Gabapentin"
-      ],
+      "medications": [],
       "description": "An anticonvulsant medication that reduces nerve pain by calming abnormal electrical brain activity."
     },
     "Pregabalin": {
@@ -1087,16 +940,12 @@
     },
     "Tramadol": {
       "name": "Tramadol",
-      "medications": [
-        "Tramadol"
-      ],
+      "medications": [],
       "description": "An opioid-like pain medication that alters pain perception within the central nervous system."
     },
     "Melatonin": {
       "name": "Melatonin",
-      "medications": [
-        "Melatonin"
-      ],
+      "medications": [],
       "description": "A natural hormone that regulates circadian rhythm and promotes healthy sleep cycles."
     },
     "Zolpidem": {
@@ -1178,9 +1027,7 @@
     },
     "Lactulose": {
       "name": "Lactulose",
-      "medications": [
-        "Lactulose"
-      ],
+      "medications": [],
       "description": "A synthetic sugar laxative that draws water into the bowel to soften stools."
     },
     "Ashwagandha": {
@@ -1192,9 +1039,7 @@
     },
     "Azithromycin": {
       "name": "Azithromycin",
-      "medications": [
-        "Azithromycin"
-      ],
+      "medications": [],
       "description": "A macrolide antibiotic that treats bacterial infections by inhibiting protein synthesis."
     },
     "Loquat": {
@@ -1276,8 +1121,6 @@
         "Prilosec",
         "Prozac",
         "Zoloft",
-        "Tramadol",
-        "Azithromycin",
         "Morphine",
         "Aspirin",
         "Ibuprofen"
@@ -1298,9 +1141,6 @@
         "DayQuil",
         "NyQuil",
         "Sudafed",
-        "Gabapentin",
-        "Tramadol",
-        "Azithromycin",
         "Morphine",
         "Ibuprofen"
       ],
@@ -1345,11 +1185,9 @@
         "NyQuil",
         "Xanax",
         "Lyrica",
-        "Melatonin",
         "Jamieson Ashwagandha",
         "Morphine",
-        "Ibuprofen",
-        "Loratadine"
+        "Ibuprofen"
       ],
       "medicationsTreatingIt": [],
       "description": "Feeling sleepy or having difficulty staying awake, potentially affecting alertness and cognitive function."
@@ -1359,8 +1197,7 @@
       "medicationsCausingIt": [
         "Zyrtec",
         "Claritin",
-        "Benadryl",
-        "Loratadine"
+        "Benadryl"
       ],
       "medicationsTreatingIt": [],
       "description": "Reduced saliva production causing discomfort, difficulty swallowing, and increased risk of oral problems."
@@ -1377,7 +1214,6 @@
         "Ritalin"
       ],
       "medicationsTreatingIt": [
-        "Melatonin",
         "Ambien",
         "Ativan"
       ],
@@ -1399,9 +1235,7 @@
       "name": "Headache",
       "medicationsCausingIt": [
         "Jamieson Ashwagandha",
-        "Azithromycin",
-        "Ibuprofen",
-        "Loratadine"
+        "Ibuprofen"
       ],
       "medicationsTreatingIt": [
         "Tylenol",
@@ -1461,7 +1295,6 @@
         "Zyrtec",
         "Claritin",
         "Benadryl",
-        "Loratadine",
         "Xylometazoline"
       ],
       "description": "An immune system reaction to a foreign substance, such as pollen or pet dander."
@@ -1537,9 +1370,7 @@
     },
     "Diarrhea": {
       "name": "Diarrhea",
-      "medicationsCausingIt": [
-        "Azithromycin"
-      ],
+      "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
@@ -1551,7 +1382,6 @@
         "PeptoBismol",
         "Tums",
         "Benadryl",
-        "Tramadol",
         "Imodium",
         "Morphine"
       ],
@@ -1564,8 +1394,7 @@
         "Milk of Magnesia",
         "Linzess",
         "Amitiza",
-        "Trulance",
-        "Lactulose"
+        "Trulance"
       ],
       "description": "Infrequent or difficult bowel movements often involving hard, dry stools and abdominal discomfort."
     },
@@ -1607,9 +1436,7 @@
     },
     "Brain fog": {
       "name": "Brain fog",
-      "medicationsCausingIt": [
-        "Gabapentin"
-      ],
+      "medicationsCausingIt": [],
       "medicationsTreatingIt": [],
       "description": "Reduced mental clarity characterized by forgetfulness, slowed thinking, and difficulty concentrating."
     },
@@ -1632,18 +1459,13 @@
     },
     "Seizures": {
       "name": "Seizures",
-      "medicationsCausingIt": [
-        "Tramadol"
-      ],
-      "medicationsTreatingIt": [
-        "Gabapentin"
-      ],
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [],
       "description": "Sudden abnormal electrical activity in the brain causing convulsions or altered consciousness."
     },
     "Weight gain": {
       "name": "Weight gain",
       "medicationsCausingIt": [
-        "Gabapentin",
         "Lyrica"
       ],
       "medicationsTreatingIt": [],
@@ -1721,7 +1543,6 @@
       "name": "Nerve pain",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Gabapentin",
         "Lyrica"
       ],
       "description": "Pain resulting from nerve damage, often described as burning, tingling, or shooting sensations."
@@ -1737,25 +1558,20 @@
     "Moderate pain": {
       "name": "Moderate pain",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Tramadol"
-      ],
+      "medicationsTreatingIt": [],
       "description": "Pain that is noticeable and uncomfortable but not completely disabling."
     },
     "Sleep disturbance": {
       "name": "Sleep disturbance",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Melatonin"
-      ],
+      "medicationsTreatingIt": [],
       "description": "Disruption of normal sleep patterns including difficulty falling asleep or staying asleep."
     },
     "Dependence": {
       "name": "Dependence",
       "medicationsCausingIt": [
         "Xanax",
-        "Ativan",
-        "Tramadol"
+        "Ativan"
       ],
       "medicationsTreatingIt": [],
       "description": "Physical or psychological reliance on a substance, often accompanied by withdrawal symptoms."
@@ -1791,9 +1607,7 @@
     "Fatigue": {
       "name": "Fatigue",
       "medicationsCausingIt": [
-        "Lexapro",
-        "Gabapentin",
-        "Azithromycin"
+        "Lexapro"
       ],
       "medicationsTreatingIt": [],
       "description": "Persistent tiredness or lack of energy that interferes with normal daily activities."
@@ -1832,9 +1646,7 @@
     },
     "Vivid dreams": {
       "name": "Vivid dreams",
-      "medicationsCausingIt": [
-        "Melatonin"
-      ],
+      "medicationsCausingIt": [],
       "medicationsTreatingIt": [],
       "description": "Unusually intense, detailed, or memorable dreams that occur during sleep."
     },
@@ -1880,25 +1692,19 @@
     },
     "Loss of Appetite": {
       "name": "Loss of appetite",
-      "medicationsCausingIt": [
-        "Azithromycin"
-      ],
+      "medicationsCausingIt": [],
       "medicationsTreatingIt": [],
       "description": "Decreased desire to eat, which may lead to reduced calorie intake."
     },
     "Bacterial infections": {
       "name": "Bacterial infections",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Azithromycin"
-      ],
+      "medicationsTreatingIt": [],
       "description": "Infections caused by bacteria that may affect various body systems."
     },
     "Impaired sense of taste": {
       "name": "Impaired sense of taste",
-      "medicationsCausingIt": [
-        "Azithromycin"
-      ],
+      "medicationsCausingIt": [],
       "medicationsTreatingIt": [],
       "description": "Reduced or altered ability to perceive flavors while eating or drinking."
     },
@@ -2060,17 +1866,13 @@
     "Hay fever": {
       "name": "Hay fever",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loratadine"
-      ],
+      "medicationsTreatingIt": [],
       "description": "Allergic rhinitis caused by pollen, leading to sneezing, runny nose, itchy eyes, and congestion symptoms."
     },
     "Itchy skin": {
       "name": "Itchy skin",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loratadine"
-      ],
+      "medicationsTreatingIt": [],
       "description": "An uncomfortable sensation leading to the urge to scratch, often caused by allergies or skin conditions."
     },
     "Sneezing": {
@@ -2078,17 +1880,13 @@
       "medicationsCausingIt": [
         "Xylometazoline"
       ],
-      "medicationsTreatingIt": [
-        "Loratadine"
-      ],
+      "medicationsTreatingIt": [],
       "description": "A sudden expulsion of air through the nose and mouth caused by irritation."
     },
     "Runny nose": {
       "name": "Runny nose",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [
-        "Loratadine"
-      ],
+      "medicationsTreatingIt": [],
       "description": "Excessive mucus discharge from the nose, caused by infection, allergies, or other irritants."
     },
     "Burning": {
