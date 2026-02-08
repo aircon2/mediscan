@@ -113,11 +113,11 @@ export default function NewGraphPage() {
         isNodeFixed: (_: string, attr: LayoutAttributes) =>
           Boolean(attr.highlighted),
         settings: {
-          attraction: 0.0003,
-          repulsion: 0.4,
-          gravity: 0.0001,
-          inertia: 0.6,
-          maxMove: 200,
+          attraction: 0.001,
+          repulsion: 0.8,
+          gravity: 0.0005,
+          inertia: 0.4,
+          maxMove: 300,
         },
       });
       layout.stop();
@@ -144,7 +144,7 @@ export default function NewGraphPage() {
         draggedNode = e.node;
         graph.setNodeAttribute(draggedNode, "highlighted", true);
         layout?.start();
-        scheduleLayoutStop(3000);
+        scheduleLayoutStop(5000);
       });
 
       renderer.on("moveBody", ({ event }: { event: any }) => {
@@ -175,7 +175,7 @@ export default function NewGraphPage() {
         }
         isDragging = false;
         draggedNode = null;
-        scheduleLayoutStop(1500);
+        scheduleLayoutStop(3000);
       };
 
       renderer.on("upNode", handleUp);
@@ -241,7 +241,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
-      scheduleLayoutStop(2000);
+      scheduleLayoutStop(4000);
 
       if (renderer) {
         renderer.getCamera().setState({ ratio: 0.6 });
@@ -284,7 +284,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
-      scheduleLayoutStop(2000);
+      scheduleLayoutStop(4000);
 
       if (renderer) {
         renderer.getCamera().setState({ ratio: 0.6 });
@@ -327,7 +327,7 @@ export default function NewGraphPage() {
       });
 
       layout?.start();
-      scheduleLayoutStop(2000);
+      scheduleLayoutStop(4000);
 
       if (renderer) {
         renderer.getCamera().setState({ ratio: 0.6 });
