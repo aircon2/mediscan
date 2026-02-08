@@ -2,16 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import BackButton from "../components/BackButton";
+import { scanMedication } from "../../utils/api";
 
 export default function ScanPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [stream, setStream] = useState<MediaStream | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+  const hasScannedRef = useRef<boolean>(false); // Prevent duplicate scans in dev mode
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [countdown, setCountdown] = useState<number>(3);
   const [isCapturing, setIsCapturing] = useState<boolean>(false);
+  const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
+  const [statusText, setStatusText] = useState<string>(
+    "Analyzing your medication...",
+  );
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     let countdownInterval: NodeJS.Timeout;
@@ -58,7 +66,7 @@ export default function ScanPage() {
           }
         }
 
-        setStream(mediaStream);
+        streamRef.current = mediaStream;
 
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
@@ -108,28 +116,95 @@ export default function ScanPage() {
         const context = canvas.getContext("2d");
 
         if (context) {
-          // Set canvas dimensions to match video
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
+          // Downscale to max 800px wide to keep payload small for tunnel
+          const maxWidth = 800;
+          const scale = Math.min(1, maxWidth / video.videoWidth);
+          canvas.width = Math.round(video.videoWidth * scale);
+          canvas.height = Math.round(video.videoHeight * scale);
 
-          // Draw video frame to canvas
+          // Draw video frame to canvas (scaled down)
           context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-          // Convert canvas to base64 image
-          const imageDataUrl = canvas.toDataURL("image/jpeg", 0.9);
+          // Convert canvas to base64 image with lower quality for smaller size
+          const imageDataUrl = canvas.toDataURL("image/jpeg", 0.6);
           setCapturedImage(imageDataUrl);
           setIsCapturing(false);
 
           // Stop the camera stream
-          if (stream) {
-            stream.getTracks().forEach((track) => track.stop());
+          if (streamRef.current) {
+            streamRef.current
+              .getTracks()
+              .forEach((track: MediaStreamTrack) => track.stop());
+            streamRef.current = null;
           }
 
-          // TODO: Send imageDataUrl to API
+          // Send image to Gemini via backend (with duplicate prevention)
+          if (!hasScannedRef.current) {
+            hasScannedRef.current = true;
+            sendToGemini(imageDataUrl);
+          }
+        }
+      }
+    };
+
+    const sendToGemini = async (imageDataUrl: string, retries = 0) => {
+      setIsAnalyzing(true);
+      setStatusText("Analyzing your medication...");
+
+      try {
+        const result = await scanMedication(imageDataUrl);
+        console.log("[scan] Gemini result:", result);
+        setStatusText("Medication identified!");
+
+        // Extract the first medication name for navigation
+        const medNames = result.data?.medications
+          ? Object.keys(result.data.medications)
+          : [];
+        const firstMed =
+          medNames.length > 0 ? result.data.medications![medNames[0]] : null;
+
+        // Navigate to graph page for the scanned medication
+        setTimeout(() => {
+          if (firstMed) {
+            router.push(`/newGraph?med=${encodeURIComponent(firstMed.name)}`);
+          } else {
+            router.push("/newGraph");
+          }
+        }, 1500);
+      } catch (err: any) {
+        console.error("[scan] Error:", err);
+
+        // Retry on 429 with exponential backoff (max 3 retries)
+        if (err.message?.includes("429") && retries < 3) {
+          const delay = Math.pow(2, retries) * 5000; // 5s, 10s, 20s
+          setStatusText(`Rate limited. Retrying in ${delay / 1000}s...`);
           console.log(
-            "Image captured and ready to send:",
-            imageDataUrl.substring(0, 50) + "...",
+            `[scan] Retrying after ${delay}ms (attempt ${retries + 1}/3)`,
           );
+
+          setTimeout(() => {
+            sendToGemini(imageDataUrl, retries + 1);
+          }, delay);
+        } else {
+          // Provide specific error messages
+          let errorMsg = "Failed to analyze. Please try again.";
+          if (
+            err.message?.includes("database") ||
+            err.message?.includes("save")
+          ) {
+            errorMsg =
+              "Analysis succeeded but failed to save. Please check your connection.";
+          } else if (
+            err.message?.includes("network") ||
+            err.message?.includes("fetch")
+          ) {
+            errorMsg = "Network error. Please check your connection.";
+          } else if (err.message?.includes("Invalid image")) {
+            errorMsg = "Invalid image format. Please try again.";
+          }
+
+          setStatusText(errorMsg);
+          setIsAnalyzing(false);
         }
       }
     };
@@ -138,8 +213,11 @@ export default function ScanPage() {
 
     return () => {
       // Cleanup
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
+      if (streamRef.current) {
+        streamRef.current
+          .getTracks()
+          .forEach((track: MediaStreamTrack) => track.stop());
+        streamRef.current = null;
       }
       if (countdownInterval) clearInterval(countdownInterval);
       if (captureTimeout) clearTimeout(captureTimeout);
@@ -276,7 +354,7 @@ export default function ScanPage() {
               fontWeight: 500,
             }}
           >
-            {capturedImage ? "Image captured!" : "Analyzing your medication..."}
+            {statusText}
           </p>
         </motion.div>
       </main>

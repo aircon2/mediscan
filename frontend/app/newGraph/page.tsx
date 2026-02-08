@@ -28,11 +28,14 @@ export default function NewGraphPage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const searchParams = useSearchParams();
   const effect = searchParams.get("effect");
+  const med = searchParams.get("med");
   const [effectData, setEffectData] = useState<Effect | null>(null);
   const [selectedMedication, setSelectedMedication] =
     useState<Medication | null>(null);
   const [selectedIngredient, setSelectedIngredient] =
     useState<Ingredient | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // Load effect by name
   const loadEffect = async (effectName: string) => {
@@ -51,21 +54,58 @@ export default function NewGraphPage() {
     if (!effect) return;
 
     const fetchEffect = async () => {
+      setIsLoading(true);
+      setLoadError(null);
       try {
         const data = await getEffect(effect);
         setEffectData(data);
         setSelectedMedication(null); // Reset when effect changes
         setSelectedIngredient(null);
-      } catch (error) {
+        setLoadError(null);
+      } catch (error: any) {
         console.error("Error fetching effect:", error);
+        setLoadError(`Could not load effect "${effect}". It may not exist in the database yet.`);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchEffect();
   }, [effect]);
 
+  // Fetch medication data from ?med= query param
   useEffect(() => {
-    if (!containerRef.current || !effectData) return;
+    if (!med) return;
+
+    const fetchMedication = async () => {
+      setIsLoading(true);
+      setLoadError(null);
+      try {
+        const data = await getMedication(med);
+        setSelectedMedication(data);
+        setEffectData(null);
+        setSelectedIngredient(null);
+        setLoadError(null);
+      } catch (error: any) {
+        console.error("Error fetching medication:", error);
+        // Provide helpful error message
+        if (error.message?.includes("404") || error.message?.includes("not found")) {
+          setLoadError(`Medication "${med}" was scanned but could not be found in the database. Please try scanning again.`);
+        } else if (error.message?.includes("network") || error.message?.includes("fetch")) {
+          setLoadError(`Network error loading "${med}". Please check your connection and try again.`);
+        } else {
+          setLoadError(`Could not load medication "${med}". ${error.message || "Please try again."}`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchMedication();
+  }, [med]);
+
+  useEffect(() => {
+    if (!containerRef.current || (!effectData && !selectedMedication)) return;
 
     let graph: Graph | null = null;
     let renderer: Sigma | null = null;
@@ -389,18 +429,22 @@ export default function NewGraphPage() {
       }
     };
 
-    // Load effect graph
+    // Load effect or medication graph
     if (effectData) {
       destroyGraph();
       initGraph();
       buildEffectGraph(effectData);
+    } else if (selectedMedication) {
+      destroyGraph();
+      initGraph();
+      buildMedicationGraph(selectedMedication);
     }
 
     return () => {
       isMounted = false;
       destroyGraph();
     };
-  }, [effectData]);
+  }, [effectData, selectedMedication]);
 
   return (
     <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-purple-50 font-sans overflow-hidden">
@@ -409,6 +453,27 @@ export default function NewGraphPage() {
       <div className="absolute -bottom-20 -left-20 w-96 h-96 opacity-30 bg-gradient-to-tr from-blue-700 to-blue-700/0 rounded-full blur-3xl pointer-events-none"></div>
 
       <BackButton />
+
+      {/* Loading Indicator */}
+      {isLoading && (
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-30 bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg">
+          Loading medication data...
+        </div>
+      )}
+
+      {/* Error Message */}
+      {loadError && (
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-30 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg max-w-md text-center">
+          <p className="font-semibold mb-1">Error Loading Data</p>
+          <p className="text-sm">{loadError}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-2 bg-white text-red-500 px-4 py-1 rounded text-sm font-medium hover:bg-red-50 transition"
+          >
+            Retry
+          </button>
+        </div>
+      )}
 
       {/* Legend */}
       <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">

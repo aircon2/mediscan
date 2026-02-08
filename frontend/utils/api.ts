@@ -64,3 +64,16 @@ export function searchEffects(keyword: string): Promise<SearchEffectsResponse> {
 export function sendData(data: Partial<GraphData>): Promise<SendDataResponse> {
   return apiPost<SendDataResponse>('/api/data', data);
 }
+
+/** 5. Scan – send a base64 image to Gemini for medication analysis and store results */
+export interface ScanResponse {
+  message: string;
+  data: Partial<GraphData>;
+  medicationCount: number;
+  ingredientCount: number;
+  effectCount: number;
+}
+
+export function scanMedication(imageDataUrl: string): Promise<ScanResponse> {
+  return apiPost<ScanResponse>('/api/scan', { image: imageDataUrl });
+}
