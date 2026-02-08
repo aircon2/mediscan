@@ -64,7 +64,9 @@ export default function NewGraphPage() {
         setLoadError(null);
       } catch (error: any) {
         console.error("Error fetching effect:", error);
-        setLoadError(`Could not load effect "${effect}". It may not exist in the database yet.`);
+        setLoadError(
+          `Could not load effect "${effect}". It may not exist in the database yet.`,
+        );
       } finally {
         setIsLoading(false);
       }
@@ -89,12 +91,24 @@ export default function NewGraphPage() {
       } catch (error: any) {
         console.error("Error fetching medication:", error);
         // Provide helpful error message
-        if (error.message?.includes("404") || error.message?.includes("not found")) {
-          setLoadError(`Medication "${med}" was scanned but could not be found in the database. Please try scanning again.`);
-        } else if (error.message?.includes("network") || error.message?.includes("fetch")) {
-          setLoadError(`Network error loading "${med}". Please check your connection and try again.`);
+        if (
+          error.message?.includes("404") ||
+          error.message?.includes("not found")
+        ) {
+          setLoadError(
+            `Medication "${med}" was scanned but could not be found in the database. Please try scanning again.`,
+          );
+        } else if (
+          error.message?.includes("network") ||
+          error.message?.includes("fetch")
+        ) {
+          setLoadError(
+            `Network error loading "${med}". Please check your connection and try again.`,
+          );
         } else {
-          setLoadError(`Could not load medication "${med}". ${error.message || "Please try again."}`);
+          setLoadError(
+            `Could not load medication "${med}". ${error.message || "Please try again."}`,
+          );
         }
       } finally {
         setIsLoading(false);
