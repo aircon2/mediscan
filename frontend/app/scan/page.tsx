@@ -23,9 +23,9 @@ export default function ScanPage() {
           video: { facingMode: "environment" }, // Use back camera on mobile
           audio: false,
         });
-        
+
         setStream(mediaStream);
-        
+
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
         }
@@ -33,7 +33,7 @@ export default function ScanPage() {
         // Start 3-second countdown
         setIsCapturing(true);
         let timeLeft = 3;
-        
+
         countdownInterval = setInterval(() => {
           timeLeft -= 1;
           setCountdown(timeLeft);
@@ -75,7 +75,10 @@ export default function ScanPage() {
           }
 
           // TODO: Send imageDataUrl to API
-          console.log("Image captured and ready to send:", imageDataUrl.substring(0, 50) + "...");
+          console.log(
+            "Image captured and ready to send:",
+            imageDataUrl.substring(0, 50) + "...",
+          );
         }
       }
     };
@@ -147,7 +150,7 @@ export default function ScanPage() {
           {/* Translucent overlay with text */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-purple-100/20 backdrop-blur-[2px]"></div>
-            
+
             {error ? (
               <p className="relative z-10 text-xl font-medium text-red-500 px-4 text-center">
                 {error}
