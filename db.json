@@ -825,31 +825,6 @@
         "Memory impairment"
       ]
     },
-    "Ibuprofen": {
-      "name": "Ibuprofen",
-      "ingredients": [
-        "Ibuprofen"
-      ],
-      "sideEffects": [
-        "Nausea",
-        "Stomach pain",
-        "Dizziness",
-        "Headache",
-        "Increased blood pressure",
-        "Upset stomach",
-        "Heartburn",
-        "Drowsiness"
-      ],
-      "symptomsTreated": [
-        "Headache",
-        "Fever",
-        "Muscle pain",
-        "Joint pain",
-        "Migraine",
-        "Migraines",
-        "Headaches"
-      ]
-    },
     "Irbesartan/Hydrochlorothiazide": {
       "name": "Irbesartan/Hydrochlorothiazide",
       "ingredients": [
@@ -868,24 +843,6 @@
       ],
       "symptomsTreated": [
         "Hypertension"
-      ]
-    },
-    "Acetaminophen": {
-      "name": "Acetaminophen",
-      "ingredients": [
-        "Acetaminophen"
-      ],
-      "sideEffects": [
-        "Nausea",
-        "Stomach pain",
-        "Loss of appetite",
-        "Jaundice"
-      ],
-      "symptomsTreated": [
-        "Fever",
-        "Headache",
-        "Muscle aches",
-        "Pain"
       ]
     },
     "Aspirin": {

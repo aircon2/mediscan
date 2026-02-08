@@ -36,8 +36,11 @@ Analyze the image and extract the following information. Return ONLY valid JSON 
 }
 
 Rules:
-- Use the GENERIC medication/product name, NOT the brand name (e.g. "Tylenol" instead of "Tylenol Extra Strength", "Honey" instead of "No Name Liquid Honey")
-- If the product has a well-known generic name (like "Tylenol" for acetaminophen products), use that generic name
+- Use the BRAND NAME or common commercial product name as the medication name — NOT the active ingredient name
+  - Example: Use "Otrivin" not "Xylometazoline", "Tylenol" not "Acetaminophen", "Advil" not "Ibuprofen"
+  - The brand/product name is typically the largest text on the front of the packaging
+  - Active ingredients belong in the "ingredients" list, NOT as the medication name
+- Simplify the brand name to its generic version (e.g. "Tylenol" instead of "Tylenol Extra Strength", "Honey" instead of "No Name Liquid Honey")
 - For household items or natural products, use the simplest generic term (e.g. "Honey", not "Liquid Honey" or branded names)
 - List ALL active ingredients found on the label
 - IMPORTANT: Medication names and ingredient names MUST be distinct. Never use the same name for both a medication and an ingredient (e.g., if the medication is "Ashwagandha Capsules", the ingredient should be "Ashwagandha extract" or "Ashwagandha root", NOT "Ashwagandha")
