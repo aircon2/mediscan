@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
+import Fuse from 'fuse.js';
 import { getStore, mergeData } from '../lib/store';
-import type { GraphData } from '../types/graph';
+import type { GraphData, Effect } from '../types/graph';
 
 const router = Router();
 
@@ -43,6 +44,26 @@ router.get('/effects/:name', (req: Request, res: Response) => {
     return res.status(404).json({ error: 'Effect not found', name });
   }
   return res.json(effect);
+});
+
+/** Search effects by name or description using Fuse.js fuzzy search. GET /api/search?q=keyword */
+router.get('/search', (req: Request, res: Response) => {
+  const store = getStore();
+  const q = (req.query.q as string)?.trim();
+  if (!q) {
+    return res.status(400).json({ error: 'Query parameter q is required.' });
+  }
+  const list: Effect[] = Object.values(store.effects);
+  if (list.length === 0) return res.json({ effects: [] });
+
+  const fuse = new Fuse(list, {
+    keys: ['name', 'description'],
+    threshold: 0.4,
+    ignoreLocation: true,
+  });
+  const results = fuse.search(q);
+  const effects = results.map((r) => r.item);
+  return res.json({ effects });
 });
 
 /** 4. Merge – receive JSON from frontend; if entity exists add to existing, else create new */

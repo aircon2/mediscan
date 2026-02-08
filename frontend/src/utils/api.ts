@@ -33,6 +33,10 @@ export interface SendDataResponse {
   effectCount: number;
 }
 
+export interface SearchEffectsResponse {
+  effects: Effect[];
+}
+
 async function apiGet<T>(path: string): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`);
   if (!res.ok) {
@@ -68,6 +72,11 @@ export function getIngredient(name: string): Promise<Ingredient> {
 /** 3. Parse effect – return the effect JSON for the given name */
 export function getEffect(name: string): Promise<Effect> {
   return apiGet<Effect>(`/api/effects/${encodeURIComponent(name)}`);
+}
+
+/** Search effects by keyword (name or description); returns matching effect JSON(s). */
+export function searchEffects(keyword: string): Promise<SearchEffectsResponse> {
+  return apiGet<SearchEffectsResponse>(`/api/search?q=${encodeURIComponent(keyword.trim())}`);
 }
 
 /** 4. Merge – send JSON from frontend; duplicates are merged into existing, new entities created */
