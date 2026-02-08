@@ -680,6 +680,25 @@
         "Itching",
         "Nasal Congestion"
       ]
+    },
+    "Morphine": {
+      "name": "Morphine",
+      "ingredients": [
+        "Morphine sulfate"
+      ],
+      "sideEffects": [
+        "Constipation",
+        "Nausea",
+        "Drowsiness",
+        "Confusion",
+        "Respiratory depression",
+        "Lightheadedness",
+        "Dizziness",
+        "Vomiting"
+      ],
+      "symptomsTreated": [
+        "Pain"
+      ]
     }
   },
   "ingredients": {
@@ -1019,6 +1038,13 @@
         "Tiger Balm"
       ],
       "description": "Analgesic and anti-inflammatory properties"
+    },
+    "Morphine sulfate": {
+      "name": "Morphine sulfate",
+      "medications": [
+        "Morphine"
+      ],
+      "description": "An opioid analgesic used to relieve severe pain."
     }
   },
   "effects": {
@@ -1037,7 +1063,8 @@
         "Prozac",
         "Zoloft",
         "Tramadol",
-        "Azithromycin"
+        "Azithromycin",
+        "Morphine"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol"
@@ -1057,10 +1084,11 @@
         "Sudafed",
         "Gabapentin",
         "Tramadol",
-        "Azithromycin"
+        "Azithromycin",
+        "Morphine"
       ],
       "medicationsTreatingIt": [],
-      "description": "Feeling unsteady, lightheaded, or faint."
+      "description": "A sensation of spinning around and losing one's balance."
     },
     "Stomach upset": {
       "name": "Stomach upset",
@@ -1098,7 +1126,8 @@
         "Xanax",
         "Lyrica",
         "Melatonin",
-        "Jamieson Ashwagandha"
+        "Jamieson Ashwagandha",
+        "Morphine"
       ],
       "medicationsTreatingIt": [],
       "description": "Feeling sleepy or having difficulty staying awake."
@@ -1179,9 +1208,10 @@
         "Motrin",
         "Aleve",
         "Excedrin",
-        "Panadol"
+        "Panadol",
+        "Morphine"
       ],
-      "description": "General discomfort or soreness."
+      "description": "An unpleasant sensory and emotional experience associated with actual or potential tissue damage."
     },
     "Inflammation": {
       "name": "Inflammation",
@@ -1286,7 +1316,8 @@
         "Tums",
         "Benadryl",
         "Tramadol",
-        "Imodium"
+        "Imodium",
+        "Morphine"
       ],
       "medicationsTreatingIt": [
         "Miralax",
@@ -1300,7 +1331,7 @@
         "Trulance",
         "Lactulose"
       ],
-      "description": "Difficulty passing stools or infrequent bowel movements."
+      "description": "Difficulty in emptying the bowels, usually associated with hardened feces."
     },
     "Dark stools": {
       "name": "Dark stools",
@@ -1499,10 +1530,11 @@
         "Xanax",
         "Ativan",
         "Lyrica",
-        "Ambien"
+        "Ambien",
+        "Morphine"
       ],
       "medicationsTreatingIt": [],
-      "description": "Lack of clear thinking or disorientation."
+      "description": "Lack of clarity and order; disorientation."
     },
     "Sedation": {
       "name": "Sedation",
@@ -1717,6 +1749,30 @@
       ],
       "medicationsTreatingIt": [],
       "description": "A feeling of intense heat on the skin."
+    },
+    "Respiratory depression": {
+      "name": "Respiratory depression",
+      "medicationsCausingIt": [
+        "Morphine"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Slowed or shallow breathing."
+    },
+    "Lightheadedness": {
+      "name": "Lightheadedness",
+      "medicationsCausingIt": [
+        "Morphine"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Feeling faint, woozy, or unsteady."
+    },
+    "Vomiting": {
+      "name": "Vomiting",
+      "medicationsCausingIt": [
+        "Morphine"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "The act of ejecting stomach contents through the mouth."
     }
   }
 }
