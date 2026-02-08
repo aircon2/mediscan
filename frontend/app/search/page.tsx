@@ -1,9 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { searchEffects } from "../../utils/api";
+
+interface Effect {
+  name: string;
+  medicationsCausingIt: string[];
+  medicationsTreatingIt: string[];
+  description?: string;
+}
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [results, setResults] = useState<Effect[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setResults([]);
+      return;
+    }
+
+    const delaySearch = setTimeout(async () => {
+      setLoading(true);
+      try {
+        const response = await searchEffects(searchQuery);
+        setResults(response.effects || []);
+      } catch (error) {
+        console.error("Search error:", error);
+        setResults([]);
+      } finally {
+        setLoading(false);
+      }
+    }, 300);
+
+    return () => clearTimeout(delaySearch);
+  }, [searchQuery]);
 
   return (
     <div className="relative flex min-h-screen items-start justify-center bg-gradient-to-b from-blue-50 to-purple-50 font-sans overflow-hidden pt-20">
@@ -29,20 +61,33 @@ export default function Search() {
         />
 
         {/* Search Results */}
-        {searchQuery && (
-          <div className="flex flex-col gap-3 w-full mt-6">
-            {[1, 2, 3, 4].map((i) => (
+        {searchQuery && results.length > 0 && (
+          <div
+            className="flex flex-col w-full mt-3 rounded-2xl bg-blue-50 px-6 py-4"
+            style={{
+              boxShadow:
+                "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
+            }}
+          >
+            {results.map((effect, i) => (
               <div
                 key={i}
-                className="w-full px-6 py-3 rounded-2xl bg-blue-50 text-blue-600"
-                style={{
-                  boxShadow:
-                    "10px 10px 10px 0px rgba(174, 174, 205, 0.2), -10px -10px 10px 0px rgba(255, 255, 255, 0.7)",
-                }}
+                className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors"
               >
-                {searchQuery}
+                <div className="text-blue-600 font-medium">{effect.name}</div>
+                {effect.description && (
+                  <div className="text-blue-500 text-sm mt-1">
+                    {effect.description}
+                  </div>
+                )}
               </div>
             ))}
+          </div>
+        )}
+
+        {searchQuery && !loading && results.length === 0 && (
+          <div className="w-full mt-3 px-6 py-4 text-blue-400 text-center">
+            No results found
           </div>
         )}
       </main>
