@@ -1,8 +1,10 @@
 import type { Effect, GraphData, Ingredient, Medication } from '../types/graph';
 
-const API_BASE = typeof window !== 'undefined' && window.location.hostname !== 'localhost'
-  ? `http://${window.location.hostname}:5001`
-  : 'http://localhost:5001';
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (typeof window !== 'undefined' && window.location.hostname !== 'localhost'
+    ? `http://${window.location.hostname}:5001`
+    : 'http://localhost:5001');
 
 export interface SendDataResponse {
   message: string;
@@ -61,4 +63,17 @@ export function searchEffects(keyword: string): Promise<SearchEffectsResponse> {
 /** 4. Merge – send JSON from frontend; duplicates are merged into existing, new entities created */
 export function sendData(data: Partial<GraphData>): Promise<SendDataResponse> {
   return apiPost<SendDataResponse>('/api/data', data);
+}
+
+/** 5. Scan – send a base64 image to Gemini for medication analysis and store results */
+export interface ScanResponse {
+  message: string;
+  data: Partial<GraphData>;
+  medicationCount: number;
+  ingredientCount: number;
+  effectCount: number;
+}
+
+export function scanMedication(imageDataUrl: string): Promise<ScanResponse> {
+  return apiPost<ScanResponse>('/api/scan', { image: imageDataUrl });
 }

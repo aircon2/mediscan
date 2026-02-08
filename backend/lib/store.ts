@@ -45,9 +45,19 @@ function ensureIngredientArrays(ingredients: Record<string, Ingredient>): void {
 
 function saveToFile(): void {
   try {
-    fs.writeFileSync(DB_PATH, JSON.stringify(store, null, 2), 'utf-8');
-  } catch (err) {
+    // Ensure directory exists
+    const dir = path.dirname(DB_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
+    // Write to temporary file first, then rename (atomic operation)
+    const tempPath = DB_PATH + '.tmp';
+    fs.writeFileSync(tempPath, JSON.stringify(store, null, 2), 'utf-8');
+    fs.renameSync(tempPath, DB_PATH);
+  } catch (err: any) {
     console.error('Failed to save db.json:', err);
+    throw new Error(`Database save failed: ${err.message || 'Unknown error'}`);
   }
 }
 
