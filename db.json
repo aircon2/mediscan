@@ -2,58 +2,327 @@
   "medications": {
     "Tylenol": {
       "name": "Tylenol",
-      "ingredients": ["Acetaminophen", "Shannon"],
-      "sideEffects": ["Nausea"],
-      "symptomsTreated": ["Pain", "Fever"]
+      "ingredients": ["Acetaminophen"],
+      "sideEffects": ["Nausea", "Rash", "Dizziness"],
+      "symptomsTreated": ["Pain", "Fever", "Headache"]
     },
     "Advil": {
       "name": "Advil",
       "ingredients": ["Ibuprofen"],
-      "sideEffects": ["Stomach upset"],
+      "sideEffects": ["Stomach upset", "Nausea", "Dizziness"],
+      "symptomsTreated": ["Pain", "Fever", "Inflammation"]
+    },
+    "Motrin": {
+      "name": "Motrin",
+      "ingredients": ["Ibuprofen"],
+      "sideEffects": ["Stomach upset", "Heartburn"],
+      "symptomsTreated": ["Pain", "Fever", "Inflammation"]
+    },
+    "Aleve": {
+      "name": "Aleve",
+      "ingredients": ["Naproxen"],
+      "sideEffects": ["Stomach upset", "Heartburn"],
+      "symptomsTreated": ["Pain", "Inflammation"]
+    },
+    "Excedrin": {
+      "name": "Excedrin",
+      "ingredients": ["Acetaminophen", "Aspirin", "Caffeine"],
+      "sideEffects": ["Nausea", "Insomnia", "Dizziness"],
+      "symptomsTreated": ["Headache", "Pain"]
+    },
+    "Panadol": {
+      "name": "Panadol",
+      "ingredients": ["Acetaminophen"],
+      "sideEffects": ["Nausea", "Rash"],
       "symptomsTreated": ["Pain", "Fever"]
     },
     "Zyrtec": {
       "name": "Zyrtec",
       "ingredients": ["Cetirizine"],
-      "sideEffects": ["Drowsiness"],
-      "symptomsTreated": ["Allergies"]
+      "sideEffects": ["Drowsiness", "Dry mouth"],
+      "symptomsTreated": ["Allergies", "Itchy eyes"]
+    },
+    "Claritin": {
+      "name": "Claritin",
+      "ingredients": ["Loratadine"],
+      "sideEffects": ["Headache", "Dry mouth"],
+      "symptomsTreated": ["Allergies", "Itchy eyes"]
+    },
+    "Benadryl": {
+      "name": "Benadryl",
+      "ingredients": ["Diphenhydramine"],
+      "sideEffects": ["Drowsiness", "Dry mouth", "Dizziness"],
+      "symptomsTreated": ["Allergies", "Itchy eyes", "Rash"]
+    },
+    "Mucinex": {
+      "name": "Mucinex",
+      "ingredients": ["Guaifenesin"],
+      "sideEffects": ["Nausea", "Dizziness"],
+      "symptomsTreated": ["Chest congestion", "Cough"]
+    },
+    "Robitussin": {
+      "name": "Robitussin",
+      "ingredients": ["Dextromethorphan", "Guaifenesin"],
+      "sideEffects": ["Drowsiness", "Nausea"],
+      "symptomsTreated": ["Cough", "Chest congestion"]
+    },
+    "DayQuil": {
+      "name": "DayQuil",
+      "ingredients": ["Acetaminophen", "Dextromethorphan", "Phenylephrine"],
+      "sideEffects": ["Dizziness", "Insomnia", "Nausea"],
+      "symptomsTreated": ["Cough", "Fever", "Nasal congestion"]
+    },
+    "NyQuil": {
+      "name": "NyQuil",
+      "ingredients": ["Acetaminophen", "Dextromethorphan", "Doxylamine"],
+      "sideEffects": ["Drowsiness", "Dizziness"],
+      "symptomsTreated": ["Cough", "Fever", "Nasal congestion"]
+    },
+    "Sudafed": {
+      "name": "Sudafed",
+      "ingredients": ["Pseudoephedrine"],
+      "sideEffects": ["Insomnia", "Dizziness"],
+      "symptomsTreated": ["Nasal congestion", "Sinus pressure"]
+    },
+    "PeptoBismol": {
+      "name": "PeptoBismol",
+      "ingredients": ["Bismuth subsalicylate"],
+      "sideEffects": ["Dark stools", "Nausea"],
+      "symptomsTreated": ["Upset stomach", "Diarrhea"]
+    },
+    "Tums": {
+      "name": "Tums",
+      "ingredients": ["Calcium carbonate"],
+      "sideEffects": ["Constipation"],
+      "symptomsTreated": ["Heartburn", "Upset stomach"]
+    },
+    "Prilosec": {
+      "name": "Prilosec",
+      "ingredients": ["Omeprazole"],
+      "sideEffects": ["Headache", "Nausea"],
+      "symptomsTreated": ["Heartburn", "Acid reflux"]
     }
   },
   "ingredients": {
     "Acetaminophen": {
       "name": "Acetaminophen",
-      "medications": ["Tylenol"],
+      "medications": ["Tylenol", "Panadol", "Excedrin", "DayQuil", "NyQuil"],
       "description": "Pain reliever and fever reducer."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
-      "medications": ["Advil"],
+      "medications": ["Advil", "Motrin"],
       "description": "Nonsteroidal anti-inflammatory drug (NSAID)."
+    },
+    "Naproxen": {
+      "name": "Naproxen",
+      "medications": ["Aleve"],
+      "description": "NSAID used for pain and inflammation."
+    },
+    "Aspirin": {
+      "name": "Aspirin",
+      "medications": ["Excedrin"],
+      "description": "Pain reliever and anti-inflammatory."
+    },
+    "Caffeine": {
+      "name": "Caffeine",
+      "medications": ["Excedrin"],
+      "description": "Stimulant that can enhance pain relief."
     },
     "Cetirizine": {
       "name": "Cetirizine",
       "medications": ["Zyrtec"],
       "description": "Antihistamine used for allergy relief."
+    },
+    "Loratadine": {
+      "name": "Loratadine",
+      "medications": ["Claritin"],
+      "description": "Antihistamine used for allergy relief."
+    },
+    "Diphenhydramine": {
+      "name": "Diphenhydramine",
+      "medications": ["Benadryl"],
+      "description": "Antihistamine that can cause drowsiness."
+    },
+    "Guaifenesin": {
+      "name": "Guaifenesin",
+      "medications": ["Mucinex", "Robitussin"],
+      "description": "Expectorant that loosens mucus."
+    },
+    "Dextromethorphan": {
+      "name": "Dextromethorphan",
+      "medications": ["Robitussin", "DayQuil", "NyQuil"],
+      "description": "Cough suppressant."
+    },
+    "Phenylephrine": {
+      "name": "Phenylephrine",
+      "medications": ["DayQuil"],
+      "description": "Decongestant for nasal congestion."
+    },
+    "Doxylamine": {
+      "name": "Doxylamine",
+      "medications": ["NyQuil"],
+      "description": "Antihistamine used for nighttime relief."
+    },
+    "Pseudoephedrine": {
+      "name": "Pseudoephedrine",
+      "medications": ["Sudafed"],
+      "description": "Decongestant for sinus pressure."
+    },
+    "Bismuth subsalicylate": {
+      "name": "Bismuth subsalicylate",
+      "medications": ["PeptoBismol"],
+      "description": "Relieves upset stomach and diarrhea."
+    },
+    "Calcium carbonate": {
+      "name": "Calcium carbonate",
+      "medications": ["Tums"],
+      "description": "Antacid for heartburn."
+    },
+    "Omeprazole": {
+      "name": "Omeprazole",
+      "medications": ["Prilosec"],
+      "description": "Proton pump inhibitor for acid reflux."
     }
   },
   "effects": {
     "Nausea": {
       "name": "Nausea",
-      "medicationsCausingIt": ["Tylenol"],
-      "medicationsTreatingIt": [],
+      "medicationsCausingIt": ["Tylenol", "Advil", "Mucinex", "Robitussin", "DayQuil", "PeptoBismol", "Prilosec"],
+      "medicationsTreatingIt": ["PeptoBismol"],
       "description": "Upset stomach or feeling like you might vomit."
+    },
+    "Dizziness": {
+      "name": "Dizziness",
+      "medicationsCausingIt": ["Tylenol", "Advil", "Excedrin", "Benadryl", "Mucinex", "DayQuil", "NyQuil", "Sudafed"],
+      "medicationsTreatingIt": [],
+      "description": "Feeling lightheaded or unsteady."
     },
     "Stomach upset": {
       "name": "Stomach upset",
-      "medicationsCausingIt": ["Advil"],
-      "medicationsTreatingIt": [],
+      "medicationsCausingIt": ["Advil", "Motrin", "Aleve"],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
       "description": "Stomach irritation or discomfort."
+    },
+    "Heartburn": {
+      "name": "Heartburn",
+      "medicationsCausingIt": ["Motrin", "Aleve"],
+      "medicationsTreatingIt": ["Tums", "Prilosec"],
+      "description": "Burning sensation in the chest."
     },
     "Drowsiness": {
       "name": "Drowsiness",
-      "medicationsCausingIt": ["Zyrtec"],
+      "medicationsCausingIt": ["Zyrtec", "Benadryl", "NyQuil", "Robitussin"],
       "medicationsTreatingIt": [],
       "description": "Feeling sleepy or less alert."
+    },
+    "Dry mouth": {
+      "name": "Dry mouth",
+      "medicationsCausingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "medicationsTreatingIt": [],
+      "description": "Reduced saliva leading to a dry mouth."
+    },
+    "Insomnia": {
+      "name": "Insomnia",
+      "medicationsCausingIt": ["Excedrin", "DayQuil", "Sudafed"],
+      "medicationsTreatingIt": [],
+      "description": "Difficulty falling or staying asleep."
+    },
+    "Rash": {
+      "name": "Rash",
+      "medicationsCausingIt": ["Tylenol", "Panadol"],
+      "medicationsTreatingIt": ["Benadryl"],
+      "description": "Skin irritation or hives."
+    },
+    "Headache": {
+      "name": "Headache",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Excedrin"],
+      "description": "Pain in the head or upper neck."
+    },
+    "Fever": {
+      "name": "Fever",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Panadol", "DayQuil", "NyQuil"],
+      "description": "Elevated body temperature."
+    },
+    "Pain": {
+      "name": "Pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Tylenol", "Advil", "Motrin", "Aleve", "Excedrin", "Panadol"],
+      "description": "General discomfort or soreness."
+    },
+    "Inflammation": {
+      "name": "Inflammation",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Advil", "Motrin", "Aleve"],
+      "description": "Swelling or irritation in tissues."
+    },
+    "Allergies": {
+      "name": "Allergies",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "description": "Immune reaction to allergens."
+    },
+    "Cough": {
+      "name": "Cough",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Robitussin", "DayQuil", "NyQuil"],
+      "description": "Reflex to clear the throat or airways."
+    },
+    "Nasal congestion": {
+      "name": "Nasal congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["DayQuil", "NyQuil", "Sudafed"],
+      "description": "Blocked or stuffy nose."
+    },
+    "Chest congestion": {
+      "name": "Chest congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Mucinex", "Robitussin"],
+      "description": "Mucus buildup in the chest."
+    },
+    "Acid reflux": {
+      "name": "Acid reflux",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Prilosec"],
+      "description": "Stomach acid flowing back into the esophagus."
+    },
+    "Itchy eyes": {
+      "name": "Itchy eyes",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Zyrtec", "Claritin", "Benadryl"],
+      "description": "Irritated, itchy eyes due to allergies."
+    },
+    "Sinus pressure": {
+      "name": "Sinus pressure",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["Sudafed"],
+      "description": "Pressure in the sinus cavities."
+    },
+    "Upset stomach": {
+      "name": "Upset stomach",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["PeptoBismol", "Tums"],
+      "description": "General stomach discomfort."
+    },
+    "Diarrhea": {
+      "name": "Diarrhea",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": ["PeptoBismol"],
+      "description": "Loose or watery stools."
+    },
+    "Constipation": {
+      "name": "Constipation",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [],
+      "description": "Difficulty passing stools."
+    },
+    "Dark stools": {
+      "name": "Dark stools",
+      "medicationsCausingIt": ["PeptoBismol"],
+      "medicationsTreatingIt": [],
+      "description": "Darkening of stool color."
     }
   }
 }
