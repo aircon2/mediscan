@@ -340,20 +340,27 @@ export default function NewGraphPage() {
       } as NodeAttributes);
 
       medication.ingredients.forEach((ingredient) => {
+        // Skip self-referencing nodes (e.g. Ashwagandha is both a medication and ingredient)
+        if (ingredient === centerId) return;
+
         // Start all nodes at center with small random offset
         const x = (Math.random() - 0.5) * 50;
         const y = (Math.random() - 0.5) * 50;
 
-        g.addNode(ingredient, {
-          x,
-          y,
-          size: 7,
-          color: "#3B82F6",
-          label: ingredient,
-          nodeType: "ingredient",
-        } as NodeAttributes);
+        if (!g.hasNode(ingredient)) {
+          g.addNode(ingredient, {
+            x,
+            y,
+            size: 7,
+            color: "#3B82F6",
+            label: ingredient,
+            nodeType: "ingredient",
+          } as NodeAttributes);
+        }
 
-        g.addEdge(centerId, ingredient, { color: "#777777" });
+        if (!g.hasEdge(centerId, ingredient)) {
+          g.addEdge(centerId, ingredient, { color: "#777777" });
+        }
       });
 
       layout?.start();
@@ -385,20 +392,27 @@ export default function NewGraphPage() {
       } as NodeAttributes);
 
       ingredient.medications.forEach((medicationName) => {
+        // Skip self-referencing nodes (e.g. Ashwagandha is both a medication and ingredient)
+        if (medicationName === centerId) return;
+
         // Start all nodes at center with small random offset
         const x = (Math.random() - 0.5) * 50;
         const y = (Math.random() - 0.5) * 50;
 
-        g.addNode(medicationName, {
-          x,
-          y,
-          size: 8,
-          color: "#A855F7",
-          label: medicationName,
-          nodeType: "medication",
-        } as NodeAttributes);
+        if (!g.hasNode(medicationName)) {
+          g.addNode(medicationName, {
+            x,
+            y,
+            size: 8,
+            color: "#A855F7",
+            label: medicationName,
+            nodeType: "medication",
+          } as NodeAttributes);
+        }
 
-        g.addEdge(centerId, medicationName, { color: "#777777" });
+        if (!g.hasEdge(centerId, medicationName)) {
+          g.addEdge(centerId, medicationName, { color: "#777777" });
+        }
       });
 
       layout?.start();

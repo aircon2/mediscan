@@ -40,6 +40,7 @@ Rules:
 - If the product has a well-known generic name (like "Tylenol" for acetaminophen products), use that generic name
 - For household items or natural products, use the simplest generic term (e.g. "Honey", not "Liquid Honey" or branded names)
 - List ALL active ingredients found on the label
+- IMPORTANT: Medication names and ingredient names MUST be distinct. Never use the same name for both a medication and an ingredient (e.g., if the medication is "Ashwagandha Capsules", the ingredient should be "Ashwagandha extract" or "Ashwagandha root", NOT "Ashwagandha")
 - List common side effects for the medication (use your pharmaceutical knowledge)
 - List symptoms/conditions this medication treats
 - For each ingredient, create an entry in "ingredients" with its description
