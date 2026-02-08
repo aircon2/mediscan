@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import BackButton from "../components/BackButton";
 import { searchEffects } from "../../utils/api";
 
@@ -48,11 +49,19 @@ export default function Search() {
       <BackButton />
 
       <main className="flex flex-col items-start max-w-md w-full px-9 relative z-10">
-        <h1 className="text-2xl font-medium text-blue-600 mb-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-2xl font-medium text-blue-600 mb-4"
+        >
           What's bothering you?
-        </h1>
+        </motion.h1>
 
-        <input
+        <motion.input
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -66,7 +75,10 @@ export default function Search() {
 
         {/* Search Results */}
         {searchQuery && results.length > 0 && (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="flex flex-col w-full mt-3 rounded-2xl bg-blue-50 px-6 py-4"
             style={{
               boxShadow:
@@ -74,11 +86,16 @@ export default function Search() {
             }}
           >
             {results.map((effect, i) => (
-              <Link
+              <motion.div
                 key={i}
-                href={`/newGraph?effect=${encodeURIComponent(effect.name)}`}
-                className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors block"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.05, ease: "easeOut" }}
               >
+                <Link
+                  href={`/newGraph?effect=${encodeURIComponent(effect.name)}`}
+                  className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors block"
+                >
                 <div className="text-blue-600 font-medium">{effect.name}</div>
                 {effect.description && (
                   <div className="text-blue-500 text-sm mt-1">
@@ -86,14 +103,20 @@ export default function Search() {
                   </div>
                 )}
               </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {searchQuery && !loading && results.length === 0 && (
-          <div className="w-full mt-3 px-6 py-4 text-blue-400 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="w-full mt-3 px-6 py-4 text-blue-400 text-center"
+          >
             No results found
-          </div>
+          </motion.div>
         )}
       </main>
     </div>

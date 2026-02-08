@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 font-sans  pt-5 overflow-hidden">
+    <div className="relative min-h-screen justify-center bg-gradient-to-b from-blue-50 to-purple-50 font-sans  pt-5 overflow-hidden">
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
