@@ -138,7 +138,13 @@ export default function NewGraphPage() {
     const startRendering = () => {
       if (renderIntervalId !== null) return;
       renderIntervalId = window.setInterval(() => {
-        renderer?.refresh();
+        if (
+          renderer &&
+          containerRef.current &&
+          containerRef.current.offsetWidth > 0
+        ) {
+          renderer.refresh();
+        }
       }, 16); // ~60fps
     };
 
@@ -206,6 +212,42 @@ export default function NewGraphPage() {
         },
       });
 
+      // Helper: find nearest node within a pixel-distance threshold (for larger tap targets)
+      const TOUCH_RADIUS = 40; // px — generous for mobile
+      const findNearestNode = (
+        viewportX: number,
+        viewportY: number,
+        maxDistance: number,
+      ): string | null => {
+        if (!graph || !renderer) return null;
+        let nearest: string | null = null;
+        let minDist = maxDistance;
+        graph.forEachNode((node, attrs) => {
+          const vp = renderer!.graphToViewport({ x: attrs.x, y: attrs.y });
+          const dx = vp.x - viewportX;
+          const dy = vp.y - viewportY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < minDist) {
+            minDist = dist;
+            nearest = node;
+          }
+        });
+        return nearest;
+      };
+
+      const handleNodeClick = (nodeId: string) => {
+        if (isDragging || !graph) return;
+        if (centerNodeId && nodeId === centerNodeId) return;
+        const attrs = graph.getNodeAttributes(nodeId) as NodeAttributes;
+        if (attrs?.nodeType === "ingredient") {
+          void loadIngredient(nodeId);
+          return;
+        }
+        if (attrs?.nodeType === "medication") {
+          void loadMedication(nodeId);
+        }
+      };
+
       renderer.on("downNode", (e: { node: string }) => {
         if (!graph) return;
         isDragging = true;
@@ -214,6 +256,20 @@ export default function NewGraphPage() {
         layout?.start();
         startRendering();
         scheduleLayoutStop(5000);
+      });
+
+      // Extended touch area for drag: catch taps that barely miss a node
+      renderer.on("downStage", ({ event }: { event: any }) => {
+        if (!graph || !renderer) return;
+        const nearest = findNearestNode(event.x, event.y, TOUCH_RADIUS);
+        if (nearest) {
+          isDragging = true;
+          draggedNode = nearest;
+          graph.setNodeAttribute(draggedNode, "highlighted", true);
+          layout?.start();
+          startRendering();
+          scheduleLayoutStop(5000);
+        }
       });
 
       renderer.on("moveBody", ({ event }: { event: any }) => {
@@ -244,15 +300,15 @@ export default function NewGraphPage() {
       renderer.on("upStage", handleUp);
 
       renderer.on("clickNode", (e: { node: string }) => {
-        if (isDragging || !graph) return;
-        if (centerNodeId && e.node === centerNodeId) return;
-        const attrs = graph.getNodeAttributes(e.node) as NodeAttributes;
-        if (attrs?.nodeType === "ingredient") {
-          void loadIngredient(e.node);
-          return;
-        }
-        if (attrs?.nodeType === "medication") {
-          void loadMedication(e.node);
+        handleNodeClick(e.node);
+      });
+
+      // Extended tap/click area: catch clicks on labels or near nodes
+      renderer.on("clickStage", ({ event }: { event: any }) => {
+        if (isDragging || !graph || !renderer) return;
+        const nearest = findNearestNode(event.x, event.y, TOUCH_RADIUS);
+        if (nearest) {
+          handleNodeClick(nearest);
         }
       });
     };
@@ -471,15 +527,23 @@ export default function NewGraphPage() {
       }
     };
 
-    // Build graph based on current state
-    initGraph();
-    if (effectData) {
-      buildEffectGraph(effectData);
-    } else if (selectedMedication) {
-      buildMedicationGraph(selectedMedication);
-    } else if (selectedIngredient) {
-      buildIngredientGraph(selectedIngredient);
-    }
+    // Wait for the container to have dimensions before initializing Sigma
+    const tryInit = () => {
+      if (!isMounted || !containerRef.current) return;
+      if (containerRef.current.offsetWidth === 0) {
+        requestAnimationFrame(tryInit);
+        return;
+      }
+      initGraph();
+      if (effectData) {
+        buildEffectGraph(effectData);
+      } else if (selectedMedication) {
+        buildMedicationGraph(selectedMedication);
+      } else if (selectedIngredient) {
+        buildIngredientGraph(selectedIngredient);
+      }
+    };
+    tryInit();
 
     return () => {
       isMounted = false;
@@ -563,7 +627,7 @@ export default function NewGraphPage() {
       </div>
 
       {/* Graph Area - Top 60% */}
-      <div ref={containerRef} className="h-[60vh] relative z-10"></div>
+      <div ref={containerRef} className="w-full h-[60vh] relative z-10"></div>
 
       {/* Effect Details - Bottom 40% */}
       <div className="flex-1 px-6 py-4 relative z-10 overflow-hidden">
