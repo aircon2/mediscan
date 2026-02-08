@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./app.css";
+import GraphPage from "./pages/GraphPage";
 
-function App() {
-  const [count, setCount] = useState(0)
+type Page = "home" | "graph";
+
+const App = () => {
+  const [page, setPage] = useState<Page>("home");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app">
+      <header className="app-header">
+        <div className="brand">
+          <span className="brand-title">MediScan</span>
+          <span className="brand-subtitle">
+            Interactive medication explorer
+          </span>
+        </div>
+        <nav className="nav">
+          <button
+            className={page === "home" ? "nav-button active" : "nav-button"}
+            onClick={() => setPage("home")}
+            type="button"
+          >
+            Overview
+          </button>
+          <button
+            className={page === "graph" ? "nav-button active" : "nav-button"}
+            onClick={() => setPage("graph")}
+            type="button"
+          >
+            Graph Lab
+          </button>
+        </nav>
+      </header>
+      <main className="app-main">
+        {page === "home" ? (
+          <section className="home">
+            <h1>Map relationships between meds, ingredients, and effects.</h1>
+            <p>
+              Use the graph lab to add nodes, drag them around, and explore how
+              medications relate to side effects and symptoms.
+            </p>
+            <div className="home-card">
+              <div>
+                <h2>Quick start</h2>
+                <ul>
+                  <li>Open Graph Lab to spawn new nodes.</li>
+                  <li>Drag nodes to pin them in place.</li>
+                  <li>Zoom to inspect dense clusters.</li>
+                </ul>
+              </div>
+              <div className="home-note">
+                <span>Tip</span>
+                The layout keeps animating while you explore, so the network
+                stays readable.
+              </div>
+            </div>
+          </section>
+        ) : (
+          <GraphPage />
+        )}
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
