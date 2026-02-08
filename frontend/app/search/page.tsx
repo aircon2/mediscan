@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { searchEffects } from "../../utils/api";
 
 interface Effect {
@@ -70,9 +71,10 @@ export default function Search() {
             }}
           >
             {results.map((effect, i) => (
-              <div
+              <Link
                 key={i}
-                className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors"
+                href={`/newGraph?effect=${encodeURIComponent(effect.name)}`}
+                className="w-full py-3 border-b border-blue-300/40 last:border-b-0 cursor-pointer hover:bg-blue-100/30 transition-colors block"
               >
                 <div className="text-blue-600 font-medium">{effect.name}</div>
                 {effect.description && (
@@ -80,7 +82,7 @@ export default function Search() {
                     {effect.description}
                   </div>
                 )}
-              </div>
+              </Link>
             ))}
           </div>
         )}
