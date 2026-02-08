@@ -29,7 +29,20 @@ const GraphPage = () => {
     const graph = new Graph();
     let renderer: Sigma | null = null;
     let layout: ForceSupervisor | null = null;
+    let layoutStopId: number | null = null;
     let isMounted = true;
+    const graphBounds = {
+      x: [-20, 20] as [number, number],
+      y: [-20, 20] as [number, number],
+    };
+    const clamp = (value: number, min: number, max: number) =>
+      Math.min(Math.max(value, min), max);
+    const scheduleLayoutStop = (delayMs: number) => {
+      if (layoutStopId !== null) {
+        window.clearTimeout(layoutStopId);
+      }
+      layoutStopId = window.setTimeout(() => layout?.stop(), delayMs);
+    };
 
     const buildGraph = (data: MockData) => {
       const medication = data.medications.Tylenol;
@@ -69,11 +82,13 @@ const GraphPage = () => {
           Boolean(attr.highlighted),
       });
       layout.start();
+      scheduleLayoutStop(4000);
 
       renderer = new Sigma(graph, containerRef.current as HTMLDivElement, {
         minCameraRatio: 0.5,
         maxCameraRatio: 2,
       });
+      renderer.setCustomBBox(graphBounds);
 
       let draggedNode: string | null = null;
       let isDragging = false;
@@ -84,6 +99,8 @@ const GraphPage = () => {
         graph.setNodeAttribute(draggedNode, "highlighted", true);
         if (!renderer?.getCustomBBox())
           renderer?.setCustomBBox(renderer.getBBox());
+        layout?.start();
+        scheduleLayoutStop(4000);
       });
 
       renderer.on("moveBody", ({ event }: { event: any }) => {
@@ -92,8 +109,15 @@ const GraphPage = () => {
         const pos = renderer?.viewportToGraph(event);
         if (!pos) return;
 
-        graph.setNodeAttribute(draggedNode, "x", pos.x);
-        graph.setNodeAttribute(draggedNode, "y", pos.y);
+        const minX = graphBounds.x[0];
+        const maxX = graphBounds.x[1];
+        const minY = graphBounds.y[0];
+        const maxY = graphBounds.y[1];
+        const x = clamp(pos.x, minX, maxX);
+        const y = clamp(pos.y, minY, maxY);
+
+        graph.setNodeAttribute(draggedNode, "x", x);
+        graph.setNodeAttribute(draggedNode, "y", y);
 
         event.preventSigmaDefault();
         event.original.preventDefault();
@@ -106,6 +130,7 @@ const GraphPage = () => {
         }
         isDragging = false;
         draggedNode = null;
+        scheduleLayoutStop(2500);
       };
 
       renderer.on("upNode", handleUp);
@@ -122,6 +147,9 @@ const GraphPage = () => {
 
     return () => {
       isMounted = false;
+      if (layoutStopId !== null) {
+        window.clearTimeout(layoutStopId);
+      }
       renderer?.kill();
       layout?.kill();
     };
