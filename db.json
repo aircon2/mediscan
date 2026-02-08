@@ -239,6 +239,42 @@
       "ingredients": ["Albuterol"],
       "sideEffects": ["Jitteriness", "Anxiety", "Increased heart rate", "Headache"],
       "symptomsTreated": ["Asthma", "Breathing problems"]
+    },
+    "Miralax": {
+      "name": "Miralax",
+      "ingredients": ["Polyethylene glycol 3350"],
+      "sideEffects": ["Bloating", "Gas", "Diarrhea"],
+      "symptomsTreated": ["Constipation"]
+    },
+    "Dulcolax": {
+      "name": "Dulcolax",
+      "ingredients": ["Bisacodyl"],
+      "sideEffects": ["Abdominal cramps", "Diarrhea", "Nausea"],
+      "symptomsTreated": ["Constipation"]
+    },
+    "Colace": {
+      "name": "Colace",
+      "ingredients": ["Docusate sodium"],
+      "sideEffects": ["Stomach cramps", "Diarrhea"],
+      "symptomsTreated": ["Constipation"]
+    },
+    "Senokot": {
+      "name": "Senokot",
+      "ingredients": ["Senna"],
+      "sideEffects": ["Abdominal cramps", "Diarrhea"],
+      "symptomsTreated": ["Constipation"]
+    },
+    "Metamucil": {
+      "name": "Metamucil",
+      "ingredients": ["Psyllium husk"],
+      "sideEffects": ["Bloating", "Gas"],
+      "symptomsTreated": ["Constipation"]
+    },
+    "Milk of Magnesia": {
+      "name": "Milk of Magnesia",
+      "ingredients": ["Magnesium hydroxide"],
+      "sideEffects": ["Diarrhea", "Nausea"],
+      "symptomsTreated": ["Constipation", "Upset stomach"]
     }
   },
   "ingredients": {
@@ -441,7 +477,58 @@
       "name": "Albuterol",
       "medications": ["Albuterol"],
       "description": "Bronchodilator for asthma."
+    },
+    "Polyethylene glycol 3350": {
+      "name": "Polyethylene glycol 3350",
+      "medications": ["Miralax"],
+      "description": "Osmotic laxative for constipation."
+    },
+    "Bisacodyl": {
+      "name": "Bisacodyl",
+      "medications": ["Dulcolax"],
+      "description": "Stimulant laxative for constipation."
+    },
+    "Docusate sodium": {
+      "name": "Docusate sodium",
+      "medications": ["Colace"],
+      "description": "Stool softener for constipation."
+    },
+    "Senna": {
+      "name": "Senna",
+      "medications": ["Senokot"],
+      "description": "Stimulant laxative derived from senna."
+    },
+    "Psyllium husk": {
+      "name": "Psyllium husk",
+      "medications": ["Metamucil"],
+      "description": "Fiber supplement that adds bulk to stool."
+    },
+    "Magnesium hydroxide": {
+      "name": "Magnesium hydroxide",
+      "medications": ["Milk of Magnesia"],
+      "description": "Osmotic laxative and antacid."
     }
   },
-  "effects": {}
+  "effects": {
+    "Constipation": {
+      "name": "Constipation",
+      "medicationsCausingIt": [
+        "Pepto-Bismol",
+        "Tums",
+        "Zantac",
+        "Tramadol",
+        "Oxycodone",
+        "Vicodin"
+      ],
+      "medicationsTreatingIt": [
+        "Miralax",
+        "Dulcolax",
+        "Colace",
+        "Senokot",
+        "Metamucil",
+        "Milk of Magnesia"
+      ],
+      "description": "Difficulty passing stools or infrequent bowel movements."
+    }
+  }
 }
