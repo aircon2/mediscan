@@ -76,6 +76,7 @@ export function getEffect(name: string): Promise<Effect> {
 
 /** Search effects by keyword (name or description); returns matching effect JSON(s). */
 export function searchEffects(keyword: string): Promise<SearchEffectsResponse> {
+  console.log('[searchEffects] called with:', JSON.stringify(keyword));
   return apiGet<SearchEffectsResponse>(`/api/search?q=${encodeURIComponent(keyword.trim())}`);
 }
 

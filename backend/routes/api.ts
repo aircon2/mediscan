@@ -50,6 +50,7 @@ router.get('/effects/:name', (req: Request, res: Response) => {
 router.get('/search', (req: Request, res: Response) => {
   const store = getStore();
   const q = (req.query.q as string)?.trim();
+  console.log('[backend /api/search] request, q:', q);
   if (!q) {
     return res.status(400).json({ error: 'Query parameter q is required.' });
   }
@@ -63,6 +64,7 @@ router.get('/search', (req: Request, res: Response) => {
   });
   const results = fuse.search(q);
   const effects = results.map((r) => r.item);
+  console.log('[backend /api/search] results count:', effects.length);
   return res.json({ effects });
 });
 
