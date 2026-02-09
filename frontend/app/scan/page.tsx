@@ -309,48 +309,48 @@ export default function ScanPage() {
 
         {/* Analyzing Status */}
         {isAnalyzing && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center gap-4 px-8 py-6 rounded-3xl"
-          style={{
-            background: "rgba(255, 255, 255, 0.5)",
-            backdropFilter: "blur(10px)",
-            boxShadow:
-              "10px 10px 15px 0px rgba(174, 174, 205, 0.2), -10px -10px 15px 0px rgba(255, 255, 255, 0.7)",
-          }}
-        >
-          {/* Loading Dots */}
-          <div className="flex gap-2">
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="w-3 h-3 rounded-full bg-blue-500"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </div>
-
-          <p
-            className="text-lg font-medium text-blue-500"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col items-center gap-4 px-8 py-6 rounded-3xl"
             style={{
-              fontFamily: '"Space Grotesk", sans-serif',
-              fontWeight: 500,
+              background: "rgba(255, 255, 255, 0.5)",
+              backdropFilter: "blur(10px)",
+              boxShadow:
+                "10px 10px 15px 0px rgba(174, 174, 205, 0.2), -10px -10px 15px 0px rgba(255, 255, 255, 0.7)",
             }}
           >
-            {statusText}
-          </p>
-        </motion.div>
+            {/* Loading Dots */}
+            <div className="flex gap-2">
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="w-3 h-3 rounded-full bg-blue-500"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+            </div>
+
+            <p
+              className="text-lg font-medium text-blue-500"
+              style={{
+                fontFamily: '"Space Grotesk", sans-serif',
+                fontWeight: 500,
+              }}
+            >
+              {statusText}
+            </p>
+          </motion.div>
         )}
       </main>
     </div>
