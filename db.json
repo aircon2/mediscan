@@ -3,7 +3,8 @@
     "Tylenol": {
       "name": "Tylenol",
       "ingredients": [
-        "Acetaminophen"
+        "Acetaminophen",
+        "Phenylephrine"
       ],
       "sideEffects": [
         "Nausea",
@@ -12,13 +13,22 @@
         "Liver damage",
         "Allergic reaction",
         "Stomach pain",
-        "Loss of appetite"
+        "Loss of appetite",
+        "Drowsiness",
+        "Increased blood pressure",
+        "Itching"
       ],
       "symptomsTreated": [
         "Pain",
         "Fever",
         "Headache",
-        "Muscle aches"
+        "Muscle aches",
+        "Cold",
+        "Sinus congestion",
+        "Congestion",
+        "Sore throat",
+        "Cough",
+        "Body aches"
       ]
     },
     "Advil": {
@@ -31,7 +41,10 @@
         "Nausea",
         "Dizziness",
         "Heartburn",
-        "Stomach pain"
+        "Stomach pain",
+        "Vomiting",
+        "Headache",
+        "Increased blood pressure"
       ],
       "symptomsTreated": [
         "Pain",
@@ -39,7 +52,8 @@
         "Inflammation",
         "Headache",
         "Muscle aches",
-        "Joint pain"
+        "Joint pain",
+        "Muscle pain"
       ]
     },
     "Motrin": {
@@ -278,12 +292,16 @@
         "Insomnia",
         "Anxiety",
         "Emotional blunting",
-        "Sexual dysfunction"
+        "Sexual dysfunction",
+        "Weight changes"
       ],
       "symptomsTreated": [
         "Depression",
         "Anxiety",
-        "OCD"
+        "OCD",
+        "Obsessive-compulsive disorder",
+        "Panic disorder",
+        "Bulimia"
       ]
     },
     "Zoloft": {
@@ -312,7 +330,12 @@
       "sideEffects": [
         "Fatigue",
         "Anxiety",
-        "Sexual dysfunction"
+        "Sexual dysfunction",
+        "Nausea",
+        "Headache",
+        "Insomnia",
+        "Drowsiness",
+        "Dry mouth"
       ],
       "symptomsTreated": [
         "Depression",
@@ -556,7 +579,8 @@
     "Jamieson Ashwagandha": {
       "name": "Jamieson Ashwagandha",
       "ingredients": [
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha extract"
       ],
       "sideEffects": [
         "Drowsiness",
@@ -565,7 +589,8 @@
       ],
       "symptomsTreated": [
         "Stress",
-        "Anxiety"
+        "Anxiety",
+        "Memory problems"
       ]
     },
     "Dettol": {
@@ -677,7 +702,8 @@
       "ingredients": [
         "Ashwagandha",
         "Ashwagandha root extract",
-        "Ashwagandha extract"
+        "Ashwagandha extract",
+        "Ashwagandha root"
       ],
       "sideEffects": [
         "Diarrhea",
@@ -691,13 +717,15 @@
         "Stress",
         "Memory impairment",
         "Memory problems",
-        "Memory support"
+        "Memory support",
+        "Fatigue"
       ]
     },
     "Ashwagandha Gummies": {
       "name": "Ashwagandha Gummies",
       "ingredients": [
-        "Ashwagandha"
+        "Ashwagandha",
+        "Ashwagandha extract"
       ],
       "sideEffects": [
         "Drowsiness",
@@ -706,7 +734,8 @@
       ],
       "symptomsTreated": [
         "Stress",
-        "Memory impairment"
+        "Memory impairment",
+        "Memory loss"
       ]
     },
     "Irbesartan/Hydrochlorothiazide": {
@@ -791,13 +820,20 @@
         "Increased blood pressure",
         "Insomnia",
         "Dry mouth",
-        "Dizziness"
+        "Dizziness",
+        "Nausea",
+        "Stomach upset",
+        "Headache",
+        "Difficulty sleeping",
+        "Vomiting",
+        "Heartburn"
       ],
       "symptomsTreated": [
         "Nasal congestion",
         "Sinus pressure",
         "Headache",
-        "Fever"
+        "Fever",
+        "Pain"
       ]
     },
     "Advil Plus Acetaminophen": {
@@ -810,13 +846,161 @@
         "Heartburn",
         "Nausea",
         "Stomach pain",
-        "Dizziness"
+        "Dizziness",
+        "Vomiting",
+        "Headache",
+        "Increased blood pressure"
       ],
       "symptomsTreated": [
         "Headache",
         "Fever",
         "Muscle aches",
-        "Joint pain"
+        "Joint pain",
+        "Headaches",
+        "Muscle pain",
+        "Muscle & Joint Pain"
+      ]
+    },
+    "Tylenol Cold & Sinus": {
+      "name": "Tylenol Cold & Sinus",
+      "ingredients": [
+        "Acetaminophen"
+      ],
+      "sideEffects": [
+        "Drowsiness",
+        "Dizziness",
+        "Dry mouth",
+        "Nausea",
+        "Vomiting"
+      ],
+      "symptomsTreated": [
+        "Nasal congestion",
+        "Sinus pain",
+        "Sinus pressure",
+        "Headache",
+        "Fever",
+        "Runny nose",
+        "Sneezing",
+        "Sinus pain and pressure"
+      ]
+    },
+    "Advil Cold and Sinus": {
+      "name": "Advil Cold and Sinus",
+      "ingredients": [
+        "Ibuprofen",
+        "Pseudoephedrine HCl"
+      ],
+      "sideEffects": [
+        "Nausea",
+        "Headache",
+        "Dizziness",
+        "Increased blood pressure",
+        "Difficulty sleeping"
+      ],
+      "symptomsTreated": [
+        "Sinus pressure",
+        "Nasal congestion",
+        "Fever"
+      ]
+    },
+    "Sunrype": {
+      "name": "Sunrype",
+      "ingredients": [
+        "Fruit juice"
+      ],
+      "sideEffects": [],
+      "symptomsTreated": [
+        "Dehydration"
+      ]
+    },
+    "Biphentin": {
+      "name": "Biphentin",
+      "ingredients": [
+        "Methylphenidate hydrochloride"
+      ],
+      "sideEffects": [
+        "Insomnia",
+        "Decreased appetite",
+        "Headache",
+        "Stomach pain",
+        "Nervousness"
+      ],
+      "symptomsTreated": [
+        "ADHD"
+      ]
+    },
+    "Sandoz Ciprofloxacin/Dexamethasone": {
+      "name": "Sandoz Ciprofloxacin/Dexamethasone",
+      "ingredients": [
+        "Ciprofloxacin",
+        "Dexamethasone"
+      ],
+      "sideEffects": [
+        "Ear discomfort",
+        "Itching",
+        "Irritation",
+        "Taste alteration"
+      ],
+      "symptomsTreated": [
+        "Outer ear infections",
+        "Swimmer's ear",
+        "Inflammation"
+      ]
+    },
+    "Multi": {
+      "name": "Multi",
+      "ingredients": [
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "sideEffects": [],
+      "symptomsTreated": [
+        "Nutrient deficiency"
+      ]
+    },
+    "Fahrenheit": {
+      "name": "Fahrenheit",
+      "ingredients": [
+        "Alcohol",
+        "Fragrance",
+        "Water"
+      ],
+      "sideEffects": [
+        "Skin irritation",
+        "Allergic reaction"
+      ],
+      "symptomsTreated": []
+    },
+    "Ozempic": {
+      "name": "Ozempic",
+      "ingredients": [
+        "Semaglutide"
+      ],
+      "sideEffects": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea",
+        "Abdominal pain",
+        "Constipation"
+      ],
+      "symptomsTreated": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "Tacroz": {
+      "name": "Tacroz",
+      "ingredients": [
+        "Tacrolimus"
+      ],
+      "sideEffects": [
+        "Skin burning sensation",
+        "Itching",
+        "Skin redness",
+        "Acne"
+      ],
+      "symptomsTreated": [
+        "Atopic dermatitis"
       ]
     }
   },
@@ -829,9 +1013,10 @@
         "Excedrin",
         "DayQuil",
         "NyQuil",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Tylenol Cold & Sinus"
       ],
-      "description": "Acetaminophen is a common pain reliever and fever reducer; it can relieve mild to moderate pain."
+      "description": "A common pain reliever and fever reducer; it works by blocking pain signals in the brain and reducing fever."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
@@ -840,9 +1025,10 @@
         "Motrin",
         "Ibuprofen",
         "Advil Cold & Sinus",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Advil Cold and Sinus"
       ],
-      "description": "A nonsteroidal anti-inflammatory drug (NSAID) that reduces pain, fever, and inflammation by inhibiting prostaglandin synthesis."
+      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, reduce fever, and decrease inflammation in the body."
     },
     "Naproxen": {
       "name": "Naproxen",
@@ -906,9 +1092,10 @@
     "Phenylephrine": {
       "name": "Phenylephrine",
       "medications": [
-        "DayQuil"
+        "DayQuil",
+        "Tylenol"
       ],
-      "description": "A decongestant that constricts blood vessels in nasal passages to reduce swelling and congestion."
+      "description": "Phenylephrine is a decongestant. It shrinks blood vessels in the nasal passages, relieving nasal stuffiness and congestion."
     },
     "Doxylamine": {
       "name": "Doxylamine",
@@ -950,7 +1137,7 @@
       "medications": [
         "Prozac"
       ],
-      "description": "An SSRI antidepressant that increases serotonin levels to improve mood and emotional regulation."
+      "description": "A selective serotonin reuptake inhibitor (SSRI) used to treat depression, OCD, panic disorder, and bulimia by increasing serotonin levels."
     },
     "Sertraline": {
       "name": "Sertraline",
@@ -964,7 +1151,7 @@
       "medications": [
         "Lexapro"
       ],
-      "description": "A selective serotonin reuptake inhibitor commonly prescribed for anxiety and depressive disorders."
+      "description": "Escitalopram is a selective serotonin reuptake inhibitor (SSRI) used to treat depression and generalized anxiety disorder by increasing serotonin levels."
     },
     "Alprazolam": {
       "name": "Alprazolam",
@@ -1101,7 +1288,9 @@
     "Ashwagandha": {
       "name": "Ashwagandha",
       "medications": [
-        "Jamieson Ashwagandha"
+        "Jamieson Ashwagandha",
+        "Ashwagandha Gummies",
+        "Ashwagandha"
       ],
       "description": "An adaptogenic herb traditionally used to help the body manage stress and anxiety."
     },
@@ -1177,9 +1366,116 @@
     "Pseudoephedrine HCl": {
       "name": "Pseudoephedrine HCl",
       "medications": [
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Advil Cold and Sinus"
       ],
-      "description": "A nasal decongestant that works by narrowing blood vessels in the nasal passages to reduce congestion."
+      "description": "A nasal decongestant that reduces swelling of nasal passages, making it easier to breathe through the nose."
+    },
+    "Ashwagandha extract": {
+      "name": "Ashwagandha extract",
+      "medications": [
+        "Ashwagandha Gummies",
+        "Ashwagandha",
+        "Jamieson Ashwagandha"
+      ],
+      "description": "Helps the body to cope with stress and anxiety and supports memory and cognitive function. "
+    },
+    "Ashwagandha root extract": {
+      "name": "Ashwagandha root extract",
+      "medications": [
+        "Ashwagandha"
+      ]
+    },
+    "Ashwagandha root": {
+      "name": "Ashwagandha root",
+      "medications": [
+        "Ashwagandha"
+      ],
+      "description": "Used in traditional medicine; may reduce stress and fatigue."
+    },
+    "Fruit juice": {
+      "name": "Fruit juice",
+      "medications": [
+        "Sunrype"
+      ],
+      "description": "Liquid from fruits, consumed for nutritional value and hydration."
+    },
+    "Methylphenidate hydrochloride": {
+      "name": "Methylphenidate hydrochloride",
+      "medications": [
+        "Biphentin"
+      ],
+      "description": "A central nervous system stimulant used to treat ADHD and narcolepsy by affecting neurotransmitters in the brain."
+    },
+    "Ciprofloxacin": {
+      "name": "Ciprofloxacin",
+      "medications": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "description": "A quinolone antibiotic used to treat bacterial infections, preventing bacterial growth and spread in the affected area."
+    },
+    "Dexamethasone": {
+      "name": "Dexamethasone",
+      "medications": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "description": "A corticosteroid that reduces inflammation and suppresses the immune system, decreasing swelling and discomfort in the ear."
+    },
+    "Vitamin B": {
+      "name": "Vitamin B",
+      "medications": [
+        "Multi"
+      ],
+      "description": "A group of essential nutrients that play many important roles in your body's overall health."
+    },
+    "Vitamin C": {
+      "name": "Vitamin C",
+      "medications": [
+        "Multi"
+      ],
+      "description": "An antioxidant that supports immune function and is important for collagen production and wound healing."
+    },
+    "Vitamin D": {
+      "name": "Vitamin D",
+      "medications": [
+        "Multi"
+      ],
+      "description": "A fat-soluble vitamin that promotes calcium absorption and bone health and supports immune function."
+    },
+    "Alcohol": {
+      "name": "Alcohol",
+      "medications": [
+        "Fahrenheit"
+      ],
+      "description": "Used as a solvent for fragrance oils and can also have a temporary skin-cooling effect."
+    },
+    "Fragrance": {
+      "name": "Fragrance",
+      "medications": [
+        "Fahrenheit"
+      ],
+      "description": "Provides the scent of the product, a combination of various aromatic compounds and essential oils."
+    },
+    "Water": {
+      "name": "Water",
+      "medications": [
+        "Fahrenheit"
+      ],
+      "description": "Used as a solvent to dissolve and mix other ingredients, and acts as a diluent."
+    },
+    "Semaglutide": {
+      "name": "Semaglutide",
+      "medications": [
+        "Ozempic"
+      ],
+      "description": "A glucagon-like peptide-1 receptor agonist used to treat type 2 diabetes and promote weight loss."
+    },
+    "Tacrolimus": {
+      "name": "Tacrolimus",
+      "medications": [
+        "Tacroz"
+      ],
+      "description": "An immunosuppressant drug used to treat atopic dermatitis and prevent organ rejection after transplant."
     }
   },
   "effects": {
@@ -1200,12 +1496,18 @@
         "Morphine",
         "Aspirin",
         "Ibuprofen",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Advil Cold & Sinus",
+        "Tylenol Cold & Sinus",
+        "Advil Cold and Sinus",
+        "Ashwagandha",
+        "Lexapro",
+        "Ozempic"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "Nausea is the sensation of unease and discomfort in the stomach that can be followed by vomiting."
+      "description": "A feeling of sickness with an inclination to vomit, often caused by medication."
     },
     "Dizziness": {
       "name": "Dizziness",
@@ -1221,10 +1523,12 @@
         "Morphine",
         "Ibuprofen",
         "Advil Cold & Sinus",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Tylenol Cold & Sinus",
+        "Advil Cold and Sinus"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sensation of spinning or unsteadiness that makes it difficult to maintain balance and leads to disorientation."
+      "description": "A sensation of spinning or imbalance, often causing lightheadedness; can be a side effect."
     },
     "Stomach upset": {
       "name": "Stomach upset",
@@ -1233,13 +1537,16 @@
         "Motrin",
         "Aleve",
         "Jamieson Ashwagandha",
-        "Aspirin"
+        "Aspirin",
+        "Advil Cold & Sinus",
+        "Ashwagandha Gummies",
+        "Ashwagandha"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol",
         "Tums"
       ],
-      "description": "Discomfort in the stomach, including nausea, bloating, gas, or pain due to irritation of stomach lining."
+      "description": "General term for digestive issues like nausea, bloating, or discomfort in the stomach area due to various causes."
     },
     "Heartburn": {
       "name": "Heartburn",
@@ -1249,13 +1556,14 @@
         "Aspirin",
         "Ibuprofen",
         "Advil",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Advil Cold & Sinus"
       ],
       "medicationsTreatingIt": [
         "Tums",
         "Prilosec"
       ],
-      "description": "A burning sensation in the chest, caused by stomach acid reflux into the esophagus, creating discomfort."
+      "description": "A burning sensation in the chest, often caused by acid reflux; can be a medication side effect."
     },
     "Drowsiness": {
       "name": "Drowsiness",
@@ -1268,10 +1576,15 @@
         "Lyrica",
         "Jamieson Ashwagandha",
         "Morphine",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Tylenol",
+        "Tylenol Cold & Sinus",
+        "Ashwagandha Gummies",
+        "Ashwagandha",
+        "Lexapro"
       ],
       "medicationsTreatingIt": [],
-      "description": "Feeling sleepy or having difficulty staying awake, potentially affecting alertness and cognitive function."
+      "description": "Drowsiness is a state of feeling sleepy and having reduced alertness, often related to medication side effects."
     },
     "Dry mouth": {
       "name": "Dry mouth",
@@ -1279,10 +1592,12 @@
         "Zyrtec",
         "Claritin",
         "Benadryl",
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Tylenol Cold & Sinus",
+        "Lexapro"
       ],
       "medicationsTreatingIt": [],
-      "description": "Reduced saliva production, leading to a dry and uncomfortable feeling in the mouth, and increasing tooth decay."
+      "description": "Dry mouth, also known as xerostomia, is a condition where the salivary glands do not produce enough saliva."
     },
     "Insomnia": {
       "name": "Insomnia",
@@ -1294,13 +1609,15 @@
         "Zoloft",
         "Adderall",
         "Ritalin",
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Biphentin",
+        "Lexapro"
       ],
       "medicationsTreatingIt": [
         "Ambien",
         "Ativan"
       ],
-      "description": "Difficulty falling asleep or staying asleep, leading to fatigue and reduced daytime functioning and mental acuity."
+      "description": "Difficulty falling asleep or staying asleep, can be a side effect of certain medications."
     },
     "Rash": {
       "name": "Rash",
@@ -1312,13 +1629,21 @@
       "medicationsTreatingIt": [
         "Benadryl"
       ],
-      "description": "An area of irritated skin that may appear red, itchy, inflamed, or covered with small bumps."
+      "description": "A skin eruption, typically red and itchy, often caused by allergic reactions or infections on skin."
     },
     "Headache": {
       "name": "Headache",
       "medicationsCausingIt": [
         "Jamieson Ashwagandha",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen",
+        "Advil",
+        "Ashwagandha Gummies",
+        "Advil Cold and Sinus",
+        "Ashwagandha",
+        "Biphentin",
+        "Lexapro"
       ],
       "medicationsTreatingIt": [
         "Tylenol",
@@ -1328,9 +1653,10 @@
         "Aspirin",
         "Ibuprofen",
         "Advil Cold & Sinus",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Tylenol Cold & Sinus"
       ],
-      "description": "Headache is continuous pain in the head. It is one of the most common locations for pain."
+      "description": "A headache is pain in the head, which can range from mild to severe and have various causes."
     },
     "Fever": {
       "name": "Fever",
@@ -1345,9 +1671,11 @@
         "Aspirin",
         "Ibuprofen",
         "Advil Cold & Sinus",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Tylenol Cold & Sinus",
+        "Advil Cold and Sinus"
       ],
-      "description": "Fever is a temporary increase in body temperature, often due to an illness or infection."
+      "description": "A body temperature that is higher than normal (usually above 98.6°F or 37°C)."
     },
     "Pain": {
       "name": "Pain",
@@ -1360,9 +1688,10 @@
         "Excedrin",
         "Panadol",
         "Morphine",
-        "Aspirin"
+        "Aspirin",
+        "Advil Cold & Sinus"
       ],
-      "description": "Pain is an unpleasant sensory and emotional experience associated with actual or potential tissue damage."
+      "description": "A physical suffering or discomfort caused by illness or injury."
     },
     "Inflammation": {
       "name": "Inflammation",
@@ -1371,9 +1700,10 @@
         "Advil",
         "Motrin",
         "Aleve",
-        "Aspirin"
+        "Aspirin",
+        "Sandoz Ciprofloxacin/Dexamethasone"
       ],
-      "description": "Body's response to injury or infection, characterized by redness, swelling, heat, and pain to promote healing."
+      "description": "The body's response to injury or infection, characterized by swelling, redness, and discomfort in the ear."
     },
     "Allergies": {
       "name": "Allergies",
@@ -1394,9 +1724,10 @@
         "Robitussin",
         "DayQuil",
         "NyQuil",
-        "Loquat Syrup"
+        "Loquat Syrup",
+        "Tylenol"
       ],
-      "description": "A reflex action that clears mucus, irritants, or foreign material from the airways."
+      "description": "A reflex action to clear the airways of mucus, irritants, or foreign particles for respiration system."
     },
     "Nasal congestion": {
       "name": "Nasal congestion",
@@ -1408,9 +1739,11 @@
         "Tiger Balm",
         "Xylometazoline",
         "Otrivin",
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Tylenol Cold & Sinus",
+        "Advil Cold and Sinus"
       ],
-      "description": "Blockage of the nasal passages, usually due to inflammation and swelling of the nasal tissues, obstructing breathing."
+      "description": "Blockage of the nasal passages, usually due to swollen membranes from infection or allergies."
     },
     "Chest congestion": {
       "name": "Chest congestion",
@@ -1444,14 +1777,17 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Sudafed",
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Tylenol Cold & Sinus",
+        "Advil Cold and Sinus"
       ],
-      "description": "A feeling of fullness and pain in the sinuses, often caused by inflammation or infection, resulting in discomfort."
+      "description": "A feeling of fullness or pain in the sinuses due to inflammation or congestion."
     },
     "Upset stomach": {
       "name": "Upset stomach",
       "medicationsCausingIt": [
-        "Ibuprofen"
+        "Ibuprofen",
+        "Ashwagandha"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol",
@@ -1461,11 +1797,14 @@
     },
     "Diarrhea": {
       "name": "Diarrhea",
-      "medicationsCausingIt": [],
+      "medicationsCausingIt": [
+        "Ashwagandha",
+        "Ozempic"
+      ],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "Frequent loose or watery bowel movements that may cause dehydration if persistent."
+      "description": "Condition of having frequent, liquid bowel movements, a common side effect."
     },
     "Constipation": {
       "name": "Constipation",
@@ -1474,7 +1813,8 @@
         "Tums",
         "Benadryl",
         "Imodium",
-        "Morphine"
+        "Morphine",
+        "Ozempic"
       ],
       "medicationsTreatingIt": [
         "Miralax",
@@ -1487,7 +1827,7 @@
         "Amitiza",
         "Trulance"
       ],
-      "description": "Infrequent or difficult bowel movements often involving hard, dry stools and abdominal discomfort."
+      "description": "Difficulty in emptying the bowels, usually associated with hardened feces."
     },
     "Dark stools": {
       "name": "Dark stools",
@@ -1503,7 +1843,8 @@
         "Excedrin",
         "Lexapro",
         "Adderall",
-        "Ritalin"
+        "Ritalin",
+        "Prozac"
       ],
       "medicationsTreatingIt": [
         "Prozac",
@@ -1513,7 +1854,7 @@
         "Ativan",
         "Jamieson Ashwagandha"
       ],
-      "description": "A mental state involving excessive worry, nervousness, or fear that may interfere with daily functioning."
+      "description": "A feeling of worry, nervousness, or unease, typically about an imminent event or something with an uncertain outcome."
     },
     "Depression": {
       "name": "Depression",
@@ -1523,7 +1864,7 @@
         "Zoloft",
         "Lexapro"
       ],
-      "description": "A mood disorder marked by persistent sadness, low motivation, and diminished interest in activities."
+      "description": "A mood disorder that causes a persistent feeling of sadness and loss of interest."
     },
     "Brain fog": {
       "name": "Brain fog",
@@ -1537,8 +1878,10 @@
         "Xanax",
         "Ambien"
       ],
-      "medicationsTreatingIt": [],
-      "description": "Impaired ability to recall recent events, information, or experiences, sometimes temporarily."
+      "medicationsTreatingIt": [
+        "Ashwagandha Gummies"
+      ],
+      "description": "Difficulty remembering things that happened recently or long ago, impacting daily life and functions."
     },
     "Hallucinations": {
       "name": "Hallucinations",
@@ -1587,7 +1930,7 @@
         "Lexapro"
       ],
       "medicationsTreatingIt": [],
-      "description": "Difficulties with sexual desire, arousal, or performance often linked to medication effects."
+      "description": "Problems with sexual desire, arousal, or orgasm, potentially caused by certain medications' side effects."
     },
     "OCD": {
       "name": "OCD",
@@ -1618,9 +1961,10 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Adderall",
-        "Ritalin"
+        "Ritalin",
+        "Biphentin"
       ],
-      "description": "A neurodevelopmental disorder characterized by inattention, impulsivity, and difficulty sustaining focus."
+      "description": "A neurodevelopmental disorder characterized by inattention, hyperactivity, and impulsivity, typically diagnosed in childhood. Medications can help."
     },
     "Narcolepsy": {
       "name": "Narcolepsy",
@@ -1700,8 +2044,10 @@
       "medicationsCausingIt": [
         "Lexapro"
       ],
-      "medicationsTreatingIt": [],
-      "description": "Persistent tiredness or lack of energy that interferes with normal daily activities."
+      "medicationsTreatingIt": [
+        "Ashwagandha"
+      ],
+      "description": "A feeling of tiredness or lack of energy."
     },
     "Irritability": {
       "name": "Irritability",
@@ -1722,10 +2068,11 @@
     "Nervousness": {
       "name": "Nervousness",
       "medicationsCausingIt": [
-        "Ritalin"
+        "Ritalin",
+        "Biphentin"
       ],
       "medicationsTreatingIt": [],
-      "description": "A feeling of unease or tension often associated with stimulant medications."
+      "description": "A state of anxiety or unease, often characterized by restlessness, rapid heart rate, and difficulty concentrating. Can be caused by stimulants."
     },
     "Edema": {
       "name": "Edema",
@@ -1761,9 +2108,11 @@
       "name": "Stress",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Jamieson Ashwagandha"
+        "Jamieson Ashwagandha",
+        "Ashwagandha Gummies",
+        "Ashwagandha"
       ],
-      "description": "Mental or emotional strain caused by demanding circumstances or perceived pressure."
+      "description": "A state of mental or emotional strain or tension resulting from adverse or demanding circumstances."
     },
     "Infections": {
       "name": "Infections",
@@ -1787,7 +2136,7 @@
         "Tylenol"
       ],
       "medicationsTreatingIt": [],
-      "description": "Loss of appetite is a decreased desire to eat. It can be temporary or long-lasting, based on cause."
+      "description": "Reduced desire to eat, potentially linked to medication side effects or underlying medical conditions."
     },
     "Bacterial infections": {
       "name": "Bacterial infections",
@@ -1808,12 +2157,13 @@
       "description": "Elevated glucose levels in the bloodstream, potentially affecting metabolic health."
     },
     "Sore throat": {
-      "name": "Sore Throat",
+      "name": "Sore throat",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Loquat Syrup"
+        "Loquat Syrup",
+        "Tylenol"
       ],
-      "description": "Pain, irritation, or scratchiness in the throat, often worsening when swallowing."
+      "description": "Pain or irritation in the throat, often caused by viral or bacterial infections; can make swallowing painful."
     },
     "Allergic reaction in some individuals": {
       "name": "Allergic reaction in some individuals",
@@ -1830,10 +2180,11 @@
     "Skin irritation": {
       "name": "Skin irritation",
       "medicationsCausingIt": [
-        "Tiger Balm"
+        "Tiger Balm",
+        "Fahrenheit"
       ],
       "medicationsTreatingIt": [],
-      "description": "Inflammation of the skin causing redness, itching, or discomfort."
+      "description": "Redness, itching, or burning sensation on the skin caused by ingredients in the product."
     },
     "Redness": {
       "name": "Redness",
@@ -1846,21 +2197,26 @@
     "Itching": {
       "name": "Itching",
       "medicationsCausingIt": [
-        "Tiger Balm"
+        "Tiger Balm",
+        "Sandoz Ciprofloxacin/Dexamethasone",
+        "Tylenol",
+        "Tacroz"
       ],
       "medicationsTreatingIt": [
         "Tiger Balm"
       ],
-      "description": "An uncomfortable skin sensation that creates a strong urge to scratch."
+      "description": "An uncomfortable sensation on the skin that causes the urge to scratch."
     },
     "Muscle pain": {
       "name": "Muscle pain",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Tiger Balm",
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Plus Acetaminophen",
+        "Advil"
       ],
-      "description": "Pain or soreness in muscles, often caused by injury, overuse, or tension."
+      "description": "Aches and soreness in muscles, ranging from mild discomfort to severe pain."
     },
     "Joint pain": {
       "name": "Joint pain",
@@ -1871,7 +2227,7 @@
         "Advil",
         "Advil Plus Acetaminophen"
       ],
-      "description": "Discomfort, aching, or soreness in one or more joints, often associated with arthritis or injury."
+      "description": "Discomfort, aching, or soreness in one or more joints, often caused by arthritis or injury."
     },
     "Insect bites": {
       "name": "Insect bites",
@@ -1908,10 +2264,15 @@
     "Vomiting": {
       "name": "Vomiting",
       "medicationsCausingIt": [
-        "Morphine"
+        "Morphine",
+        "Tylenol Cold & Sinus",
+        "Advil Cold & Sinus",
+        "Advil Plus Acetaminophen",
+        "Advil",
+        "Ozempic"
       ],
       "medicationsTreatingIt": [],
-      "description": "Forceful expulsion of stomach contents through the mouth, often following nausea."
+      "description": "The forceful expulsion of the contents of the stomach through the mouth."
     },
     "Increased bleeding risk": {
       "name": "Increased bleeding risk",
@@ -1927,19 +2288,24 @@
         "Ibuprofen",
         "Advil",
         "Advil Plus Acetaminophen",
-        "Tylenol"
+        "Tylenol",
+        "Biphentin"
       ],
       "medicationsTreatingIt": [],
-      "description": "Stomach pain includes cramps, aches, or sharp sensations felt anywhere in the abdominal area."
+      "description": "Discomfort or ache in the abdomen, can be caused by certain medications."
     },
     "Increased blood pressure": {
       "name": "Increased blood pressure",
       "medicationsCausingIt": [
         "Ibuprofen",
-        "Advil Cold & Sinus"
+        "Advil Cold & Sinus",
+        "Tylenol",
+        "Advil Cold and Sinus",
+        "Advil Plus Acetaminophen",
+        "Advil"
       ],
       "medicationsTreatingIt": [],
-      "description": "Elevation of blood pressure above normal limits, potentially increasing the risk of cardiovascular complications."
+      "description": "A condition where the force of blood against artery walls is too high, potentially leading to health issues."
     },
     "Migraine": {
       "name": "Migraine",
@@ -1961,7 +2327,8 @@
       "name": "Headaches",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Ibuprofen"
+        "Ibuprofen",
+        "Advil Plus Acetaminophen"
       ]
     },
     "Hay fever": {
@@ -1982,14 +2349,18 @@
         "Xylometazoline",
         "Otrivin"
       ],
-      "medicationsTreatingIt": [],
-      "description": "A sudden, forceful expulsion of air through the nose and mouth, often triggered by irritation or allergens."
+      "medicationsTreatingIt": [
+        "Tylenol Cold & Sinus"
+      ],
+      "description": "Sneezing is a sudden, forceful expulsion of air through the nose and mouth, usually caused by irritation of the nasal passages."
     },
     "Runny nose": {
       "name": "Runny nose",
       "medicationsCausingIt": [],
-      "medicationsTreatingIt": [],
-      "description": "Excessive mucus discharge from the nose, caused by infection, allergies, or other irritants."
+      "medicationsTreatingIt": [
+        "Tylenol Cold & Sinus"
+      ],
+      "description": "A runny nose is when the nasal passages drain, resulting in nasal discharge. This can be due to allergies."
     },
     "Burning": {
       "name": "Burning",
@@ -2021,9 +2392,10 @@
       "name": "Cold",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Xylometazoline"
+        "Xylometazoline",
+        "Tylenol"
       ],
-      "description": "A common viral infection causing congestion, cough, and sore throat."
+      "description": "A common viral infection causing inflammation of the nose and throat, leading to symptoms such as runny nose."
     },
     "Nasal dryness": {
       "name": "Nasal dryness",
@@ -2062,10 +2434,237 @@
     "Allergic reaction": {
       "name": "Allergic reaction",
       "medicationsCausingIt": [
-        "Tylenol"
+        "Tylenol",
+        "Fahrenheit"
       ],
       "medicationsTreatingIt": [],
-      "description": "An immune response causing rash, itching, swelling, or difficulty breathing due to medication."
+      "description": "Immune system response causing rash, hives, swelling, or difficulty breathing upon exposure."
+    },
+    "Sinus congestion": {
+      "name": "Sinus congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol"
+      ],
+      "description": "Blockage of the nasal passages usually due to membranes lining the nose becoming swollen from inflamed blood vessels."
+    },
+    "Difficulty sleeping": {
+      "name": "Difficulty sleeping",
+      "medicationsCausingIt": [
+        "Advil Cold & Sinus",
+        "Advil Cold and Sinus"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Trouble falling asleep or staying asleep, which can lead to fatigue and other health issues."
+    },
+    "Sinus pain": {
+      "name": "Sinus Pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol Cold & Sinus"
+      ],
+      "description": "Discomfort or aching in the sinus cavities of the face, often caused by inflammation or infection."
+    },
+    "Sinus pain and pressure": {
+      "name": "Sinus pain and pressure",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol Cold & Sinus"
+      ],
+      "description": "Sinus pain is discomfort in the sinuses, which are air-filled cavities in the skull, usually associated with inflammation."
+    },
+    "Muscle & Joint Pain": {
+      "name": "Muscle & Joint Pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Advil Plus Acetaminophen"
+      ],
+      "description": "Aching or soreness in muscles and joints, often caused by overuse, injury, or underlying medical conditions."
+    },
+    "Memory impairment": {
+      "name": "Memory impairment",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Ashwagandha Gummies",
+        "Ashwagandha"
+      ],
+      "description": "Difficulty in remembering things; can be caused by aging or other medical conditions."
+    },
+    "Memory problems": {
+      "name": "Memory problems",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Ashwagandha",
+        "Jamieson Ashwagandha"
+      ],
+      "description": "Difficulties with recalling information, remembering recent events, or forming new memories. It can impact daily life."
+    },
+    "Memory support": {
+      "name": "Memory support",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Ashwagandha"
+      ]
+    },
+    "Dehydration": {
+      "name": "Dehydration",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Sunrype"
+      ],
+      "description": "Occurs when you use or lose more fluid than you take in."
+    },
+    "Decreased appetite": {
+      "name": "Decreased appetite",
+      "medicationsCausingIt": [
+        "Biphentin"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "A reduction in the desire to eat, potentially leading to weight loss or nutritional deficiencies. Stimulants can cause this."
+    },
+    "Ear discomfort": {
+      "name": "Ear discomfort",
+      "medicationsCausingIt": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Mild pain or discomfort within the ear, often a temporary reaction to medication use."
+    },
+    "Irritation": {
+      "name": "Irritation",
+      "medicationsCausingIt": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Redness and swelling around the ear canal, indicating mild inflammation or adverse reaction."
+    },
+    "Taste alteration": {
+      "name": "Taste alteration",
+      "medicationsCausingIt": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Change in the sense of taste, possibly metallic or bitter, often temporary after medication application."
+    },
+    "Outer ear infections": {
+      "name": "Outer ear infections",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "description": "Infection of the external ear canal caused by bacteria or fungi. Treated with antibiotics/antifungals."
+    },
+    "Swimmer's ear": {
+      "name": "Swimmer's ear",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Sandoz Ciprofloxacin/Dexamethasone"
+      ],
+      "description": "Infection of the outer ear canal, often caused by moisture. Antibiotics can treat bacterial infections."
+    },
+    "Congestion": {
+      "name": "Congestion",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol"
+      ],
+      "description": "The blockage of nasal passages which makes it difficult to breathe through the nose, common during illness."
+    },
+    "Body aches": {
+      "name": "Body aches",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol"
+      ],
+      "description": "Widespread muscle pain or discomfort throughout the body, often associated with illness or overexertion in body."
+    },
+    "Nutrient deficiency": {
+      "name": "Nutrient deficiency",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Multi"
+      ],
+      "description": "A condition resulting from insufficient intake or absorption of essential nutrients, leading to health problems."
+    },
+    "Weight changes": {
+      "name": "Weight changes",
+      "medicationsCausingIt": [
+        "Prozac"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Increase or decrease in body weight, caused by medication altering appetite or metabolism."
+    },
+    "Obsessive-compulsive disorder": {
+      "name": "Obsessive-compulsive disorder",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Prozac"
+      ],
+      "description": "A disorder in which a person has uncontrollable, reoccurring thoughts (obsessions) and behaviors (compulsions)."
+    },
+    "Panic disorder": {
+      "name": "Panic disorder",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Prozac"
+      ],
+      "description": "An anxiety disorder characterized by unexpected and repeated episodes of intense fear accompanied by physical symptoms."
+    },
+    "Bulimia": {
+      "name": "Bulimia",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Prozac"
+      ],
+      "description": "A serious eating disorder marked by bingeing, followed by methods to avoid weight gain like purging."
+    },
+    "Abdominal pain": {
+      "name": "Abdominal pain",
+      "medicationsCausingIt": [
+        "Ozempic"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Pain or discomfort felt in the abdomen area, can be a side effect."
+    },
+    "Type 2 Diabetes": {
+      "name": "Type 2 Diabetes",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Ozempic"
+      ],
+      "description": "A chronic metabolic disorder characterized by high blood sugar levels."
+    },
+    "Skin burning sensation": {
+      "name": "Skin burning sensation",
+      "medicationsCausingIt": [
+        "Tacroz"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "An uncomfortable and painful feeling of heat or burning on the skin's surface. "
+    },
+    "Skin redness": {
+      "name": "Skin redness",
+      "medicationsCausingIt": [
+        "Tacroz"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "Abnormal reddening of the skin, often due to inflammation or irritation. "
+    },
+    "Acne": {
+      "name": "Acne",
+      "medicationsCausingIt": [
+        "Tacroz"
+      ],
+      "medicationsTreatingIt": [],
+      "description": "A skin condition characterized by pimples, blackheads, and inflammation. "
+    },
+    "Atopic dermatitis": {
+      "name": "Atopic dermatitis",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tacroz"
+      ],
+      "description": "A chronic inflammatory skin condition that causes dry, itchy, and inflamed skin. "
     }
   }
 }

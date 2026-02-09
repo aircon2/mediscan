@@ -12,8 +12,7 @@ export default function ScanPage() {
   const streamRef = useRef<MediaStream | null>(null);
   const hasScannedRef = useRef<boolean>(false); // Prevent duplicate scans in dev mode
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
-  const [countdown, setCountdown] = useState<number>(3);
-  const [isCapturing, setIsCapturing] = useState<boolean>(false);
+  const [cameraReady, setCameraReady] = useState<boolean>(false);
   const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
   const [statusText, setStatusText] = useState<string>(
     "Analyzing your medication...",
@@ -21,10 +20,45 @@ export default function ScanPage() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    let countdownInterval: NodeJS.Timeout;
-    let captureTimeout: NodeJS.Timeout;
+  const captureImage = () => {
+    if (videoRef.current && canvasRef.current) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
 
+      if (context) {
+        // Downscale to max 800px wide to keep payload small for tunnel
+        const maxWidth = 800;
+        const scale = Math.min(1, maxWidth / video.videoWidth);
+        canvas.width = Math.round(video.videoWidth * scale);
+        canvas.height = Math.round(video.videoHeight * scale);
+
+        // Draw video frame to canvas (scaled down)
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Convert canvas to base64 image with lower quality for smaller size
+        const imageDataUrl = canvas.toDataURL("image/jpeg", 0.6);
+        setCapturedImage(imageDataUrl);
+        setCameraReady(false);
+
+        // Stop the camera stream
+        if (streamRef.current) {
+          streamRef.current
+            .getTracks()
+            .forEach((track: MediaStreamTrack) => track.stop());
+          streamRef.current = null;
+        }
+
+        // Send image to Gemini via backend (with duplicate prevention)
+        if (!hasScannedRef.current) {
+          hasScannedRef.current = true;
+          sendToGemini(imageDataUrl);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
     const startCamera = async () => {
       try {
         // Check if mediaDevices is available
@@ -72,20 +106,7 @@ export default function ScanPage() {
           videoRef.current.srcObject = mediaStream;
         }
 
-        // Start 3-second countdown
-        setIsCapturing(true);
-        let timeLeft = 3;
-
-        countdownInterval = setInterval(() => {
-          timeLeft -= 1;
-          setCountdown(timeLeft);
-        }, 1000);
-
-        // Capture image after 3 seconds
-        captureTimeout = setTimeout(() => {
-          captureImage();
-          clearInterval(countdownInterval);
-        }, 3000);
+        setCameraReady(true);
       } catch (err: any) {
         console.error("Error accessing camera:", err);
         let errorMessage = "Unable to access camera.";
@@ -106,44 +127,6 @@ export default function ScanPage() {
         }
 
         setError(errorMessage);
-      }
-    };
-
-    const captureImage = () => {
-      if (videoRef.current && canvasRef.current) {
-        const video = videoRef.current;
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-
-        if (context) {
-          // Downscale to max 800px wide to keep payload small for tunnel
-          const maxWidth = 800;
-          const scale = Math.min(1, maxWidth / video.videoWidth);
-          canvas.width = Math.round(video.videoWidth * scale);
-          canvas.height = Math.round(video.videoHeight * scale);
-
-          // Draw video frame to canvas (scaled down)
-          context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-          // Convert canvas to base64 image with lower quality for smaller size
-          const imageDataUrl = canvas.toDataURL("image/jpeg", 0.6);
-          setCapturedImage(imageDataUrl);
-          setIsCapturing(false);
-
-          // Stop the camera stream
-          if (streamRef.current) {
-            streamRef.current
-              .getTracks()
-              .forEach((track: MediaStreamTrack) => track.stop());
-            streamRef.current = null;
-          }
-
-          // Send image to Gemini via backend (with duplicate prevention)
-          if (!hasScannedRef.current) {
-            hasScannedRef.current = true;
-            sendToGemini(imageDataUrl);
-          }
-        }
       }
     };
 
@@ -219,8 +202,6 @@ export default function ScanPage() {
           .forEach((track: MediaStreamTrack) => track.stop());
         streamRef.current = null;
       }
-      if (countdownInterval) clearInterval(countdownInterval);
-      if (captureTimeout) clearTimeout(captureTimeout);
     };
   }, []);
 
@@ -284,20 +265,18 @@ export default function ScanPage() {
               <p className="relative z-10 text-xl font-medium text-red-500 px-4 text-center">
                 {error}
               </p>
-            ) : isCapturing && countdown > 0 ? (
+            ) : !cameraReady && !capturedImage ? (
               <motion.p
-                key={countdown}
-                initial={{ scale: 1.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.5, opacity: 0 }}
-                className="relative z-10 text-6xl font-bold text-blue-500"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="relative z-10 text-xl font-medium text-gray-400"
                 style={{
                   fontFamily: '"Space Grotesk", sans-serif',
                 }}
               >
-                {countdown}
+                Starting camera...
               </motion.p>
-            ) : (
+            ) : cameraReady ? (
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -310,15 +289,30 @@ export default function ScanPage() {
               >
                 Align label here
               </motion.p>
-            )}
+            ) : null}
           </div>
         </motion.div>
 
+        {/* Capture Button */}
+        {cameraReady && !isAnalyzing && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            whileTap={{ scale: 0.98 }}
+            onClick={captureImage}
+            className="mb-8 w-full max-w-md py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer text-center"
+          >
+            Capture
+          </motion.button>
+        )}
+
         {/* Analyzing Status */}
+        {isAnalyzing && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col items-center gap-4 px-8 py-6 rounded-3xl"
           style={{
             background: "rgba(255, 255, 255, 0.5)",
@@ -357,6 +351,7 @@ export default function ScanPage() {
             {statusText}
           </p>
         </motion.div>
+        )}
       </main>
     </div>
   );
