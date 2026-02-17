@@ -53,7 +53,9 @@
         "Headache",
         "Muscle aches",
         "Joint pain",
-        "Muscle pain"
+        "Muscle pain",
+        "Headaches",
+        "Back pain"
       ]
     },
     "Motrin": {
@@ -1002,6 +1004,36 @@
       "symptomsTreated": [
         "Atopic dermatitis"
       ]
+    },
+    "Tylenol Cold": {
+      "name": "Tylenol Cold",
+      "ingredients": [
+        "Acetaminophen"
+      ],
+      "sideEffects": [
+        "Drowsiness",
+        "Dizziness",
+        "Dry mouth",
+        "Nausea"
+      ],
+      "symptomsTreated": [
+        "Cold",
+        "Congestion",
+        "Fever",
+        "Headache",
+        "Body ache"
+      ]
+    },
+    "GLYSOMED": {
+      "name": "GLYSOMED",
+      "ingredients": [
+        "Chamomile",
+        "Glycerin"
+      ],
+      "sideEffects": [],
+      "symptomsTreated": [
+        "Dry skin"
+      ]
     }
   },
   "ingredients": {
@@ -1014,9 +1046,10 @@
         "DayQuil",
         "NyQuil",
         "Advil Plus Acetaminophen",
-        "Tylenol Cold & Sinus"
+        "Tylenol Cold & Sinus",
+        "Tylenol Cold"
       ],
-      "description": "A common pain reliever and fever reducer; it works by blocking pain signals in the brain and reducing fever."
+      "description": "Pain reliever and fever reducer, used for mild to moderate pain."
     },
     "Ibuprofen": {
       "name": "Ibuprofen",
@@ -1028,7 +1061,7 @@
         "Advil Plus Acetaminophen",
         "Advil Cold and Sinus"
       ],
-      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain, reduce fever, and decrease inflammation in the body."
+      "description": "A nonsteroidal anti-inflammatory drug (NSAID) used to relieve pain and reduce fever."
     },
     "Naproxen": {
       "name": "Naproxen",
@@ -1476,6 +1509,20 @@
         "Tacroz"
       ],
       "description": "An immunosuppressant drug used to treat atopic dermatitis and prevent organ rejection after transplant."
+    },
+    "Chamomile": {
+      "name": "Chamomile",
+      "medications": [
+        "GLYSOMED"
+      ],
+      "description": "Anti-inflammatory and antioxidant properties."
+    },
+    "Glycerin": {
+      "name": "Glycerin",
+      "medications": [
+        "GLYSOMED"
+      ],
+      "description": "Humectant, skin-moisturizing agent."
     }
   },
   "effects": {
@@ -1502,12 +1549,13 @@
         "Advil Cold and Sinus",
         "Ashwagandha",
         "Lexapro",
-        "Ozempic"
+        "Ozempic",
+        "Tylenol Cold"
       ],
       "medicationsTreatingIt": [
         "PeptoBismol"
       ],
-      "description": "A feeling of sickness with an inclination to vomit, often caused by medication."
+      "description": "A feeling of sickness with an inclination to vomit."
     },
     "Dizziness": {
       "name": "Dizziness",
@@ -1525,10 +1573,11 @@
         "Advil Cold & Sinus",
         "Advil Plus Acetaminophen",
         "Tylenol Cold & Sinus",
-        "Advil Cold and Sinus"
+        "Advil Cold and Sinus",
+        "Tylenol Cold"
       ],
       "medicationsTreatingIt": [],
-      "description": "A sensation of spinning or imbalance, often causing lightheadedness; can be a side effect."
+      "description": "A sensation of spinning around and losing one's balance."
     },
     "Stomach upset": {
       "name": "Stomach upset",
@@ -1563,7 +1612,7 @@
         "Tums",
         "Prilosec"
       ],
-      "description": "A burning sensation in the chest, often caused by acid reflux; can be a medication side effect."
+      "description": "A burning sensation in the chest, caused by acid reflux."
     },
     "Drowsiness": {
       "name": "Drowsiness",
@@ -1581,10 +1630,11 @@
         "Tylenol Cold & Sinus",
         "Ashwagandha Gummies",
         "Ashwagandha",
-        "Lexapro"
+        "Lexapro",
+        "Tylenol Cold"
       ],
       "medicationsTreatingIt": [],
-      "description": "Drowsiness is a state of feeling sleepy and having reduced alertness, often related to medication side effects."
+      "description": "Feeling sleepy or having difficulty staying awake."
     },
     "Dry mouth": {
       "name": "Dry mouth",
@@ -1594,7 +1644,8 @@
         "Benadryl",
         "Advil Cold & Sinus",
         "Tylenol Cold & Sinus",
-        "Lexapro"
+        "Lexapro",
+        "Tylenol Cold"
       ],
       "medicationsTreatingIt": [],
       "description": "Dry mouth, also known as xerostomia, is a condition where the salivary glands do not produce enough saliva."
@@ -1654,9 +1705,10 @@
         "Ibuprofen",
         "Advil Cold & Sinus",
         "Advil Plus Acetaminophen",
-        "Tylenol Cold & Sinus"
+        "Tylenol Cold & Sinus",
+        "Tylenol Cold"
       ],
-      "description": "A headache is pain in the head, which can range from mild to severe and have various causes."
+      "description": "Pain in the head."
     },
     "Fever": {
       "name": "Fever",
@@ -1673,7 +1725,8 @@
         "Advil Cold & Sinus",
         "Advil Plus Acetaminophen",
         "Tylenol Cold & Sinus",
-        "Advil Cold and Sinus"
+        "Advil Cold and Sinus",
+        "Tylenol Cold"
       ],
       "description": "A body temperature that is higher than normal (usually above 98.6°F or 37°C)."
     },
@@ -2328,7 +2381,8 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Ibuprofen",
-        "Advil Plus Acetaminophen"
+        "Advil Plus Acetaminophen",
+        "Advil"
       ]
     },
     "Hay fever": {
@@ -2393,7 +2447,8 @@
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
         "Xylometazoline",
-        "Tylenol"
+        "Tylenol",
+        "Tylenol Cold"
       ],
       "description": "A common viral infection causing inflammation of the nose and throat, leading to symptoms such as runny nose."
     },
@@ -2566,7 +2621,8 @@
       "name": "Congestion",
       "medicationsCausingIt": [],
       "medicationsTreatingIt": [
-        "Tylenol"
+        "Tylenol",
+        "Tylenol Cold"
       ],
       "description": "The blockage of nasal passages which makes it difficult to breathe through the nose, common during illness."
     },
@@ -2665,6 +2721,27 @@
         "Tacroz"
       ],
       "description": "A chronic inflammatory skin condition that causes dry, itchy, and inflamed skin. "
+    },
+    "Body ache": {
+      "name": "Body ache",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Tylenol Cold"
+      ]
+    },
+    "Dry skin": {
+      "name": "Dry skin",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "GLYSOMED"
+      ]
+    },
+    "Back pain": {
+      "name": "Back pain",
+      "medicationsCausingIt": [],
+      "medicationsTreatingIt": [
+        "Advil"
+      ]
     }
   }
 }

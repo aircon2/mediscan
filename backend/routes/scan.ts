@@ -5,14 +5,24 @@ import type { GraphData } from '../types/graph';
 
 const router = Router();
 
-const GEMINI_PROMPT = `You are a pharmaceutical analysis AI. You are given an image of a medication label or packaging.
+const GEMINI_PROMPT = `You are a pharmaceutical analysis AI trained to identify medications from images.
 
-Analyze the image and extract the following information. Return ONLY valid JSON matching this exact schema — no markdown, no explanation, no wrapping:
+⚠️ STEP 1 - CRITICAL VALIDATION:
+Examine the image carefully. Does it show a medication, pharmaceutical product, supplement, or vitamin?
+
+If NO (the image shows food, beverages, household items, electronics, unclear/blurry content, or anything other than medication):
+→ Respond with EXACTLY this JSON (nothing else): {"error": "not_a_medication"}
+
+If YES (you can clearly see medication packaging or labeling):
+→ Proceed to STEP 2
+
+STEP 2 - EXTRACT MEDICATION DATA:
+Return ONLY valid JSON matching this schema (no markdown, no explanations):
 
 {
   "medications": {
-    "<medication_name>": {
-      "name": "<medication_name>",
+    "<brand_name>": {
+      "name": "<brand_name>",
       "ingredients": ["ingredient1", "ingredient2"],
       "sideEffects": ["effect1", "effect2"],
       "symptomsTreated": ["symptom1", "symptom2"]
@@ -21,36 +31,39 @@ Analyze the image and extract the following information. Return ONLY valid JSON 
   "ingredients": {
     "<ingredient_name>": {
       "name": "<ingredient_name>",
-      "medications": ["<medication_name>"],
-      "description": "Brief description of what this ingredient does in 20 words"
+      "medications": ["<brand_name>"],
+      "description": "Brief description (20 words max)"
     }
   },
   "effects": {
     "<effect_name>": {
       "name": "<effect_name>",
-      "medicationsCausingIt": ["<medication_name>"],
+      "medicationsCausingIt": ["<brand_name>"],
       "medicationsTreatingIt": [],
-      "description": "Brief description of this effect in 20 words"
+      "description": "Brief description (20 words max)"
     }
   }
 }
 
-Rules:
-- Use the BRAND NAME or common commercial product name as the medication name — NOT the active ingredient name
-  - Example: Use "Otrivin" not "Xylometazoline", "Tylenol" not "Acetaminophen", "Advil" not "Ibuprofen"
-  - The brand/product name is typically the largest text on the front of the packaging
-  - Active ingredients belong in the "ingredients" list, NOT as the medication name
-- Simplify the brand name to its generic version (e.g. "Tylenol" instead of "Tylenol Extra Strength", "Honey" instead of "No Name Liquid Honey")
-- For household items or natural products, use the simplest generic term (e.g. "Honey", not "Liquid Honey" or branded names)
-- List ALL active ingredients found on the label
-- IMPORTANT: Medication names and ingredient names MUST be distinct. Never use the same name for both a medication and an ingredient (e.g., if the medication is "Ashwagandha Capsules", the ingredient should be "Ashwagandha extract" or "Ashwagandha root", NOT "Ashwagandha")
-- List common side effects for the medication (use your pharmaceutical knowledge)
-- List symptoms/conditions this medication treats
-- For each ingredient, create an entry in "ingredients" with its description
-- For each side effect, create an entry in "effects" with medicationsCausingIt containing this medication
-- For each symptom treated, create an entry in "effects" with medicationsTreatingIt containing this medication
-- Use proper capitalization for names (e.g. "Acetaminophen", "Headache")
-- Return ONLY the JSON, no other text`;
+EXTRACTION RULES:
+- NEVER return empty objects for medications, ingredients, or effects
+- If you cannot identify a medication clearly, return {"error": "not_a_medication"} instead
+- Use BRAND NAME as medication name (e.g., "Tylenol" not "Acetaminophen", "Advil" not "Ibuprofen")
+- Brand name = largest text on packaging; active ingredients go in "ingredients" array
+- Simplify brand names ("Tylenol" not "Tylenol Extra Strength")
+- For natural products: simplest generic term ("Honey" not "Liquid Honey")
+- List ALL active ingredients from the label
+- Medication name ≠ ingredient name (if med is "Ashwagandha Capsules", ingredient is "Ashwagandha extract")
+- Include common side effects (use pharmaceutical knowledge)
+- Include symptoms/conditions the medication treats
+- Create ingredient entries with descriptions
+- Create effect entries linking to medications
+- Use proper capitalization ("Acetaminophen", "Headache")
+- Return ONLY JSON, no markdown, no explanations
+
+REMEMBER: If not a medication → {"error": "not_a_medication"}
+If medication but unclear → {"error": "not_a_medication"}
+Do NOT return empty objects!`;
 
 router.post('/scan', async (req: Request, res: Response) => {
   try {
@@ -100,14 +113,43 @@ router.post('/scan', async (req: Request, res: Response) => {
       jsonStr = codeBlockMatch[1].trim();
     }
 
-    let parsedData: Partial<GraphData>;
+    let parsedData: Partial<GraphData> & { error?: string };
     try {
       parsedData = JSON.parse(jsonStr);
+      console.log('[scan] Parsed JSON structure:', {
+        hasError: !!parsedData.error,
+        errorValue: parsedData.error,
+        hasMedications: !!parsedData.medications,
+        medicationCount: parsedData.medications ? Object.keys(parsedData.medications).length : 0,
+      });
     } catch (parseErr) {
       console.error('[scan] Failed to parse Gemini response as JSON:', parseErr);
       return res.status(500).json({
         error: 'Failed to parse Gemini response',
         rawResponse: responseText,
+      });
+    }
+
+    // Check if Gemini identified the image as not a medication
+    if (parsedData.error === 'not_a_medication') {
+      console.log('[scan] Gemini returned error: not_a_medication');
+      return res.status(400).json({
+        error: 'not_a_medication',
+        message: 'The scanned item does not appear to be a medication. Please try again with a medication label.',
+      });
+    }
+
+    // Check for empty/invalid medication data
+    const hasMedications = parsedData.medications && typeof parsedData.medications === 'object';
+    const medicationCount = hasMedications ? Object.keys(parsedData.medications!).length : 0;
+    
+    console.log('[scan] Validation check:', { hasMedications, medicationCount });
+    
+    if (!hasMedications || medicationCount === 0) {
+      console.log('[scan] No medications found in response (empty or missing)');
+      return res.status(400).json({
+        error: 'not_a_medication',
+        message: 'No medication could be identified in the image. Please try again with a clearer medication label.',
       });
     }
 

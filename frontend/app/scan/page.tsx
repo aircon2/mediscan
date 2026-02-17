@@ -18,7 +18,80 @@ export default function ScanPage() {
     "Analyzing your medication...",
   );
   const [error, setError] = useState<string | null>(null);
+  const [scanError, setScanError] = useState<string | null>(null);
   const router = useRouter();
+
+  const sendToGemini = async (imageDataUrl: string, retries = 0) => {
+    setIsAnalyzing(true);
+    setStatusText("Analyzing your medication...");
+
+    try {
+      const result = await scanMedication(imageDataUrl);
+      console.log("[scan] Gemini result:", result);
+
+      // Validate that we actually got medications
+      const medNames = result.data?.medications
+        ? Object.keys(result.data.medications)
+        : [];
+
+      if (medNames.length === 0) {
+        console.log(
+          "[scan] Backend returned success but no medications found",
+        );
+        setScanError(
+          "No medication could be identified. Please try again with a clearer medication label.",
+        );
+        setIsAnalyzing(false);
+        return;
+      }
+
+      setStatusText("Medication identified!");
+      const firstMed = result.data.medications![medNames[0]];
+
+      // Navigate to graph page for the scanned medication
+      setTimeout(() => {
+        router.push(`/newGraph?med=${encodeURIComponent(firstMed.name)}`);
+      }, 1500);
+    } catch (err: any) {
+      console.error("[scan] Error object:", err);
+      console.error("[scan] Error message:", err.message);
+
+      // Check if the error is a not-a-medication error
+      if (
+        err.message?.includes("not_a_medication") ||
+        err.message?.includes("does not appear to be a medication") ||
+        err.message?.includes("No medication could be identified") ||
+        err.message?.includes("Please try again with a medication label") ||
+        err.message?.includes(
+          "Please try again with a clearer medication label",
+        )
+      ) {
+        console.log("[scan] Detected not-a-medication error");
+        setScanError(
+          "The scanned item is not a medication. Please try again with a valid medication label.",
+        );
+        setIsAnalyzing(false);
+        return;
+      }
+
+      // Retry on 429 with exponential backoff (max 3 retries)
+      if (err.message?.includes("429") && retries < 3) {
+        const delay = Math.pow(2, retries) * 5000; // 5s, 10s, 20s
+        setStatusText(`Rate limited. Retrying in ${delay / 1000}s...`);
+        console.log(
+          `[scan] Retrying after ${delay}ms (attempt ${retries + 1}/3)`,
+        );
+
+        setTimeout(() => {
+          sendToGemini(imageDataUrl, retries + 1);
+        }, delay);
+      } else {
+        // Show generic scan error with retry
+        setScanError("An error occurred. Please try again.");
+        setIsAnalyzing(false);
+      }
+    }
+  };
 
   const captureImage = () => {
     if (videoRef.current && canvasRef.current) {
@@ -130,68 +203,6 @@ export default function ScanPage() {
       }
     };
 
-    const sendToGemini = async (imageDataUrl: string, retries = 0) => {
-      setIsAnalyzing(true);
-      setStatusText("Analyzing your medication...");
-
-      try {
-        const result = await scanMedication(imageDataUrl);
-        console.log("[scan] Gemini result:", result);
-        setStatusText("Medication identified!");
-
-        // Extract the first medication name for navigation
-        const medNames = result.data?.medications
-          ? Object.keys(result.data.medications)
-          : [];
-        const firstMed =
-          medNames.length > 0 ? result.data.medications![medNames[0]] : null;
-
-        // Navigate to graph page for the scanned medication
-        setTimeout(() => {
-          if (firstMed) {
-            router.push(`/newGraph?med=${encodeURIComponent(firstMed.name)}`);
-          } else {
-            router.push("/newGraph");
-          }
-        }, 1500);
-      } catch (err: any) {
-        console.error("[scan] Error:", err);
-
-        // Retry on 429 with exponential backoff (max 3 retries)
-        if (err.message?.includes("429") && retries < 3) {
-          const delay = Math.pow(2, retries) * 5000; // 5s, 10s, 20s
-          setStatusText(`Rate limited. Retrying in ${delay / 1000}s...`);
-          console.log(
-            `[scan] Retrying after ${delay}ms (attempt ${retries + 1}/3)`,
-          );
-
-          setTimeout(() => {
-            sendToGemini(imageDataUrl, retries + 1);
-          }, delay);
-        } else {
-          // Provide specific error messages
-          let errorMsg = "Failed to analyze. Please try again.";
-          if (
-            err.message?.includes("database") ||
-            err.message?.includes("save")
-          ) {
-            errorMsg =
-              "Analysis succeeded but failed to save. Please check your connection.";
-          } else if (
-            err.message?.includes("network") ||
-            err.message?.includes("fetch")
-          ) {
-            errorMsg = "Network error. Please check your connection.";
-          } else if (err.message?.includes("Invalid image")) {
-            errorMsg = "Invalid image format. Please try again.";
-          }
-
-          setStatusText(errorMsg);
-          setIsAnalyzing(false);
-        }
-      }
-    };
-
     startCamera();
 
     return () => {
@@ -294,7 +305,7 @@ export default function ScanPage() {
         </motion.div>
 
         {/* Capture Button */}
-        {cameraReady && !isAnalyzing && (
+        {cameraReady && !isAnalyzing && !scanError && (
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -305,6 +316,111 @@ export default function ScanPage() {
           >
             Capture
           </motion.button>
+        )}
+
+        {/* Scan Error with Try Again */}
+        {scanError && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex flex-col items-center gap-5 w-full max-w-md"
+          >
+            <div
+              className="flex flex-col items-center gap-3 px-8 py-6 rounded-3xl w-full"
+              style={{
+                background: "rgba(255, 255, 255, 0.5)",
+                backdropFilter: "blur(10px)",
+                boxShadow:
+                  "10px 10px 15px 0px rgba(174, 174, 205, 0.2), -10px -10px 15px 0px rgba(255, 255, 255, 0.7)",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-10 h-10 text-red-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                />
+              </svg>
+              <p
+                className="text-lg font-medium text-red-500 text-center"
+                style={{
+                  fontFamily: '"Space Grotesk", sans-serif',
+                  fontWeight: 500,
+                }}
+              >
+                {scanError}
+              </p>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                // Reset all state and restart camera
+                setScanError(null);
+                setCapturedImage(null);
+                setIsAnalyzing(false);
+                setStatusText("Analyzing your medication...");
+                hasScannedRef.current = false;
+                setError(null);
+                setCameraReady(false);
+
+                // Restart camera
+                const restartCamera = async () => {
+                  try {
+                    let mediaStream: MediaStream;
+                    try {
+                      mediaStream = await navigator.mediaDevices.getUserMedia({
+                        video: {
+                          facingMode: { ideal: "environment" },
+                          width: { ideal: 1920 },
+                          height: { ideal: 1080 },
+                          aspectRatio: { ideal: 16 / 9 },
+                        },
+                        audio: false,
+                      });
+                    } catch {
+                      try {
+                        mediaStream = await navigator.mediaDevices.getUserMedia(
+                          {
+                            video: {
+                              width: { ideal: 1280 },
+                              height: { ideal: 720 },
+                            },
+                            audio: false,
+                          },
+                        );
+                      } catch {
+                        mediaStream = await navigator.mediaDevices.getUserMedia(
+                          {
+                            video: true,
+                            audio: false,
+                          },
+                        );
+                      }
+                    }
+                    streamRef.current = mediaStream;
+                    if (videoRef.current) {
+                      videoRef.current.srcObject = mediaStream;
+                    }
+                    setCameraReady(true);
+                  } catch (err: any) {
+                    setError("Unable to restart camera.");
+                  }
+                };
+                restartCamera();
+              }}
+              className="w-full py-2 px-6 rounded-full bg-blue-50 text-blue-600 font-medium text-lg shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)] hover:scale-[0.98] active:shadow-[0.3rem_0.3rem_0.5rem_0_rgb(225,226,228),-0.3rem_-0.3rem_0.5rem_0_rgb(255,255,255)] transition-all duration-200 cursor-pointer text-center"
+            >
+              Try Again
+            </motion.button>
+          </motion.div>
         )}
 
         {/* Analyzing Status */}

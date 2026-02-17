@@ -34,7 +34,10 @@ async function apiPost<T>(path: string, body: object): Promise<T> {
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));
-    throw new Error(err.error ?? res.statusText);
+    // Include both error code and message for better error handling
+    const errorMessage = err.message || err.error || res.statusText;
+    console.log('[apiPost] Error response:', err);
+    throw new Error(errorMessage);
   }
   return res.json();
 }
